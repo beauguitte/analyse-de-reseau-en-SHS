@@ -1,7 +1,6 @@
-# L'analyse de réseau en sciences sociales. Petit guide pratique
+# L'analyse de réseau en sciences sociales. <img src="logofmr.png" align="right" width="160"/>
+Petit guide pratique
 Version 0.1 - Mai 2023
-
-<img src="logofmr.png" align="right" width="160"/>
 
 ## Description
 Version html du pdf disponible à cette adresse https://hal.science/hal-04052709/document.
