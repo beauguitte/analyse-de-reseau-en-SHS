@@ -7,9 +7,9 @@ Version html du pdf disponible à cette adresse https://hal.science/hal-04052709
 Si ce petit guide vous est utile, merci de citer la version HAL.
 
 ## Sommaire
-### [Pourquoi faire de l’analyse de réseau ?](https://beauguitte.github.io/analyse-de-reseau-en-shs/Cpourquoifaire.html)
-### [Histoires & disciplines](https://beauguitte.github.io/analyse-de-reseau-en-shs/Chistoires.html)
-### [Graphe et réseau : principes et vocabulaire de base](https://beauguitte.github.io/analyse-de-reseau-en-shs/Cvocabulaire.html)
+- [Pourquoi faire de l’analyse de réseau ?](https://beauguitte.github.io/analyse-de-reseau-en-shs/Cpourquoifaire.html)
+- [Histoires & disciplines](https://beauguitte.github.io/analyse-de-reseau-en-shs/Chistoires.html)
+- [Graphe et réseau : principes et vocabulaire de base](https://beauguitte.github.io/analyse-de-reseau-en-shs/Cvocabulaire.html)
 ### []()
 ### []()
 ### []()
