@@ -1,0 +1,67 @@
+# Ce qu'est ce guide et ce qu'il n'est pas {.unnumbered}
+
+Ce guide n'est pas un manuel : il ne donne pas de recettes, il n'explique pas ce qu'il faut faire pour mener à bien une analyse de réseau de *A* à *Z*. Ce guide tente de présenter ce qu'il est possible de faire - souvent beaucoup de choses différentes, il faudra donc choisir, et argumenter ses choix - et donne des conseils aussi génériques que possible pour réaliser des analyses pouvant s'avérer pertinentes.
+
+Ce guide s'adresse à toute personne :
+
+1.  se demandant ce qu'est l'analyse de réseau et si elle en a besoin ;
+2.  formée à l'analyse de réseau dans une discipline et désirant savoir ce qui se fait dans d'autres disciplines ;
+3.  souhaitant approfondir les approches concernant des réseaux spécifiques (réseau bimodal, multiplexe, dynamique notamment).
+
+Affirmer qu'aucun pré-requis mathématique n'est demandé serait absurde, il est nécessaire de savoir compter par exemple, mais si vous n'avez pas fait le moindre exercice de maths depuis la première, ça ne devrait poser aucun problème de compréhension. Les notations et les formules mathématiques sont regroupées et commentées dans l'annexe.
+
+Ce guide n'est pas exhaustif : toutes les mesures ne sont pas abordées, toutes les analyses possibles sur tous les types possibles de réseaux ne sont pas présentées et les modèles statistiques ne sont que brièvement évoqués. Les aspects algorithmiques liés à l'analyse de réseau ne sont pas abordés dans la mesure où rares sont les personnes en sciences sociales qui créent de toute pièce leurs outils [^intro-1].
+
+L'objectif de ce guide n'est pas d'être complet, ce qui est devenu compliqué en analyse de réseau, mais de vous aider à vous poser quelques questions utiles : que représente mon réseau ? que sont mes liens ? mes sommets ? quelles sont les mesures pertinentes pour mes questions de recherche et celles qui le sont moins ? quelles précautions prendre quand je crée puis que je commente une visualisation de réseaux ? quels logiciels utiliser ? quelles revues lire pour me tenir à jour ?
+
+[^intro-1]: Je partage l'opinion de Newman qui affirme en substance dans son manuel que, tôt ou tard, on a besoin de faire des choses que les logiciels courants ne savent pas faire et qu'il est alors nécessaire de créer ses propres fonctions ou programmes. Il ajoute également à juste titre que se limiter aux mesures et aux méthodes déjà existantes limite la production de connaissances (@newman18, p. 277-278). Les compétences en programmation étant ce qu'elles sont en sciences sociales, cette perspective me paraît malheureusement trop lointaine pour pouvoir être abordée ici.
+
+Les exemples évoqués ainsi que les jeux de données mobilisés sont d'une part des jeux de données devenus classiques en analyse de réseau et d'autre part des exemples issus de travaux plus ou moins récents et issus de différentes disciplines. Étant, comme toute chercheuse, située dans un champ académique et disciplinaire donné, il est logique qu'un certain nombre de ces derniers soient issus de mon réseau professionnel personnel.
+
+Ce guide s'appuie sur une décennie de formations en analyse de réseau, formations de durée variable (de 3 à 40 heures) et destinées à des publics de statuts, de niveaux et de disciplines variées [^intro-2] (élèves ingénieures statisticiennes, masterantes, doctorantes en sciences sociales, etc.) et sur plus d'une décennie de rédaction de tutoriels [^intro-3]. Géographe, je présente ici des méthodes issues de plusieurs disciplines (sociologie, physique, géographie, etc.). J'ai cherché à être aussi générique que possible afin que ce guide puisse vous être utile, que vous soyez anthropologue, archéologue, géographe, historienne, sociologue ou autre ; je ne prétends pas avoir réussi, à vous de me le faire savoir si vous le souhaitez.
+
+[^intro-2]: J'écris au féminin et j'utilise l'accord de voisinage.
+
+[^intro-3]: Voir notamment les carnets de recherche [groupe fmr](https://groupefmr.hypotheses.org/) et [GDR Analyse de réseaux en SHS](https://arshs.hypotheses.org/) ainsi que la [collection du groupe fmr sur HAL](https://hal.archives-ouvertes.fr/FMR).
+
+Les encadrés intitulés *À l'intention des formatrices* donnent un certain nombre de conseils pratiques aux personnes souhaitant animer des formations d'analyse de réseau. N'hésitez surtout pas à m'envoyer vos retours pour signaler ce qui marche et ce qui ne marche pas.
+
+Enfin, ce texte est écrit par un agnostique. Je ne considère pas que l'analyse de réseau soit toujours pertinente ni qu'elle permette systématiquement d'obtenir des résultats intéressants : l'analyse de réseau est un outil disponible parmi d'autres, rien de plus, rien de moins. Mieux vaut une analyse de correspondance maîtrisée qu'une analyse de réseau mal fichue. Je ne considère pas non plus que telle ou telle approche soit systématiquement supérieure à telle autre : parfois il est pertinent de faire de la détection de communautés, parfois étudier la distribution des degrés est utile ; parfois ces deux approches sont inadaptées. J'indique quand telle ou telle approche paraît pertinente et quand elle l'est moins. Ceci explique qu'il n'y ait pas dans ce guide d'exemple d'analyse de réseau menée du début (construction des données et de la problématique) à la fin (interprétation des résultats) : il n'existe pas, à mon avis, de déroulé standard et passe-partout en analyse de réseau.
+
+## Structure du guide
+
+Le [chapitre @sec-Cpourquoifaire] tente de répondre à une question simple : pourquoi faire de l'analyse de réseau ? Le [chapitre @sec-Chistoires] présente brièvement quelques traditions disciplinaires d'analyse de réseau, sa lecture n'est pas essentielle à un public débutant. Le [chapitre @sec-Cvocabulaire] présente les termes indispensables, en partie issus de la théorie des graphes, pour décrire les réseaux étudiés. L'équivalent anglais de chaque terme est donné en italiques et entre parenthèses, les logiciels disponibles et une grande partie de la littérature étant dans cette langue. Le [chapitre @sec-Cdonnees] propose quelques règles simples et de nombreux exemples permettant de mettre en forme des données relationnelles.
+
+Le [chapitre @sec-Cmesures] est consacré aux mesures ; seules les plus courantes sont présentées. La compréhension des différentes mesures et de leur utilité permet la présentation de trois grands modèles théoriques de réseau ([section @sec-Srandometc]). Le [chapitre @sec-Cpartitions] s'intéresse aux méthodes permettant de simplifier les réseaux d'une part et aux méthodes permettant de partitionner les individus d'autre part. Là encore, les méthodes sont nombreuses et seules les plus fréquemment implémentées dans les logiciels courants d'analyse de réseau sont présentées. La description des indicateurs et des méthodes mobilise peu les symboles et formules mathématiques, celles-ci étant expliquées dans l'annexe.
+
+------------------------------------------------------------------------
+
+**Question de vocabulaire**
+
+Dans les pages qui suivent, les termes **individu** et **population** sont employés au sens statistique du terme : l'individu est l'unité d'observation, l'ensemble des individus étudiés constitue la population. Un individu peut donc être une personne, une plante, une entreprise, un mot, un article, une ville etc. etc.
+
+Le terme **graphe** est utilisé pour désigner l'objet mathématique constitué d'un ensemble de points et d'un ensemble de liens entre ces points. J'utilise le terme **réseau** dès qu'un attribut est donné aux points (un nom par exemple) et/ou aux liens.
+
+J'appelle **analyse de réseau** toute démarche quantitative visant à étudier les propriétés relationnelles d'un ensemble d'individus. Le fait d'analyser *un* réseau donné (un réseau ferré, un réseau migratoire, un réseau social numérique) ne signifie pas qu'on pratique l'analyse de réseau. Inversement, des objets qui ne sont pas *a priori* des "réseaux" (un corpus de textes, de votes, de participations à des événements) peuvent être étudiés à l'aide de l'analyse de réseau.
+
+Les sociologues anglophones pratiquant l'**analyse de réseaux sociaux** (*Social Network Analysis* - *SNA*) emploient parfois le terme qu'elles considèrent équivalent de *structural analysis*. Pour éviter la confusion possible avec l'analyse structurale issue des travaux de Claude Lévi-Strauss, certains sociologues francophones emploient l'expression "analyse néo-structurale". Seule l'expression *SNA* est utilisée dans ce texte.
+
+Les **réseaux sociaux** étudiés en SNA sont essentiellement des réseaux de relations entre individus. Les outils et platerformes permettant des échanges en ligne (Twitter, Instagram, etc.) sont appelés **réseaux sociaux numériques** dans ces pages.
+
+Les termes de **science des réseaux** (*network science*) et de **réseau complexe** (*complex network*) ont pris une importance croissante ces dernières années/décennies. Ils sont très peu utilisés dans ce texte.
+
+Le terme **modélisation** utilisé seul désigne tout processus visant à transformer un aspect du monde social en données pouvant être analysées pour répondre à une question de recherche. Les termes **modélisation graphique** et **modélisation statistique** désignent les tentatives de décrire et/ou d'expliquer ces aspects du monde social soit à l'aide de schémas soit à l'aide de calculs.
+
+------------------------------------------------------------------------
+
+Les chapitres suivants présentent des méthodes adaptées à des réseaux particuliers : réseau bimodal (liens entre deux ensembles différents d'individus - [chapitre @sec-Cbiparti]), réseau multiplexe (existence de plusieurs relations entre les individus - [chapitre @sec-Cmultiplexe]), réseaux dynamiques ([chapitre @sec-Cdynamique]) et réseaux personnels ([chapitre @sec-Cegoreseau]). Les indicateurs et les méthodes sont moins stabilisées pour ces trois premiers types de réseaux, ce qui explique sans doute pourquoi elles sont généralement moins traitées dans les manuels. J'ai tenté de sélectionner les indicateurs et méthodes les plus faciles à utiliser et cette sélection est donc largement dépendantes des logiciels disponibles. Si votre réseau n'appartient pas à ces catégories, vous pouvez allègrement sauter ces chapitres.
+
+Le [chapitre @sec-Cmodeles] présente deux types de modélisation : les modélisations graphiques et les modélisations statistiques. Les premières sont peu couramment employées - alors que leur usage peut s'avérer précieux - et les secondes supposent des compétences mathématiques supérieures aux méthodes évoquées précédemment. Ceci explique tant la position du chapitre que sa brièveté ; sa lecture n'est sans doute pas indispensable en première approche. Plus développé, le [chapitre @sec-Cvisualiser] est consacré à la visualisation des données relationnelles. Il présente quelques règles basiques de sémiologie graphique, des conseils pratiques permettant de créer des images de réseaux lisibles et enfin différents modes de représentation. Le nombre de praticiennes en analyse de réseau ne proposant aucune forme de visualisation étant à ma connaissance très restreint, la lecture de ce chapitre est recommandée.
+
+Les deux derniers chapitres ont un intérêt pratique plus immédiat : le [chapitre @sec-Clogiciels] vise à vous guider dans le choix d'un ou de plusieurs logiciels pour mener à bien vos analyses de réseaux ; le [chapitre @sec-Cupdate] présente différentes ressources permettant d'actualiser et/ou d'approfondir vos connaissances.
+
+L'annexe est découpée en trois parties : une introduction expliquant comment lire une équation ; un point sur le rôle du calcul matriciel en analyse de réseau ; les formules mathématiques de quelques indicateurs usuels en analyse de réseau.
+
+<!-- L'index des noms propres ne peut pas être produit en html donc je vous renvoie au pdf disponible sur HAL.  est avant tout une lubie personnelle, facilitée par l'utilisation de \LaTeX, me permettant de contrôler les surreprésentations de genre ainsi que les poids disciplinaires respectifs des autrices citées. Il est logique que plus d'hommes soient cités avant 1960-1970 (en géographie et en *SNA* notamment) ; il est logique que les sociologues quantitativistes et les physiciennes soient citées plus souvent (elles ont écrit les manuels de référence, je m'en suis copieusement nourri et je paye mes dettes) ; j'ai cependant tenté d'équilibrer les genres et de varier les disciplines évoquées.-->
+
+Bonne lecture et à bientôt j'espère pour une version révisée et augmentée de ce petit guide pratique.

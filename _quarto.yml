@@ -1,0 +1,53 @@
+project:
+  type: book
+
+book:
+  title: "L'analyse de réseau en sciences sociales. Petit guide pratique"
+  author: "Laurent Beauguitte"
+  orcid: 0000-0001-8803-6056
+  email: laurent.beauguitte@cnrs.fr
+  affiliations:
+      - name: Géographie-cités, CNRS
+  lang: fr    
+  number-sections: true
+  crossref:
+    chapters: true
+    fig-prefix: figure
+  date: "Printemps 2023"
+  chapters:
+    - index.qmd
+    - intro.qmd
+    - Cpourquoifaire.qmd
+    - Chistoires.qmd
+    - Cvocabulaire.qmd
+    - Cdonnees.qmd
+    - Cmesures.qmd
+    - Cpartitions.qmd
+    - Cbiparti.qmd
+    - Cmultiplexe.qmd
+    - Cdynamique.qmd
+    - Cegoreseau.qmd
+    - Cmodeles.qmd
+    - Cvisualiser.qmd
+    - Clogiciels.qmd
+    - Cupdate.qmd
+    - Cconclusion.qmd
+    - Aequation.qmd
+    - references.qmd
+
+bibliography: references.bib
+csl: universite-de-montreal-apa.csl
+
+toc-title: "Sommaire"
+title-block-author-single: "Auteur"
+title-block-published: "Mis en ligne le"
+date-format: "DD MM YYYY"
+
+format:
+  html:
+    theme: cosmo
+  pdf:
+    documentclass: scrreprt
+
+editor: visual
+

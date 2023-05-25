@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.1.189">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>L’analyse de réseau en sciences sociales. Petit guide pratique - 14&nbsp; Se (re)mettre à jour</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./Cconclusion.html" rel="next">
+<link href="./Clogiciels.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Se (re)mettre à jour</span></h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">L’analyse de réseau en sciences sociales. Petit guide pratique</a> 
+    </div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">Remerciements plus des bricoles</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./intro.html" class="sidebar-item-text sidebar-link">Ce qu’est ce guide et ce qu’il n’est pas</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Cpourquoifaire.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Pourquoi faire de l’analyse de réseau ?</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Chistoires.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Histoires &amp; disciplines</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Cvocabulaire.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Graphe et réseau : principes et vocabulaire de base</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Cdonnees.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Construire ses données</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Cmesures.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Quelques mesures possibles</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Cpartitions.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Simplifier, partitionner</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Cbiparti.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Analyser des réseaux bimodaux</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Cmultiplexe.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Analyser des réseaux multiplexes</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Cdynamique.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Analyser la dynamique des réseaux</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Cegoreseau.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Analyser des réseaux personnels</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Cmodeles.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Modèles graphiques, modèles statistiques</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Cvisualiser.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Visualiser les données relationnelles</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Clogiciels.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Choisir un ou plusieurs logiciels</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Cupdate.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Se (re)mettre à jour</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Cconclusion.html" class="sidebar-item-text sidebar-link">Conclusion</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Aequation.html" class="sidebar-item-text sidebar-link">Annexe - Notations mathématiques et calcul matriciel</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">Références</a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Sommaire</h2>
+   
+  <ul>
+  <li><a href="#logiciels" id="toc-logiciels" class="nav-link active" data-scroll-target="#logiciels"><span class="toc-section-number">14.1</span>  Logiciels</a></li>
+  <li><a href="#un-aperçu-partial-du-paysage-éditorial" id="toc-un-aperçu-partial-du-paysage-éditorial" class="nav-link" data-scroll-target="#un-aperçu-partial-du-paysage-éditorial"><span class="toc-section-number">14.2</span>  Un aperçu partial du paysage éditorial</a>
+  <ul class="collapse">
+  <li><a href="#revues-spécialisées" id="toc-revues-spécialisées" class="nav-link" data-scroll-target="#revues-spécialisées"><span class="toc-section-number">14.2.1</span>  Revues spécialisées</a></li>
+  <li><a href="#revues-généralistes-utiles" id="toc-revues-généralistes-utiles" class="nav-link" data-scroll-target="#revues-généralistes-utiles"><span class="toc-section-number">14.2.2</span>  Revues généralistes utiles</a></li>
+  </ul></li>
+  <li><a href="#rencontres-scientifiques" id="toc-rencontres-scientifiques" class="nav-link" data-scroll-target="#rencontres-scientifiques"><span class="toc-section-number">14.3</span>  Rencontres scientifiques</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span id="sec-Cupdate" class="quarto-section-identifier d-none d-lg-block"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Se (re)mettre à jour</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    
+  </div>
+  
+
+</header>
+
+<p>Cela a été signalé, l’analyse de réseau est un domaine actif dans de nombreuses disciplines. La bonne nouvelle, c’est que de nouvelles méthodes, de nouveaux indicateurs et de nouveaux outils apparaissent régulièrement. La mauvaise nouvelle, c’est que se maintenir à niveau (notamment quand on donne des cours et qu’on anime des formations) est chronophage. Cette section présente une liste raisonnée - et nécessairement incomplète - de sites et de revues qu’il est utile de consulter régulièrement.</p>
+<section id="logiciels" class="level2" data-number="14.1">
+<h2 data-number="14.1" class="anchored" data-anchor-id="logiciels"><span class="header-section-number">14.1</span> Logiciels</h2>
+<p>Les logiciels, et notamment les logiciels libres modulaires comme R, évoluent régulièrement et il est souvent nécessaire de se remettre à niveau pour mener à bien ses analyses et ses visualisations. Faire de temps en temps une recherche des termes <em>network analysis</em>, <em>complex networks</em> ou <em>bipartite</em> (à affiner en fonction de vos travaux) peut s’avérer utile sur la page du <a href="https://cran.r-project.org/">CRAN</a> consacrée aux <em>packages</em> R <a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. Tester tous les <em>packages</em> est chronophage et peu utile : tous ne se valent pas (documentation plus ou moins lisible, <em>package</em> non tenu à jour, format de données exotique nécessitant <span class="math inline">\(x\)</span> manipulations, etc.). Un moyen plus rapide est de s’intéresser aux portails présentant des ressources pédagogiques comme le portail <a href="https://rzine.fr/">R-zine</a> ou l’agrégateur de sites <a href="https://www.r-bloggers.com/">R-bloggers</a>.</p>
+<p>Je connais moins Python mais si vous l’utilisez pour mener à bien des analyses de réseau, j’imagine que vous savez où aller chercher.</p>
+<p>Les logiciels <a href="http://wikiold.cytoscape.org/">Cytoscape</a> et <a href="https://github.com/gephi/gephi/wiki">Gephi</a> ont tous deux un wiki régulièrement actualisés ; le site de <a href="https://tulip.labri.fr/site/">Tulip</a> permet d’accéder à des manuels complets (en anglais). Mais on trouve aisément en ligne des ressources pédagogiques en français pour ces trois logiciels.</p>
+<p>Enfin, et sans doute est-ce une absurdité pédagogique que de garder le meilleur pour la fin, n’hésitez pas à consulter, et à contribuer si vous le souhaitez, la très riche <a href="https://project-awesome.org/briatte/awesome-network-analysis">liste de ressources</a> maintenue par François Briatte.</p>
+</section>
+<section id="un-aperçu-partial-du-paysage-éditorial" class="level2" data-number="14.2">
+<h2 data-number="14.2" class="anchored" data-anchor-id="un-aperçu-partial-du-paysage-éditorial"><span class="header-section-number">14.2</span> Un aperçu partial du paysage éditorial</h2>
+<p>Le paysage éditorial lié à l’analyse de réseau s’est considérablement étoffé ces deux dernières décennies. Il reste malheureusement dominé par une poignée d’éditeurs privés qui demandent une fortune soit aux lectrices pour accéder aux articles soit aux autrices pour que l’article soit publié en “<em>open access</em>”. Le choix a donc été fait ici de présenter d’abord les revues librement accessibles avant d’évoquer plus rapidement les incontournables accessibles grâce à l’indispensable portail sci-hub <a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> créé par Alexandra Elbakyan.</p>
+<section id="revues-spécialisées" class="level3" data-number="14.2.1">
+<h3 data-number="14.2.1" class="anchored" data-anchor-id="revues-spécialisées"><span class="header-section-number">14.2.1</span> Revues spécialisées</h3>
+<p>La revue hispanophone en accès libre <a href="https://revistes.uab.cat/redes/index"><em>REDES</em></a> existe depuis 2002 et publie essentiellement en espagnol et plus rarement en portugais. Deux numéros thématiques et pluridisciplinaires paraissent chaque année.</p>
+<p>L’INSNA (<em>International Network for Social Network Analysis</em>) publie la revue anglophone gratuite <a href="https://www.insna.org/connections/">Connections</a> depuis 1977 et tous les numéros sont accessibles en ligne.</p>
+<p>Issue du réseau <em>Historical Network Research</em>, le <a href="https://historicalnetworkresearch.org/jhnr/"><em>Journal of Historical Network Research</em></a> est une revue pluridisciplinaire en accès libre. Un numéro par an depuis 2017. Le même collectif anime une très utile <a href="https://historicalnetworkresearch.org/bibliography/">bibliographie</a> multilingue (anglais, allemand, français, espagnol, etc.) centrée sur l’analyse de réseau en histoire.</p>
+<p>La toute jeune revue <a href="https://arcs.episciences.org/"><em>ARCS - Analyse de réseaux pour les sciences sociales</em></a> cherche à promouvoir une approche pluridisciplinaire et ouverte de l’analyse de réseau (articles, données et scripts en accès libre). Le succès de cette revue n’est absolument pas assuré à ce jour.</p>
+<p><em>Social Networks</em> reste la revue de référence anglophone de l’analyse de réseaux sociaux. Propriété d’Elsevier, elle demande un tarif délirant pour accéder aux (excellents) articles publiés depuis 1978 (25 dollars l’article). Pour que l’article soit en accès libre, il suffit à l’autrice de débourser 3 580 dollars.</p>
+<p>Plus récentes, les revues anglophones <em>Network Science</em> (depuis 2013), <em>Journal of Complex Networks</em> (idem), <em>Social Network Analysis and Mining</em> (2011) ou <em>Applied Network Science</em> (2016) (liste non exhaustive) fonctionnent peu ou prou sur le même principe : l’autrice paye pour que son article soit en prétendu accès libre. Mais ces revues publient plein d’articles intéressants.</p>
+</section>
+<section id="revues-généralistes-utiles" class="level3" data-number="14.2.2">
+<h3 data-number="14.2.2" class="anchored" data-anchor-id="revues-généralistes-utiles"><span class="header-section-number">14.2.2</span> Revues généralistes utiles</h3>
+<p>La revue de géographie française <a href="https://journals.openedition.org/netcom/"><em>Netcom</em></a> existe depuis 1987 et est désormais hébergée sur OpenEdition Journals ; les numéros de la période 1987-2006 sont hébergés sur le portail Persée. La revue étant consacrée aux liens entre territoires et réseaux de communication, l’analyse de réseau est régulièrement présente dans ses pages.</p>
+<p>Le <a href="https://journals.openedition.org/bms/">Bulletin de Méthodologie Sociologique</a> publie régulièrement des articles en anglais ou en français relatifs à l’analyse de réseau. Les numéros parus depuis 2008 sont librement accessibles, les numéros précédents continuent à être détenus par SAGE - 29 livres l’article, sci-hub est toujours votre amie.</p>
+<p>De manière plus générale, dans à peu près toutes les disciplines, des numéros thématiques de revues ou des articles isolés mobilisent les concepts et les méthodes de l’analyse de réseau. La recherche par mots clés (<em>network analysis</em>, <em>complex network</em>) ou par autrices clairement identifiées à un aspect de l’analyse de réseau (Strogatz pour les réseaux petits mondes par exemple) permet de repérer les articles en question.</p>
+</section>
+</section>
+<section id="rencontres-scientifiques" class="level2" data-number="14.3">
+<h2 data-number="14.3" class="anchored" data-anchor-id="rencontres-scientifiques"><span class="header-section-number">14.3</span> Rencontres scientifiques</h2>
+<p>La grande messe annuelle de l’analyse de réseaux sociaux est la <a href="https://www.sunbelt2022.org/"><em>Sunbelt</em></a> qui se tient une année aux États-Unis, une année dans les restes du monde. Beaucoup de monde, <span class="math inline">\(x\)</span> sessions parallèles, tarifs délirants. Si vous aimez apercevoir les stars du domaine et que votre labo a des sous <a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>.</p>
+<p>Équivalent européen de la <em>Sunbelt</em> et issue elle aussi de l’<a href="https://www.insna.org/">INSNA</a>, l’<a href="https://eusn2022.org/">EUSN</a> <a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a> (<em>European Conference on Social Networks</em>) a lieu tous les ans depuis 2014. L’analyse de réseaux sociaux domine mais l’ouverture disciplinaire est réelle. Format très classique avec remise de prix divers (posters, jeunes chercheuses).</p>
+<p>Les <a href="https://reshist.hypotheses.org">rencontres Réseaux et Histoire</a> se tiennent de manière irrégulière en France depuis 2013. Si l’histoire domine, d’autres disciplines sont régulièrement présentes à cette conférence entièrement gratuite ; les actes de toutes les éditions sont disponibles en ligne. Le vivier d’historiennes pratiquant l’analyse de réseau étant limité, il n’est pas certain qu’un nouveau Res-Hist voit le jour dans un futur proche.</p>
+<p><a href="https://connectedpast.net/"><em>Connected Past</em></a> est un équivalent de Réseaux et Histoire à l’échelle européenne, ce qui assure donc un vivier plus important de participantes. Débutant par une session spéciale en 2011 dans un colloque d’archéologie, la rencontre est devenue autonome l’année suivante, signe de la popularité croissante de l’analyse de réseau en archéologie et en histoire dans le monde anglophone. Les rencontres organisés par l’<a href="https://historicalnetworkresearch.org/"><em>Historical Network Research</em></a> déjà cité attirent sensiblement le même public me semble-t-il.</p>
+<p>Le <a href="https://afs-socio.fr/rt/rt26/">réseau thématique 26</a> de l’Association Française de Sociologie, outre la gestion de l’indispensable liste reseaux-sociaux, organise chaque année une session lors du colloque de l’association susnommée. Comme le nom l’indique, la composante sociologique domine.</p>
+<p>Les géographes pratiquant l’analyse de réseau organisent parfois des sessions spéciales au colloque européen de géographie théorique et quantitative qui se tient tous les deux ans (<a href="http://www.ectqg.eu/">ECTQG</a>). Dans les colloques plus généralistes, le terme réseau est le plus souvent à prendre dans un sens métaphorique.</p>
+<p>Les événements scientifiques francophones sont généralement annoncés sur la très utile liste de diffusion <a href="https://listes.services.cnrs.fr/wws/info/reseaux-sociaux">reseaux-sociaux</a> animée par le réseau thématique 26 de l’AFS déjà cité. La liste est peu bavarde, s’y abonner est fortement recommandé. La liste <a href="https://groupes.renater.fr/sympa/subscribe/dh?previous_action=info">DH (<em>Digital Humanities</em>)</a> relaye également nombre d’événements mobilisant l’analyse de réseau.</p>
+
+
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>Une recherche rapide faite fin mai 2022 permet de repérer 27 <em>packages</em> contenant <em>network analysis</em> dans leur description, 8 contenant <em>complex networks</em>, 6 <em>bipartite graph</em> et 2 le terme <em>multigraph</em>.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>Les liens changeant régulièrement, je ne l’indique pas ici.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>Je suis ici d’une totale mauvaise foi, n’ayant jamais mis les pieds dans cette conférence.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4"><p>Chaque événement crée son site autonome.<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./Clogiciels.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Choisir un ou plusieurs logiciels</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./Cconclusion.html" class="pagination-link">
+        <span class="nav-page-text">Conclusion</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>

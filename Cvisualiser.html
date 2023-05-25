@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.1.189">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>L’analyse de réseau en sciences sociales. Petit guide pratique - 12&nbsp; Visualiser les données relationnelles</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./Clogiciels.html" rel="next">
+<link href="./Cmodeles.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Visualiser les données relationnelles</span></h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">L’analyse de réseau en sciences sociales. Petit guide pratique</a> 
+    </div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">Remerciements plus des bricoles</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./intro.html" class="sidebar-item-text sidebar-link">Ce qu’est ce guide et ce qu’il n’est pas</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Cpourquoifaire.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Pourquoi faire de l’analyse de réseau ?</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Chistoires.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Histoires &amp; disciplines</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Cvocabulaire.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Graphe et réseau : principes et vocabulaire de base</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Cdonnees.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Construire ses données</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Cmesures.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Quelques mesures possibles</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Cpartitions.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Simplifier, partitionner</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Cbiparti.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Analyser des réseaux bimodaux</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Cmultiplexe.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Analyser des réseaux multiplexes</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Cdynamique.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Analyser la dynamique des réseaux</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Cegoreseau.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Analyser des réseaux personnels</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Cmodeles.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Modèles graphiques, modèles statistiques</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Cvisualiser.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Visualiser les données relationnelles</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Clogiciels.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Choisir un ou plusieurs logiciels</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Cupdate.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Se (re)mettre à jour</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Cconclusion.html" class="sidebar-item-text sidebar-link">Conclusion</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Aequation.html" class="sidebar-item-text sidebar-link">Annexe - Notations mathématiques et calcul matriciel</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">Références</a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Sommaire</h2>
+   
+  <ul>
+  <li><a href="#visualiser-pour-explorer" id="toc-visualiser-pour-explorer" class="nav-link active" data-scroll-target="#visualiser-pour-explorer"><span class="toc-section-number">12.1</span>  Visualiser pour explorer</a></li>
+  <li><a href="#visualiser-pour-communiquer" id="toc-visualiser-pour-communiquer" class="nav-link" data-scroll-target="#visualiser-pour-communiquer"><span class="toc-section-number">12.2</span>  Visualiser pour communiquer</a></li>
+  <li><a href="#au-delà-du-lien-nœud" id="toc-au-delà-du-lien-nœud" class="nav-link" data-scroll-target="#au-delà-du-lien-nœud"><span class="toc-section-number">12.3</span>  Au-delà du lien-nœud</a></li>
+  <li><a href="#pour-aller-plus-loin" id="toc-pour-aller-plus-loin" class="nav-link" data-scroll-target="#pour-aller-plus-loin">Pour aller plus loin</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span id="sec-Cvisualiser" class="quarto-section-identifier d-none d-lg-block"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Visualiser les données relationnelles</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    
+  </div>
+  
+
+</header>
+
+<p>La visualisation de données (<em>dataviz</em>), qu’elles soient ou non relationnelles, est un champ de recherche à part entière et ce chapitre ne fait qu’effleurer quelques aspects liés à ce sujet <a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>.</p>
+<p>La visualisation de données est indispensable au départ d’une recherche : elle permet d’explorer ses données, de les comprendre, de repérer d’éventuelles anomalies et, avec un petit peu de pratique, de faire émerger de nouvelles questions de recherche. Elle est également utile à l’arrivée, lorsqu’il s’agit de présenter ses résultats.</p>
+<p>Si la visualisation sous forme dite “liens - nœuds” est sans aucun doute la plus courante, y compris dans ce petit guide pratique, elle n’est pas la seule forme possible et elle n’est pas non plus nécessairement la plus pertinente.</p>
+<section id="visualiser-pour-explorer" class="level2" data-number="12.1">
+<h2 data-number="12.1" class="anchored" data-anchor-id="visualiser-pour-explorer"><span class="header-section-number">12.1</span> Visualiser pour explorer</h2>
+<p>Lorsque j’explore mes données, je n’ai pas besoin de produire de belles images et de construire une légende impeccable. J’ai aussi le droit de m’affranchir de toutes les règles de la sémiologie graphique. L’exploration de données relationnelles commence presque toujours par une déception : l’image produite est moche, on n’y voit rien, il y a des liens partout et c’est tout à fait normal ! Produire une image lisible prend du temps et suppose généralement une sélection drastique - mais raisonnée - de ce que l’on souhaite montrer <a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>.</p>
+<p>Avant de commencer à filtrer sommets et liens pour tenter d’y voir quelque chose, ayez le réflexe de faire quelques mesures basiques (densité, diamètre, composantes, degré, etc.) et visualisez leur distribution. S’il y a plusieurs composantes, mesurez-les et visualisez-les une à une. Pensez à examiner vos isolés, peut-être partagent-ils des caractéristiques intéressantes. Il y a sans doute dans votre réseau des individus qui vous intéressent plus que d’autres : visualiser leur réseau personnel d’ordre 1, 2 ou plus.</p>
+<p>Pensez à varier les algorithmes de visualisation : on ne voit pas la même chose et on ne se pose pas les mêmes questions en fonction de l’image que l’on a sous les yeux. Vous avez trois grandes familles d’algorithmes de visualisation à votre disposition :</p>
+<ul>
+<li>les algorithmes plaçant les sommets en fonction de la géométrie (grille / <em>grid</em>, circulaire / <em>circular</em>) ;</li>
+<li>les algorithmes plaçant les sommets en fonction de propriétés statistiques de la matrice d’adjacence (MDS) ;</li>
+<li>les algorithmes dits <em>force-based</em> qui procèdent par itérations afin de minimiser un certain nombre de critères (chevauchement de sommets, croisement de liens notamment). Les algorithmes Force Atlas (<em>Gephi</em>), Kamada-Kawai, Fruchterman-Reingold, nicely (<em>igraph</em>) appartiennent à cette catégorie.</li>
+</ul>
+<p>Cette dernière famille d’algorithmes est sans doute la plus utilisée car elle est produit des projections lisibles, sauf quand le réseau est très dense. Gardez à l’esprit que la plupart de ces algorithmes sont non déterministes (vous obtiendrez une image légèrement différente chaque fois que vous les relancerez) et qu’ils donnent également des résultats différents d’un logiciel à l’autre. L’algorithme <em>random</em> (aléatoire) est disponible dans tous les logiciels. Comme le nom l’indique, les sommets sont placés de façon aléatoire et c’est évidemment le meilleur moyen de produire un réseau illisible.</p>
+<p>La figure <a href="#fig-falgo"><span>12.1</span></a> montre le même réseau projeté de différentes façons. Toutes ces images sont strictement équivalentes mais certaines pourraient sans doute donner lieu à des commentaires différents.</p>
+<div id="fig-falgo" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="images/falgo.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;12.1: Un réseau, six algorithmes de visualisation</figcaption><p></p>
+</figure>
+</div>
+<p><em>Minuscule réseau (5 sommets, 8 liens) projetés avec 6 algorithmes différents parmi la vingtaine proposée par le logiciel yEd. Il est tout à fait possible de produire des réseaux esthétiquement agréables et illisibles (celui de droite notamment).</em></p>
+<p>Les stratégies les plus communes pour y voir un peu plus clair sont :</p>
+<ul>
+<li>supprimer les isolés (qu’on a parfois tendance à oublier dans les analyses) ;</li>
+<li>supprimer les sommets de degré inférieur à <em>x</em>, <em>x</em> variant selon la distribution des degrés ;</li>
+<li>en cas de liens valués, supprimer les liens d’intensité inférieure à <em>x</em> (même remarque que précédemment) puis suppression des sommets isolés ;</li>
+<li>si elle existe, ne conserver que la composante géante.</li>
+</ul>
+<p>Il est possible en fonction de la structure de votre réseau d’adopter des solutions autres, par exemple de supprimer les liens les plus intenses ou les sommets les plus centraux.</p>
+<p>Les conseils précédents s’appliquent à tous les types de réseaux. Un mot sur les réseaux autres vus dans les chapitres précédents.</p>
+<p>Il existe un algorithme courant généralement appelé <em>bipartite</em> pour les réseaux bimodaux. Il place les sommets <span class="math inline">\(V_1\)</span> sur une ligne en haut et les sommets <span class="math inline">\(V_2\)</span> sur une ligne en bas. Cet algorithme n’a aucun intérêt et n’aide pas à explorer ses données. Choisissez deux couleurs différentes (ou deux formes si vous n’êtes pas sensible aux couleurs) pour vos deux populations de sommets et utilisez de préférence des algorithmes <em>force-based</em>, vous y verrez plus clair.</p>
+<p>Lorsque vous étudiez des réseaux multiplexes, inutile de chercher à visualiser toutes vos relations sur la même image, vous ne verrez rien. Explorez vos relations une à une et explorer les réseaux synthétiques que vous avez produits. Testez d’une part en gardant la même position pour les sommets, ce qui facilite la comparaison, et d’autre part avec des algorithmes <em>force-based</em> adaptés à chaque couche, ce qui produira une image lisible pour chacune d’entre elles.</p>
+<p>En ce qui concerne la visualisation de réseaux dynamiques, plusieurs logiciels permettent la réalisation d’animation. En phase exploratoire, il est probable que le résultat soit décevant en terme de lisibilité. Le conseil donné à l’instant pour les réseaux multiplexes (1. figer les sommets et étudier les relations à chaque temps <span class="math inline">\(t\)</span> puis 2. utiliser un algorithme <em>force-based</em> à chaque temps <span class="math inline">\(t\)</span>) reste valable.</p>
+<p>Dans le cas des réseaux personnels, vous gagnerez du temps en supprimant ego avant de visualiser.</p>
+<hr>
+<p><em>À l’intention des formatrices</em></p>
+<p>Animer un atelier sur la visualisation de données suppose que les participantes 1. connaissent un minimum l’analyse de réseau et 2. aient commencé à prendre en main un logiciel.</p>
+<p>Pour montrer en quoi consiste l’exploration de données (statistique et visuel), le plus efficace me semble être de fournir un jeu de données aux participantes et de donner une consigne du type “vous devez présenter ces données en 5 minutes lors d’une réunion, vous pouvez présenter des tableaux, des figures, etc. À vous de jouer”.</p>
+<p>Choisissez de préférence des données suffisamment généralistes pour pouvoir être manipulées sans être spécialiste de la question. Les jeux de données du <a href="https://correlatesofwar.org/data-sets/"><em>Correlates of War project</em></a> (relations commerciales et relations diplomatiques entre États par exemple) m’ont souvent servi.</p>
+<p>Le même jeu de données peut bien entendu servir pour le volet communication visuelle (voir partie suivante) mais il est nécessaire dans ce cas que les participantes aient des connaissances thématiques afin de pouvoir tester des hypothèses ou que vous leur prépariez des demandes précises.</p>
+<hr>
+<p>Quel que soit le type de réseau analysé, il est souvent plus facile de l’explorer visuellement avec un logiciel clicodrome (avec interface graphique et menus déroulants) : déplacer un sommet ou plusieurs, les sélectionner, les supprimer est plus rapide. Ce qui n’empêche pas en parallèle de l’explorer statistiquement, si besoin avec un logiciel autre.</p>
+</section>
+<section id="visualiser-pour-communiquer" class="level2" data-number="12.2">
+<h2 data-number="12.2" class="anchored" data-anchor-id="visualiser-pour-communiquer"><span class="header-section-number">12.2</span> Visualiser pour communiquer</h2>
+<p>Que ce soit un histogramme, un nuage de points, une carte ou un réseau, à partir du moment où vous produisez une image destinée à un public, c’est parce que vous souhaitez faire passer un message clair et que vous souhaitez que ce message soit compris. Pour que ce message soit compris, il est recommandé de respecter quelques règles de sémiologie graphique et de fournir à vos lectrices un titre (problématisé si possible) et une légende (explicite et exhaustive).</p>
+<p>La sémiologie graphique étant enseignée dans une poignée de disciplines seulement, rappeler quelques règles s’impose :</p>
+<ul>
+<li>la taille (des sommets) et l’épaisseur (des liens) sont des variables adaptées pour représenter des variables quantitatives (degré, intensité du lien) ;</li>
+<li>la couleur et la forme sont adaptées pour représenter des variables catégorielles (attribut des sommet, type de relation) ;</li>
+<li>la valeur (dégradé de gris, gamme de couleurs ordonnées) est adaptée pour représenter une variable ordinale.</li>
+</ul>
+<p>Une remarque supplémentaire sur les variables visuelles : ne surestimez la capacité de lecture du cerveau humain. Nous avons des ordinateurs puissants capables de générer des figures avec des dizaines de nuances de couleur et des milliers d’objets. Certes, mais notre cerveau renâcle à distinguer plus de 7 couleurs <a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> et plus de 5 formes différentes dans une figure. Rappelez-vous également qu’au moins 10 % de votre lectorat ne perçoit pas correctement les couleurs : des palettes adaptées existent <a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a>, il est possible aussi de produire des réseaux lisibles en noir et blanc.</p>
+<p>Un certain nombre de figures présentes dans les chapitres précédents montre une utilisation adaptée de ces variables visuelles. Dans la figure <a href="Chistoires.html#fig-fmoreno"><span>2.1</span></a>, la forme des sommets varie en fonction du genre et la forme des liens varie en fonction de leur nature. Idem pour la figure <a href="Cmultiplexe.html#fig-fpadgett"><span>8.1</span></a> où, cependant, la légende ne permet pas de comprendre pourquoi les noms de certaines familles sont entourées et d’autres non ni à quoi correspondent les patates dessinées avec des figurés variables.</p>
+<p>Ce qui m’amène au point suivant : une légende est nécessaire <a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a> pour que vos lectrices comprennent ce que vous souhaitez montrer. Si dans votre image, il y a des tailles, des couleurs et des formes différentes, il faut que la légende permette de comprendre ce qu’elles signifient. Il est important également d’expliciter ce que signifient les liens entre vos sommets.</p>
+<p>Si par exemple vous estimez indispensable de faire de la détection de communautés, indiquez que les couleurs de sommets correspondent aux communautés détectées par l’algorithme <span class="math inline">\(x\)</span>. Vous pouvez même, et personne ne vous en voudra, indiquer la modularité entre parenthèses et préciser quel logiciel vous avez utilisé pour produire votre figure <a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a>.</p>
+<p>Petite précision de géographe formé à la cartographie : vous n’avez pas besoin d’indiquer légende au dessus de la légende.</p>
+<div id="fig-flegende" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="images/flegende.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;12.2: Légender son réseau : peut mieux faire</figcaption><p></p>
+</figure>
+</div>
+<p><em>Soit un extrait de ma thèse (2011, p.&nbsp;233). J’ai reproduit ici le bas de la figure 3.22 intitulée “États soutenant des déclarations faites par des groupes (sessions 45 et 51)”. Le titre n’est pas bon : trop descriptif. Il n’y a pas de légende : on devine que couleur et forme des sommets différencient États (membres de l’Assemblée générale de l’ONU) et groupes régionaux mais ça reste implicite. Un carton avec les types de sommet et la définition de l’épaisseur des liens serait bienvenu. Indiquer en commentaire (et/ou sur l’image elle-même) le logiciel utilisé et le sens à donner au placement des composantes est, me semble-t-il, une bonne pratique. Par contre, critiquer l’algorithme de visualisation utilisé sans préciser duquel il s’agit n’est pas très sérieux…</em></p>
+<hr>
+<p><em>À l’intention des formatrices</em></p>
+<p>Rien de plus simple (malheureusement) que d’animer une séquence pédagogique sur le sujet : vous exposez les règles de base de sémiologie, vous expliquez ce que doit contenir la légende et vous prenez le réseau de votre choix pour le soumettre à la critique. La deuxième étape consiste évidemment à construire une légende correcte.</p>
+<p>Par contre, demander de trouver un titre problématisé est plus compliqué si les participantes n’ont pas de connaissances thématiques sur le réseau utilisé comme exemple.</p>
+<p>De manière plus générale, encouragez l’esprit critique. Ce n’est pas parce que la spécialiste mondialement reconnue a publié une figure dans la revue de référence que cette figure n’est pas perfectible. C’est en critiquant <em>x</em> dizaines de cartes qu’on apprend peu à peu à en produire des correctes et c’est exactement le même apprentissage avec les réseaux.</p>
+<hr>
+<p>Deux derniers conseils pour finir :</p>
+<ul>
+<li>si vous avez beaucoup d’informations à transmettre, faites plusieurs figures lisibles plutôt que d’essayer de tout mettre dans une seule ;</li>
+<li>adaptez vos figures à votre lectorat. Si vous vous adressez à des spécialistes de l’analyse de réseau, inutile de représenter ego dans un réseau personnel. Si vous vous adressez à des publics autres, garder ego rendra la figure plus compréhensible.</li>
+</ul>
+</section>
+<section id="au-delà-du-lien-nœud" class="level2" data-number="12.3">
+<h2 data-number="12.3" class="anchored" data-anchor-id="au-delà-du-lien-nœud"><span class="header-section-number">12.3</span> Au-delà du lien-nœud</h2>
+<p>Cela fait plus de 70 ans que des chercheuses indiquent à juste titre que, dans certains cas, la forme lien-nœud est peu lisible (réseau dense) <a href="#fn7" class="footnote-ref" id="fnref7" role="doc-noteref"><sup>7</sup></a>. De nombreuses alternatives sont pourtant disponibles.</p>
+<p>La matrice ordonnée peut être beaucoup plus lisible que le lien-nœud pour représenter les communautés dans un réseau dense, ce que suggéraient Forsyth et Katz dès 1946 (figure <a href="#fig-fnorthway"><span>12.3</span></a>) et a été confirmé à plusieurs reprises depuis. Plus récemment, des formes hybrides mêlant matrices (pour les parties denses) et lien-nœud ont été proposées et permettent si l’on en croit les travaux de <span class="citation" data-cites="digiacomo21">Di Giacomo et al. (<a href="references.html#ref-digiacomo21" role="doc-biblioref">2021</a>)</span> d’améliorer la lisibilité des figures.</p>
+<div id="fig-fnorthway" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="images/northway1940_p149.png" class="img-fluid figure-img" style="width:60.0%"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;12.3: Le diagramme cible de Northway (1940)</figcaption><p></p>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/forsyth.png" class="img-fluid figure-img" style="width:70.0%"></p>
+<p></p><figcaption class="figure-caption">La matrice ordonnée de Forsyth et Katz (1946)</figcaption><p></p>
+</figure>
+</div>
+<p><em>Mary Northway étudie les relations entre élèves. Les cercles correspondent aux quartiles des degrés entrants, ce qui met au centre les élèves les plus populaires. Les sociogrammes sont évidemment dessinés à la main à l’époque et cette proposition vise à justifier statistiquement le placement des sommets. Elaine Forsyth et Leo Katz plaident pour l’utilisation de la matrice ordonnée qui permet de mettre en évidence les sous-groupes fortement connexes autour de la diagonale. Par contre, la matrice est moins efficace pour identifier des chemins entre sommets, ce que confirmeront des études ultérieures.</em></p>
+<p>Les diagrammes en cordes (<em>chords</em>) peuvent parfois donner des résultats intéressants si la partition des sommets en ensembles disjoints a un sens thématique fort. L’exemple des migrations internationales où pays émetteurs et récepteurs sont groupés par grandes régions fait partie de ces cas. La plupart du temps, ce type de visualisation est intéressante si elle autorise l’interactivité (sélection d’un sommet ou d’un groupe de sommets notamment).</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/chord_migration.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Diagramme en cordes</figcaption><p></p>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/edgebundling.png" class="img-fluid figure-img" style="width:70.0%"></p>
+<p></p><figcaption class="figure-caption"><em>Edge-bundling</em></figcaption><p></p>
+</figure>
+</div>
+<div id="fig-sankey" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="images/sankey.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;12.4: Diagramme de Sankey</figcaption><p></p>
+</figure>
+</div>
+<p><em>Les trois figures sont tirées du site <a href="https://r-graph-gallery.com" class="uri">https://r-graph-gallery.com</a>.</em></p>
+<p>Parfois combinée avec le diagramme en cordes, le regroupement des liens (<em>edge-bundling</em>) consiste à agréger des liens ayant un tracé à peu près similaire. Ce type de visualisation peut donner d’excellents résultats quand il existe une contrainte de localisation sur les sommets (cartographie de flux).</p>
+<p>L’utilisation de diagramme de Sankey peut donner des résultats esthétiquement agréables ; je ne suis pas tout à fait certain de la lisibilité des figures et de la clarté du message délivré (figure <a href="#fig-sankey"><span>12.4</span></a>). Par contre, je suis de plus en plus convaincu par l’utilisation de l’hypergraphe et de la visualisation dite <em>BioFabric</em> pour la visualisation de réseaux bimodaux (<span class="citation" data-cites="valdivia18">Valdivia et al. (<a href="references.html#ref-valdivia18" role="doc-biblioref">2018</a>)</span> ; figure <a href="#fig-biofabric"><span>12.5</span></a>).</p>
+<p>Enfin, si le réseau est de grande taille, peut-être que vouloir le représenter <em>in extenso</em> sous forme graphique n’est pas utile. Une distribution des degrés sera sans doute plus lisible et très largement suffisante si vous voulez signalez le caractère hiérarchisé de votre réseau. Plutôt que de colorer une grosse boule dense si vous souhaitez montrer les communautés détectées avec une méthode précise, agrégez les sommets (cf la section <em>blockmodeling</em>). N’oubliez pas : votre figure vise à transmettre un message clair.</p>
+</section>
+<section id="pour-aller-plus-loin" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="pour-aller-plus-loin">Pour aller plus loin</h2>
+<p>L’un de mes ouvrages préférés de sémiologie graphique est le superbe livre de <span class="citation" data-cites="tufte01">Tufte (<a href="references.html#ref-tufte01" role="doc-biblioref">2001</a>)</span>. Certes, il assène un certain nombre de règles sans les appuyer sur la moindre analyse empirique mais l’ouvrage est superbe et la démonstration brillante. Il traite de la visualisation de données quantitatives, qu’elles soient ou non relationnelles. Plus récent, l’ouvrage librement accessible en ligne de <span class="citation" data-cites="wilke19">Wilke (<a href="references.html#ref-wilke19" role="doc-biblioref">2019</a>)</span>, <a href="https://clauswilke.com/dataviz/"><em>Fundamentals of Data Vizualization</em></a> est également chaudement recommandé : les conseils sont précis et argumentés.</p>
+<p>Le travail mené depuis plusieurs décennies par Jean-Daniel Fekete à l’INRIA (<a href="https://aviz.fr/">équipe Aviz</a>) sur les données relationnelles mérite qu’on s’y attarde, notamment parce qu’il propose des alternatives souvent stimulantes à la visualisation lien-nœud. Mettre au format attendu un mini-jeu de données pour tester les outils disponibles en ligne est susceptible d’enrichir vos visualisations.</p>
+<p>J’anticipe sur le chapitre suivant mais si vous voulez avoir une idée à peu près exhaustive de ce qu’on peut faire aujourd’hui en visualisation de données (relationnelles ou non), n’hésitez pas à visiter la <a href="https://r-graph-gallery.com/index.html"><em>R Graph Gallery</em></a>. Comme le nom l’indique, l’ensemble des représentations peut être réalisé avec le logiciel R.</p>
+<div id="fig-biofabric" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="images/biofabric.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;12.5: Visualisation sous forme d’hypergraphe</figcaption><p></p>
+</figure>
+</div>
+<p><em>Chaque ligne verticale est un texte disponible sur hal, textes rangés par ordre chronologique ; les termes dans la colonne de gauche sont les mots clés. Les traits mis en évidence concernent des textes liés à l’analyse de réseau. Figure produite à l’aide du logiciel <a href="https://www.aviz.fr/Research/Paohvis">Paohvis</a>.</em></p>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" data-line-spacing="2" role="doc-bibliography" style="display: none">
+<div id="ref-bahoken13" class="csl-entry" role="doc-biblioentry">
+Bahoken, F., Beauguitte, L. and Lhomme, S. (2013). <span class="nocase">La visualisation des réseaux. Principes, enjeux et perspectives</span>. <em><span>Groupe Fmr</span></em>. <a href="https://shs.hal.science/halshs-00839905">https://shs.hal.science/halshs-00839905</a>
+</div>
+<div id="ref-digiacomo21" class="csl-entry" role="doc-biblioentry">
+Di Giacomo, E., Didimo, W., Montecchiani, F. and Tappini, A. (2021). A user study on hybrid graph visualizations. <em>Graph Drawing and Network Visualization: 29th International Symposium</em>. <a href="https://arxiv.org/pdf/2108.10270">https://arxiv.org/pdf/2108.10270</a>
+</div>
+<div id="ref-forsyth46" class="csl-entry" role="doc-biblioentry">
+Forsyth, E. and Katz, L. (1946). A matrix approach to the analysis of sociometric data: Preliminary report. <em>Sociometry</em>. <a href="https://hal.science/hal-03856908">https://hal.science/hal-03856908</a>
+</div>
+<div id="ref-tufte01" class="csl-entry" role="doc-biblioentry">
+Tufte, E. R. (2001). <em>The visual display of quantitative information</em>. Graphics Press.
+</div>
+<div id="ref-valdivia18" class="csl-entry" role="doc-biblioentry">
+Valdivia, P., Buono, P., Plaisant, C., Dufournaud, N. and Fekete, J.-D. (2018). Using dynamic hypergraphs to reveal the evolution of the business network of a 17th century french woman merchant. <em>Proceeding of the VIS4DH Workshop</em>. <a href="https://hal.inria.fr/hal-01855675">https://hal.inria.fr/hal-01855675</a>
+</div>
+<div id="ref-wilke19" class="csl-entry" role="doc-biblioentry">
+Wilke, C. O. (2019). <em>Fundamentals of data vizualization</em>. O’Reilly. <a href="https://clauswilke.com/dataviz/">https://clauswilke.com/dataviz/</a>
+</div>
+</div>
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>Ce chapitre synthétise et actualise des éléments qui étaient déjà présents dans un document produit au sein du groupe fmr (<span class="citation" data-cites="bahoken13">Bahoken et al. (<a href="references.html#ref-bahoken13" role="doc-biblioref">2013</a>)</span>).<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>Certaines revues acceptent de publier des grosses boules de liens, avec parfois des tâches de couleur, mais c’est leur problème.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>Non, rien à voir avec le roman de Brasillach ou avec la maison d’édition fondée par son beau-frère.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4"><p>Une ressource indispensable : <a href="https://colorbrewer2.org" class="uri">https://colorbrewer2.org</a>. Ne vous laissez pas intimider par la carte, ce n’est absolument pas réservé aux géographes.<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn5"><p>Ce que n’ont toujours pas compris les personnes développant des logiciels d’analyse de réseau. <em>Cytoscape</em> a une fonction légende qui donne un résultat très peu satisfaisant ; il est possible de bricoler une légende correcte avec les <em>packages</em> de R.<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn6"><p>Avec un peu d’entrainement, on reconnaît les logiciels utilisés mais parfois on voit des réseaux surprenants et on aimerait savoir avec quoi ils ont été faits.<a href="#fnref6" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn7"><p>Voir l’article de <span class="citation" data-cites="forsyth46">Forsyth and Katz (<a href="references.html#ref-forsyth46" role="doc-biblioref">1946</a>)</span>. Une version bilingue et commentée par Françoise Bahoken, Julie Fen-Chong et moi-même est <a href="https://hal.science/hal-03856908">disponible en ligne</a>.<a href="#fnref7" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./Cmodeles.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Modèles graphiques, modèles statistiques</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./Clogiciels.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Choisir un ou plusieurs logiciels</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>

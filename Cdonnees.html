@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.1.189">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>L’analyse de réseau en sciences sociales. Petit guide pratique - 4&nbsp; Construire ses données</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./Cmesures.html" rel="next">
+<link href="./Cvocabulaire.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Construire ses données</span></h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">L’analyse de réseau en sciences sociales. Petit guide pratique</a> 
+    </div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">Remerciements plus des bricoles</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./intro.html" class="sidebar-item-text sidebar-link">Ce qu’est ce guide et ce qu’il n’est pas</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Cpourquoifaire.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Pourquoi faire de l’analyse de réseau ?</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Chistoires.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Histoires &amp; disciplines</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Cvocabulaire.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Graphe et réseau : principes et vocabulaire de base</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Cdonnees.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Construire ses données</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Cmesures.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Quelques mesures possibles</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Cpartitions.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Simplifier, partitionner</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Cbiparti.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Analyser des réseaux bimodaux</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Cmultiplexe.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Analyser des réseaux multiplexes</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Cdynamique.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Analyser la dynamique des réseaux</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Cegoreseau.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Analyser des réseaux personnels</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Cmodeles.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Modèles graphiques, modèles statistiques</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Cvisualiser.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Visualiser les données relationnelles</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Clogiciels.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Choisir un ou plusieurs logiciels</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Cupdate.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Se (re)mettre à jour</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Cconclusion.html" class="sidebar-item-text sidebar-link">Conclusion</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Aequation.html" class="sidebar-item-text sidebar-link">Annexe - Notations mathématiques et calcul matriciel</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">Références</a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Sommaire</h2>
+   
+  <ul>
+  <li><a href="#construire-lobjet" id="toc-construire-lobjet" class="nav-link active" data-scroll-target="#construire-lobjet"><span class="toc-section-number">4.1</span>  Construire l’objet</a>
+  <ul class="collapse">
+  <li><a href="#réseau-complet-vs-réseau-personnel" id="toc-réseau-complet-vs-réseau-personnel" class="nav-link" data-scroll-target="#réseau-complet-vs-réseau-personnel"><span class="toc-section-number">4.1.1</span>  Réseau complet <em>vs</em> réseau personnel</a></li>
+  <li><a href="#générer-des-noms-questionnaires-et-entretiens" id="toc-générer-des-noms-questionnaires-et-entretiens" class="nav-link" data-scroll-target="#générer-des-noms-questionnaires-et-entretiens"><span class="toc-section-number">4.1.2</span>  Générer des noms : questionnaires et entretiens</a></li>
+  <li><a href="#générer-des-liens-observer-les-interactions" id="toc-générer-des-liens-observer-les-interactions" class="nav-link" data-scroll-target="#générer-des-liens-observer-les-interactions"><span class="toc-section-number">4.1.3</span>  Générer des liens : observer les interactions</a></li>
+  <li><a href="#générer-des-réseaux-textuels" id="toc-générer-des-réseaux-textuels" class="nav-link" data-scroll-target="#générer-des-réseaux-textuels"><span class="toc-section-number">4.1.4</span>  Générer des réseaux textuels</a></li>
+  <li><a href="#des-données-numériques-au-réseau" id="toc-des-données-numériques-au-réseau" class="nav-link" data-scroll-target="#des-données-numériques-au-réseau"><span class="toc-section-number">4.1.5</span>  Des données numériques au réseau</a></li>
+  <li><a href="#des-infrastructures-au-réseau" id="toc-des-infrastructures-au-réseau" class="nav-link" data-scroll-target="#des-infrastructures-au-réseau"><span class="toc-section-number">4.1.6</span>  Des infrastructures au réseau</a></li>
+  </ul></li>
+  <li><a href="#trois-formats-pour-un-même-objet-liste-matrice-et-graphique" id="toc-trois-formats-pour-un-même-objet-liste-matrice-et-graphique" class="nav-link" data-scroll-target="#trois-formats-pour-un-même-objet-liste-matrice-et-graphique"><span class="toc-section-number">4.2</span>  Trois formats pour un même objet : liste, matrice et graphique</a></li>
+  <li><a href="#documenter-enrichir-partager" id="toc-documenter-enrichir-partager" class="nav-link" data-scroll-target="#documenter-enrichir-partager"><span class="toc-section-number">4.3</span>  Documenter, enrichir, partager</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span id="sec-Cdonnees" class="quarto-section-identifier d-none d-lg-block"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Construire ses données</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    
+  </div>
+  
+
+</header>
+
+<p>Mener à bien une analyse de réseau suppose de construire ses données relationnelles afin d’obtenir un ensemble de sommets et un ensemble de liens symbolisant une relation entre ces sommets. Définir ces deux ensembles est l’une des tâches essentielles : que représentent mes sommets ? que représentent mes liens ? Passer du temps pour répondre aussi précisément que possible à ces deux questions est indispensable pour tenter d’obtenir des résultats intéressants.</p>
+<section id="construire-lobjet" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="construire-lobjet"><span class="header-section-number">4.1</span> Construire l’objet</h2>
+<p>Les données relationnelles que vous choisissez d’analyser ont deux origines possibles : vous les avez construites, vous les avez récupérées et dans ce cas d’autres que vous les ont construites. Le terme construction est essentiel : il n’existe nul part dans le monde social, y compris le monde social numérique, des objets qui pourraient être considérées comme des données qu’il suffirait de “récolter” puis de “nettoyer” <a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> avant de les analyser.</p>
+<p>Quel que soit le soin avec lequel vous récoltez et mettez en forme vos données relationnelles, il est important de garder à l’esprit qu’un réseau est un modèle de la réalité, une version simplifiée et incomplète d’un type donné de relations entre certaines entités. Un réseau n’existe pas en soi et ce quelle que soit sa nature. Ceci est vrai des réseaux personnels des individus mais c’est également vrai pour des réseaux type infrastructures de transport. Tout recueil et mise en forme de données supposent des choix plus ou moins arbitraires, des décisions plus ou moins bien informées.</p>
+<p><strong>Exemple 1</strong> : je m’intéresse aux relations sur Twitter. Ma première étape est de définir ma population et de justifier ses limites : pourquoi ces comptes et pas d’autres ? La deuxième étage est de définir ce que j’appelle une relation sur twitter : un abonnement réciproque (<span class="math inline">\(v_1\)</span> est abonnée à <span class="math inline">\(v_2\)</span> et <span class="math inline">\(v_2\)</span> est abonnée à <span class="math inline">\(v_1\)</span>) ? le fait de retwitter ce que poste un compte ? le fait de répondre à un tweet ? le fait de nommer l’utilisatrice du compte dans les tweets ? Il n’existe pas une solution, il en existe des dizaines et toutes peuvent avoir leur pertinence en fonction des questions que je me pose.</p>
+<p><strong>Exemple 2</strong> : soit le réseau ferroviaire en Île-de-France que je souhaite modéliser sous forme de réseau planaire. Quelles lignes dois-je prendre en compte ? Si je prends le Francilien, il serait peut-être utile de considérer aussi les lignes RER. Est-ce que j’inclus les correspondances entre les gares parisiennes et si oui, lesquelles (RER, métro) ? Est-ce que je prends en compte les travaux et l’inaccessibilité temporaire de certaines stations ? Est-ce que je cherche à prendre en compte la fréquence des dessertes et pas la seule présence d’une gare sur le plan ?</p>
+<hr>
+<p><em>À l’intention des formatrices</em></p>
+<p>Il est relativement facile de montrer le caractère construit des données relationnelles, y compris avec des données qui paraissent aussi intangibles qu’un réseau ferré, autoroutier ou viaire. Imprimer un extrait de plan OpenStreetMap et demander à trois groupes de tracer le réseau viaire (en donnant un minimum de règles simples et une question de recherche générale) correspondant à ce plan, vous obtiendrez sans aucun doute des résultats différents. L’objectif n’est pas de conclure qu’on peut faire ce qu’on veut et que dans tous les cas on triche mais au contraire d’insister sur la nécessité de documenter les choix effectués.</p>
+<hr>
+<p>Les lignes qui suivent sont triviales et s’appliquent à toute démarche de recherche, qu’elle se prétende qualitative, quantitative ou mixte. Si je m’amuse à récolter des données, c’est pour répondre à des questions. Lorsque ces données sont relationnelles, cela suppose que je suis capable de délimiter la population que j’étudie et que je suis capable de définir la ou les relations entre les individus de cette population - je le répète une dernière fois, population et individus sont entendus au sens statistique, ce peut être des villes, des plantes, des personnes, des journaux, etc. etc. Plus les critères utilisés, tant pour délimiter la population que pour définir la ou les relations, sont précis et plus vous serez capable d’interpréter les résultats obtenus. Inversement, récupérer un corpus dont on ne sait pas trop comment il a été construit est un bon moyen de perdre son temps.</p>
+<section id="réseau-complet-vs-réseau-personnel" class="level3" data-number="4.1.1">
+<h3 data-number="4.1.1" class="anchored" data-anchor-id="réseau-complet-vs-réseau-personnel"><span class="header-section-number">4.1.1</span> Réseau complet <em>vs</em> réseau personnel</h3>
+<p>En ce qui concerne le recueil des données, deux grandes approches d’analyse de réseau existent : l’approche par réseau complet et l’approche par réseau personnel (<em>ego-network</em>, <em>personal network</em> <a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>). Dans le premier cas, je délimite une population et je cherche à recueillir un ou plusieurs types de relations existant à l’intérieur de cette population. L’une des difficultés principales consiste à s’assurer de la congruence entre ses questions de recherche et ce que m’apportera une analyse en réseau complet. Il faudra également anticiper les fluctuations possibles dans la composition du groupe.</p>
+<p><strong>Exemple</strong> : je m’intéresse aux relations amicales chez les jeunes enfants et je prends pour terrain d’étude les relations au sein d’une classe de CP. Il n’est pas du tout certain que les données que je récolte soient pertinentes : je suppose plus ou moins implicitement que les enfants nouent leur amitié à l’école et dans leur classe. Il faudra <em>a minima</em> que je pose des questions sur leurs meilleures amies pour vérifier si c’est le cas et dans quelles proportions. Si par contre, je travaille sur les dynamiques de groupe au sein d’une classe, le dispositif est sans doute plus directement utile.</p>
+<p>La collection des données par réseau personnel vise à collecter l’ensemble des liens d’un groupe d’individus choisis pour une raison donnée. Si je reprends l’exemple de la salle de classe, je ne cherche pas à déterminer les relations entre les élèves de cette classe mais les relations que chaque élève (ego) entretient avec ses amies, ses voisines, sa famille, etc (alters). Dans la mesure du possible, je cherche également à déterminer si les relations de l’individu se connaissent entre elles, ce qui est parfois difficile à déterminer. En effet, il est rarement possible d’interroger les egos puis l’ensemble des alters cités. Les liens entre alters sont donc ceux qui sont connus, identifiés par les egos. Ceci n’est pas un problème dans la mesure où ce qui importe est bien la façon dont ego voit son entourage et non les relations “réelles” au sein de ce dernier.</p>
+<p>Avec la démarche par réseau complet, j’obtiens un réseau des relations entre les <span class="math inline">\(V\)</span> individus du groupe étudié ; avec la démarche en réseau personnel, j’obtiens <span class="math inline">\(V\)</span> réseaux personnels en forme d’étoile centrés sur les différents individus enquêtés.</p>
+<p><strong>Exemple</strong> : la sociologue Claire Bidart réalise en 1995 la première vague d’enquête dite du panel de Caen (<span class="citation" data-cites="bidart11">Bidart et al. (<a href="references.html#ref-bidart11" role="doc-biblioref">2011</a>)</span> ; carnet de recherche <a href="https://panelcaen.hypotheses.org/">Panel de Caen</a>). Elle interroge trois groupes d’élèves (terminales SES, bac pro et stage d’insertion) sur leurs relations amicales, amoureuses, professionnelles, associatives, etc. Une distinction est faite entre liens faibles (liens occasionnels ou se déroulant dans un seul contexte) et liens forts (liens existant dans plusieurs contextes ou considérés comme importants par la personne <a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>).</p>
+</section>
+<section id="générer-des-noms-questionnaires-et-entretiens" class="level3" data-number="4.1.2">
+<h3 data-number="4.1.2" class="anchored" data-anchor-id="générer-des-noms-questionnaires-et-entretiens"><span class="header-section-number">4.1.2</span> Générer des noms : questionnaires et entretiens</h3>
+<p>Lorsque l’on souhaite étudier des liens interpersonnels, quatre dispositifs de recueil de données au moins sont possibles :</p>
+<ul>
+<li>l’utilisation de questionnaire ;</li>
+<li>la passation d’entretien ;</li>
+<li>l’examen de traces, numériques ou non, laissées par les personnes ;</li>
+<li>l’observation.</li>
+</ul>
+<p>La première étape, quelle que soit l’option retenue, est d’aller voir ce qui a déjà été fait, non pour le répéter mais pour s’en inspirer. Il n’est évidemment pas utile de tout lire mais piocher dans de vieux articles de sociométrie, des thèses <a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a> récentes et d’autres moins récentes, des carnets de recherche, etc. permet d’avoir une vision large de ce qu’il est possible de faire.</p>
+<p>Il existe de nombreux manuels sur ces questions (chercher “méthodes qualitatives en … en remplaçant … par votre discipline et les références devraient apparaître) et il n’est pas question pour moi ici de les plagier. Il s’agit simplement ici d’attirer l’attention sur des obstacles récurrents et des scrupules tout aussi récurrents <a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a>. En règle générale, il est plus facile de questionner les personnes sur des actions que sur des sentiments ou des concepts abstraits. Nous n’avons pas toutes la même définition de l’amitié, des personnes importantes dans notre vie, etc. Par contre, nous sommes toutes capables de dire si nous appelons cette personne toutes les semaines, si nous la voyons une fois par mois ou plus, si nous partons en vacances ensemble, etc. Poser des questions sur des faits (et pas des faits anciens, nos mémoires sont peu fiables) et sur des actions (récentes elles aussi) est un bon moyen d’obtenir des réponses précises.</p>
+<p>Le conseil est également valable pour les démarches basées sur l’observation. Si j’étudie les interactions entre enfants dans une crèche, j’ai tout intérêt à avoir des items précis décrivant des actions (tire les cheveux, prend un jouet des mains, griffe <a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a>).</p>
+<p><strong>Exemple</strong> : dans l’ouvrage coordonné par <span class="citation" data-cites="gribaudi98">Gribaudi (<a href="references.html#ref-gribaudi98" role="doc-biblioref">1998</a>)</span>, l’annexe 2 reproduit le carnet que doivent remplir pendant deux semaines les personnes enquêtées. Les extraits ci-dessous montrent comment certains problèmes ont été anticipés par l’équipe.</p>
+<ol type="1">
+<li><p><em>À quelle heure a lieu la rencontre que vous enregistrez ?</em> Si vous ne vous rappelez pas de l’heure exacte, donner une indication du moment de la journée. […]</p></li>
+<li><p><em>Identité de la personne ?</em></p></li>
+</ol>
+<ul>
+<li><p>Donnez le prénom exact de la personne et, pour garantir l’anonymat, l’initiale du nom.</p></li>
+<li><p>Si vous ne connaissez pas son nom ou si vous ne vous en souvenez pas, attribuez un code de trois lettres identiques. Attention, ce code devra être unique. Il doit être attribué à une seule personne, et réutilisé dans le cas où cette personne réapparait dans les jours suivants. […]</p></li>
+<li><p>Si, lors des rencontres successives, vous parvenez à connaître le vrai nom, indiquez-le tout en continuant à utiliser son code que vous mettrez maintenant (entre parenthèses).</p></li>
+</ul>
+<p>Ex. : Georges_S (AAA)” […]</p>
+<ol start="10" type="1">
+<li><em>Profession principale</em>. Attribuez la dénomination que vous utiliseriez sans réfléchir.” (<span class="citation" data-cites="gribaudi98">Gribaudi (<a href="references.html#ref-gribaudi98" role="doc-biblioref">1998</a>)</span>, p.&nbsp;328-329).</li>
+</ol>
+<p>La période durant laquelle les personnes enquêtées sont censées remplir le carnet des rencontres est court (15 jours non fériés) ; des questions supplémentaires visent à nommer des personnes “importantes” absentes durant cette période. Les personnes sont censées noter les “rencontres significatives” (annexe 1, p.&nbsp;313-325), terme flou utilisé afin d’éliminer les contacts routiniers liés à la sphère professionnelle (les personnes enquêtées sont professeures du secondaire, ingénieures ou médecins).</p>
+<p>Quelle que soit la méthode retenue, il vous faudra anticiper un certain nombre de problèmes. Il n’est bien sûr pas très pertinent d’imaginer <strong>tous</strong> les obstacles pouvant se dresser entre vous et le recueil de données mais quelques situations se rencontrent fréquemment. La liste qui suit est non exhaustive et une solution possible est systématiquement indiquée. Vous avez défini votre population, que la méthode soit de type réseau complet ou réseau personnel, et vous savez quel type de relation vous souhaitez étudier. Si ce n’est pas le cas, inutile à ce stade de faire passer un entretien ou un questionnaire. Les obstacles les plus classiques que vous risquez de rencontrer sont les suivants :</p>
+<p><strong>1. Absence(s)</strong>. Vous avez choisi de travailler sur un réseau complet (de personnes, d’entreprises, d’animaux, etc.) or il y a des absentes, ce qui pose problème quel que soit le type de méthode choisie. Un moyen de limiter les dégâts est de prévoir des périodes courtes pour récolter les informations. La date de la période de recueil compte également ; éviter le mois de juin pour des données en milieu scolaire par exemple. Mais quelles que soient les précautions prises, il risque d’y avoir des données manquantes et ce n’est pas grave, c’est <strong>toujours</strong> le cas (y compris avec des sources numériques, j’y reviendrai). Si la personne absente s’avère centrale (elle est souvent citée) dans le réseau étudié, il peut être nécessaire de revenir sur le terrain pour la rencontrer.</p>
+<p><strong>2. Instabilité</strong>. Vous avez choisi de travailler sur un réseau complet ou sur des réseaux personnels et votre population, soigneusement définie, ne cesse de varier. Des individus partent, d’autres arrivent, certains fusionnent ou se séparent : la variabilité de l’échantillon fait partie de ses caractéristiques et il serait illusoire de prétendre le contraire. Là encore, une ou plusieurs périodes aussi brèves que possible de recueil des données permet de limiter les variations. Quel que soit le réseau observé, il s’agit d’un système en mouvement, vous parviendrez au mieux, et c’est déjà bien, à capturer de façon un peu précise l’état de la plupart des relations à un temps <span class="math inline">\(t\)</span>.</p>
+<p>Des problèmes apparaîtront ensuite lorsque vous saisirez vos données et heureusement, les problèmes sont l’un des meilleurs moyens pour faire surgir des questions inattendues.</p>
+<p>L’un des problèmes récurrents est la variabilité des réponses. Les réponses obtenues peuvent être décevantes : les enquêtées ont le droit de faire preuve de mauvaise volonté et de répondre à la moitié (au mieux) des questions posées. Ça fait partie du jeu. C’est exactement pareil quand on travaille avec des statistiques au niveau international, il est des États statistiquement plus fiables que d’autres. Les réponses peuvent également présenter des variations très fortes : une personne déclarera avoir 50 amies proches, une autre en déclarera 2 ou 0. Certaines chercheuses limitent ce biais en imposant un nombre maximum de réponses ; il n’est pas certain que cette solution soit totalement satisfaisante dans la mesure où elle empêche de prendre en compte la variabilité inter-individuelle des phénomènes sociaux étudiés.</p>
+</section>
+<section id="générer-des-liens-observer-les-interactions" class="level3" data-number="4.1.3">
+<h3 data-number="4.1.3" class="anchored" data-anchor-id="générer-des-liens-observer-les-interactions"><span class="header-section-number">4.1.3</span> Générer des liens : observer les interactions</h3>
+<p>Le recours à l’observation des interactions peut être motivé par différentes raisons non exclusives les unes des autres. Il est des cas où l’utilisation de l’entretien ou du questionnaire est impossible (animaux, plantes, enfants très jeunes). Il est des terrains où la chercheuse peut considérer que l’observation ou la participation est une méthode moins intrusive et plus éthique que l’entretien (populations marginalisées, se livrant à des activités illégales, activisme politique, etc.). Certaines disciplines ont par ailleurs recours à ces méthodes (anthropologie notamment) quand d’autres ne peuvent les adopter (histoire, archéologie).</p>
+<p><strong>Exemple</strong> : “la plupart des données de cet article proviennent d’observations d’environ une heure par jour effectuées pendant 275 des 459 jours entre le 21 mars 1961 et le 24 juin 1962 et d’observations d’environ six heures par jour effectuées pendant 47 des 48 jours entre le 14 juin et le 31 juillet 1963. […] J’ai chronométré certaines séquences de comportement. J’ai noté chaque événement dans un carnet quelques secondes après l’avoir vu se produire.[…] Chaque fois que j’ai vu un singe de ce groupe s’asseoir ou se coucher en touchant un autre, j’ai identifié les individus et enregistré l’événement.” (<span class="citation" data-cites="sade65">Sade (<a href="references.html#ref-sade65" role="doc-biblioref">1965</a>)</span>, p.&nbsp;2-4).</p>
+<p>L’observation n’est possible qu’avec des groupes restreints dont il est possible de différencier les différents membres. C’est par ailleurs une méthode relativement coûteuse en temps : les périodes d’observation doivent être suffisamment longues pour que l’observatrice puisse distinguer les régularités de l’action observée. Des dispositifs techniques comme les puces RFID sont parfois utilisés pour pallier ces différents inconvénients : le projet <em>SocioPatterns</em> a par exemple voulu étudier les interactions entre participantes à des colloques <a href="#fn7" class="footnote-ref" id="fnref7" role="doc-noteref"><sup>7</sup></a>. Chaque personne est munie d’une puce et un lien est créée lorsque deux personnes se trouvent face à face à moins d’un mètre l’une de l’autre. L’information est alors supposée complète - elle ne l’est pas, des personnes posent leurs puces, la retirent, le dispositif connait des ratés, etc. - mais il peut être difficile de différencier interactions volontaires et interactions fortuites.</p>
+</section>
+<section id="générer-des-réseaux-textuels" class="level3" data-number="4.1.4">
+<h3 data-number="4.1.4" class="anchored" data-anchor-id="générer-des-réseaux-textuels"><span class="header-section-number">4.1.4</span> Générer des réseaux textuels</h3>
+<p>La construction des réseaux lexicométriques (liens entre des mots) obéit presque aux mêmes règles que les réseaux personnels mais nécessitent des outils différents. Ce qui ne change pas, c’est qu’il faut commencer par définir sa population de sommets et définir ce qu’est une relation entre ces sommets. Une étape préalable supplémentaire consiste à définir un corpus de textes. Et travailler sur des corpus de textes n’est pas plus facile ni plus difficile que travailler sur des données d’enquêtes.</p>
+<p>J’ai défini mon corpus de textes (un ensemble de romans, d’articles ,de chansons, de tweets, etc., etc.). J’ai défini les termes qui correspondent à mes sommets : cela suppose d’adopter des règles de lemmatisation <a href="#fn8" class="footnote-ref" id="fnref8" role="doc-noteref"><sup>8</sup></a> claires. Est-ce que singulier et pluriel sont équivalents (la politique et les politiques par exemple) ? Est-ce que les formes nominales et adjectives sont équivalentes ? L’une des difficultés consiste à identifier les multiples formes lexicales qu’un même sommet peut prendre. Si le corpus est volumineux, suis-je capable de mettre en œuvre des méthodes semi-automatiques efficaces ?</p>
+<p><strong>Exemple</strong> : je m’intéresse à la place des pays de l’Union européenne (plus le Royaume-Uni) dans les quotidiens français. J’ai un certain nombre d’hypothèses (prime aux voisins et aux puissances économiques, indifférence vis-à-vis des pays scandinaves et baltiques). Je m’intéresse notamment aux pays cités ensemble dans un titre. Je constitue mon corpus de titres et, à l’aide d’une collègue, nous mettons au point un outil qui capture les titres des articles classés “Actualités internationales <a href="#fn9" class="footnote-ref" id="fnref9" role="doc-noteref"><sup>9</sup></a>”.</p>
+<p>J’ai mon corpus (liste de quotidiens d’information français avec une date de début et une date de fin), mes sommets (États membres de l’UE en 2022 plus le Royaume-Uni) et mes liens (coprésence d’États dans un titre de quotidien).</p>
+<p>Le 26 juillet 2022, nous capturons les titres suivants sur lefigaro.fr <a href="#fn10" class="footnote-ref" id="fnref10" role="doc-noteref"><sup>10</sup></a> : “Berlin prépare sa stratégie de sécurité nationale”, “Pays Baltes: la ruée vers l’ouest” ou encore “Démission de Draghi : Macron salue un grand homme d’État italien et un partenaire de confiance”. Ces trois exemples, pas du tout sélectionnés au hasard, montrent que le dictionnaire des homonymes qu’il va falloir construire devra inclure les capitales (Berlin = Allemagne), les chefs d’’Etats (présidentes, premières ministres), les adjectifs et qu’il faudra également créer des règles <em>ad hoc</em> (noter 1/3 pour chacun des pays baltes ? est-ce que l’expression pays baltes justifie la création d’un lien entre les trois pays ?).</p>
+</section>
+<section id="des-données-numériques-au-réseau" class="level3" data-number="4.1.5">
+<h3 data-number="4.1.5" class="anchored" data-anchor-id="des-données-numériques-au-réseau"><span class="header-section-number">4.1.5</span> Des données numériques au réseau</h3>
+<p>Les données nativement numériques sont des données textuelles un peu particulières dans la mesure où leur production est en grande partie liée au fonctionnement des plateformes numériques étudiées et qu’elle est généralement continue <a href="#fn11" class="footnote-ref" id="fnref11" role="doc-noteref"><sup>11</sup></a> ; leur volume peut donc rapidement devenir important. Mais il est tout à fait possible de mener des analyses mixtes sur de petits corpus de données numériques.</p>
+<p><strong>Exemple</strong> : dans son article, <span class="citation" data-cites="arfaoui21">Arfaoui (<a href="references.html#ref-arfaoui21" role="doc-biblioref">2021</a>)</span> collecte les données de 262 comptes de sociologues présentes sur Twitter et retient les 11 278 liens entre ces comptes (méthode en réseau complet). Ces liens sont orientés. Il récolte des attributs sur les personnes (rang, statut, genre), ajoute un attribut taille à chaque sommet correspondant au nombre d’abonnées total sur Twitter et caractérise qualitativement sa population en étudiant notamment le ratio nombre d’abonnements / nombre d’abonnées. Si l’article porte sur la présence de comptes de sociologues sur un réseau social numérique, la partie analyse de réseau <em>stricto sensu</em> est réduite et consiste essentiellement en une visualisation du réseau obtenu <a href="#fn12" class="footnote-ref" id="fnref12" role="doc-noteref"><sup>12</sup></a>.</p>
+<p>Il est amusant de comparer les scrupules des personnes travaillant avec des données historiques et l’absence totale de scrupules de certaines personnes travaillant avec des données numériques qui sont sensées être fines, exhaustives, actualisées en temps réel et donc capables de générer des portraits supposés fidèles d’un aspect du monde social. Les données numériques sont certes généralement horodatées et volumineuses mais elles servent à renseigner une activité sur un outil. Si j’étudie des liens d’amitié sur Facebook, les amitiés que j’observe sont les amitiés Facebook et non un reflet numérique des amitiés des personnes ayant un (ou plusieurs) comptes Facebook. Les réseaux sociaux numériques ajoutent des couches qu’il peut être passionnant d’étudier au monde social, elles ne contribuent absolument pas à le rendre plus transparent ou plus facilement compréhensible.</p>
+<p>Si les données historiques sont quasi systématiquement parcellaires, les données nativement numériques sont rarement exhaustives dans la pratique de la recherche : les outils de capture connaissent des ratés, les utilisatrices utilisent un VPN perturbant leur identification, la même personne utilise différents comptes sur un même réseau social numérique etc. etc. Si les personnes travaillant sur ces données emploient sans cesse le terme (impropre) de “nettoyage” des données, ce n’est pas un hasard. Les données nativement numériques nécessitent, comme toutes les données, d’être construites pour répondre aux questions de recherche.</p>
+</section>
+<section id="des-infrastructures-au-réseau" class="level3" data-number="4.1.6">
+<h3 data-number="4.1.6" class="anchored" data-anchor-id="des-infrastructures-au-réseau"><span class="header-section-number">4.1.6</span> Des infrastructures au réseau</h3>
+<p><em>A priori</em>, l’existence dans le monde social d’un réseau routier ou ferré ne se questionne pas. Les questions pourtant apparaissent lorsqu’il s’agit de modéliser ce réseau sous forme de graphe. Des règles précises doivent être construites pour définir l’emprise spatiale du réseau considéré (quelles limites choisir ?), les sommets (quels types d’intersection ?) et les liens (prendre seulement les axes principaux et si oui comment les définir ?).</p>
+<p><strong>Exemple</strong> : dans son article, le géographe étatsunien William <span class="citation" data-cites="muraco72">Muraco (<a href="references.html#ref-muraco72" role="doc-biblioref">1972</a>)</span> cherche à comparer l’accessibilité intra-urbaine dans deux villes. Il se base sur un “plan de transport et d’aménagement du territoire d’Indianapolis”, plan qui catégorise les voies en “autoroutes, voies rapides, artères primaires, artères secondaires, collecteurs et dessertes locales.” Il ne garde que les quatre premières catégories en justifiant ainsi sa sélection : “cette étude porte principalement sur les sites industriels et commerciaux, les artères principales sont supposées refléter les liens pertinents du réseau de transport.”</p>
+<p>Lorsqu’on étudie des réseaux de transport où seuls les sommets sont localisés (port, aéroports, antennes de téléphonie mobile), les règles sont les mêmes : définir les sommets, les liens et les limites du réseau étudié.</p>
+<p><strong>Exemple</strong> : dans un article, Nadine <span class="citation" data-cites="cattan90">Cattan (<a href="references.html#ref-cattan90" role="doc-biblioref">1990</a>)</span> s’intéresse au réseau des villes européennes en étudiant deux types de relations aériennes, le transport de personnes et celui de marchandises. Deux types de distance sont considérées : la distance à vol d’oiseau et la distance temps (temps de vol + temps d’attente + temps pour relier les centres-villes aux aéroports). Les villes (sommets) sont sélectionnées en fonction de la population (plus de 200 000 habitant.e.s), les liens sont les “échanges réguliers, internationaux” fournis par l’Organisation de l’Aviation Civile Internationale.</p>
+<p>Qu’elles soient personnelles, textuelles, nativement numériques ou relatives à des infrastructures, <strong>les données relationnelles supposent toujours la construction d’une population de sommets et la définition de ce que signifie un lien entre ces sommets</strong>. Les choix effectués sont en partie fonction des données disponibles mais ils dépendent surtout des questions que vous vous posez. Une fois les données collectées, elles peuvent être présentées sous trois formats différents.</p>
+</section>
+</section>
+<section id="trois-formats-pour-un-même-objet-liste-matrice-et-graphique" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="trois-formats-pour-un-même-objet-liste-matrice-et-graphique"><span class="header-section-number">4.2</span> Trois formats pour un même objet : liste, matrice et graphique</h2>
+<p>Vous avez récolté vos données, géré au mieux les lacunes et les approximations, vous avez régulièrement dû faire des choix et vous les avez documentés aussi précisément que possible sinon vous allez vite les oublier et vos données perdront beaucoup de leur intérêt, reste maintenant à les mettre en forme afin qu’elles puissent être lues et analysées par un logiciel.</p>
+<p>Il existe trois formats courants pour représenter un réseau :</p>
+<ul>
+<li>la liste de liens (<em>edgelist</em>) et, éventuellement, la liste de sommets (<em>nodelist</em>) ;</li>
+<li>la matrice dite d’adjacence (<em>adjacency matrix</em>) ;</li>
+<li>la représentation graphique.</li>
+</ul>
+<hr>
+<p><em>À l’intention des formatrices</em></p>
+<p>Ce petit guide pratique tente d’être aussi peu directif que possible et vise à présenter différentes options possibles en soulignant à chaque fois les avantages et les inconvénients. Les paragraphes qui suivent sont un peu plus normatifs que les précédents pour une raison pratique : si l’on souhaite faire de l’analyse de réseau, on a besoin de logiciels et ces logiciels attendent des formats de données précis.</p>
+<p>Un bon moyen d’attirer l’attention sur l’importance de correctement mettre en forme ses données est de fournir des mini jeux de données plus ou moins corrompus et de faire identifier les problèmes (séparateurs multiples, encodage exotique et caractères spéciaux, nombre de colonnes variable et présence de noms de colonnes tout aussi variable, répétition des informations, etc.). Il ne s’agit pas de former des spécialistes des bases de données relationnelles mais de donner les outils nécessaires pour que les participantes prennent un minimum de bonnes habitudes afin de gagner du temps, d’être plus efficaces et, avec un peu de chance, qu’elles puissent ensuite s’inscrire dans des démarches de science ouverte.</p>
+<hr>
+<p>Reprenons les réseaux d’exemple du chapitre 3 (figure <a href="#fig-chap41"><span>4.1</span></a>). Dans le premier réseau, la liste de liens correspondante est la suivante : <span class="math inline">\(\{ab, bc, bd, be, ce, de, ef, fg\}\)</span>. Dans la mesure où le réseau est non orienté, il n’est pas nécessaire de préciser systématiquement le lien opposé (<span class="math inline">\(ba, cb\)</span> etc.). À droite par contre, le réseau étant orienté, tous les liens doivent être indiqués et on obtient la liste <span class="math inline">\(\{ab, ba, bd, db, be, cb, ec, fe, fg\}\)</span>.</p>
+<p>Il est rare que l’on liste les liens en ligne comme cela est fait dans le paragraphe précédent : contrôler les données serait pénible et ajouter des attributs aux liens serait compliqué. La liste de liens aura une forme de type sommet de départ - séparateur - sommet d’arrivée - séparateur - attribut numéro 1 - séparateur - attribut numéro 2, etc. Ce qui donne avec les deux exemples vus à l’instant les listes de liens suivantes :</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th style="text-align: center;">Réseau non orienté</th>
+<th style="text-align: center;">Réseau orienté</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(a\)</span>,<span class="math inline">\(b\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(a\)</span>,<span class="math inline">\(b\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(b\)</span>,<span class="math inline">\(c\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(b\)</span>,<span class="math inline">\(a\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(b\)</span>,<span class="math inline">\(d\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(b\)</span>,<span class="math inline">\(d\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(b\)</span>,<span class="math inline">\(e\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(d\)</span>,<span class="math inline">\(b\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(c\)</span>,<span class="math inline">\(e\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(b\)</span>,<span class="math inline">\(e\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(d\)</span>,<span class="math inline">\(e\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(c\)</span>,<span class="math inline">\(b\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(e\)</span>,<span class="math inline">\(f\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(e\)</span>,<span class="math inline">\(c\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(f\)</span>,<span class="math inline">\(g\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(f\)</span>,<span class="math inline">\(e\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"><span class="math inline">\(f\)</span>,<span class="math inline">\(g\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>Le séparateur ici est une virgule mais j’aurais pu choisir un point-virgule ou une tabulation, la seule règle est de conserver le même séparateur tout au long de la liste de liens. Si mes liens ont des attributs, une intensité dans le cas d’un réseau valué par exemple, il suffit d’ajouter une colonne ; si mes liens ont <span class="math inline">\(x\)</span> attributs (date de début et de fin, nature du lien, etc.), j’ajoute <span class="math inline">\(x\)</span> colonnes.</p>
+<div id="fig-chap41" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="images/figure1a.png" class="img-fluid figure-img" style="width:80.0%"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;4.1: Graphe, liste de liens, matrice d’adjacence (non orienté)</figcaption><p></p>
+</figure>
+</div>
+<p><span class="math inline">\(\{ab, bc, bd, be, ce, de, ef, fg\}\)</span></p>
+<p><span class="math inline">\(\begin{matrix} &amp; a &amp; b &amp; c &amp; d &amp; e &amp; f &amp; g \\ \hline |a|&amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\ |b|&amp; 1 &amp; 0 &amp; 1 &amp; 1 &amp; 1 &amp; 0 &amp; 0 \\ |c|&amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 \\ |d|&amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 \\ |e|&amp; 0 &amp; 1 &amp; 1 &amp; 1 &amp; 0 &amp; 1 &amp; 0 \\ |f|&amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 1 \\ |g|&amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 \end{matrix}\)</span></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/figure1b.png" class="img-fluid figure-img" style="width:80.0%"></p>
+<p></p><figcaption class="figure-caption">Graphe, liste de liens, matrice d'adjacence (orienté)</figcaption><p></p>
+</figure>
+</div>
+<p><span class="math inline">\(\{ab, ba, bd, db, be, cb, ec, fe, fg\}\)</span></p>
+<p><span class="math inline">\(\begin{matrix} &amp; a &amp; b &amp; c &amp; d &amp; e &amp; f &amp; g \\ \hline a&amp;| 0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\ b&amp;| 1 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 \\ c&amp;| 0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\ d&amp;| 0 &amp; 1 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 \\ e&amp;| 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\ f&amp;| 0 &amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 1 \\ g&amp;| 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \end{matrix}\)</span></p>
+<p><em>Chacune de ces représentations contient exactement la même information mais leur utilité est différente.</em></p>
+<p>La matrice d’adjacence d’un réseau unimodal simple de <span class="math inline">\(V\)</span> sommets est une matrice carrée de taille <span class="math inline">\(V \times V\)</span> ; la présence d’un lien est signalée par un 1, l’absence de liens par un 0. Par convention, dans le cas d’un réseau orienté, l’origine est en ligne et la destination en colonne. Il n’y a pas de boucle dans un réseau simple donc la diagonale principale est vide. Si le réseau est non orienté, la matrice est symétrique par rapport à la diagonale principale.</p>
+<p>La matrice d’adjacence peut prendre en charge les pseudographes (présence de boucles) : la diagonale ne sera alors pas nécessairement vide. Elle peut également prendre en charge les réseaux valués : on remplit les cases avec une valeur numérique correspondant à l’intensité de la relation. Par contre, dans le cas de réseaux multiplexes (présence de plusieurs relations entre les sommets), chaque relation nécessite sa propre matrice. Enfin, lorsqu’on a affaire à un réseau bimodal avec deux ensembles <span class="math inline">\(V_1\)</span> et <span class="math inline">\(V_2\)</span> de sommets, la matrice d’adjacence correspondante est de taille <span class="math inline">\(V_1 \times V_2\)</span>.</p>
+<p>Quant à la représentation graphique, ici sous la forme très majoritairement utilisée nœuds-liens, elle est utile tant en phase exploratoire que pour présenter ses résultats (chapitre <a href="Cvisualiser.html"><span>12</span></a>).</p>
+<p>Liste de liens, matrice et représentation graphique fournissent les mêmes informations mais ces objets ont des utilités différentes. La liste de liens est le moyen le plus simple pour organiser et stocker ses données ; c’est également le format privilégié par les logiciels d’analyse de réseau (chapitre <a href="Clogiciels.html"><span>13</span></a>). Si l’on souhaite ajouter des attributs aux liens, il suffit d’ajouter une colonne. Si l’on souhaite ajouter des attributs aux sommets, on crée la table des sommets et on ajoute une colonne. Ce format est aussi le plus économique pour stocker ses données <a href="#fn13" class="footnote-ref" id="fnref13" role="doc-noteref"><sup>13</sup></a>.</p>
+<p>Le format matriciel peut être utilisé pour visualiser les données (chapitre<a href="Cvisualiser.html"><span>12</span></a>), il sert également à calculer un certain nombre d’indicateurs courants en analyse de réseau. Par contre, l’objet est encombrant : les matrices données en exemple contiennent un grand nombre de zéros et, si le réseau est non orienté, elle présente deux fois la même observation. Enfin, la forme graphique est utile tant pour explorer ses données que pour communiquer ses résultats ; elle ne permet évidemment pas d’automatiser le moindre calcul.</p>
+<p>Petite astuce pratique : si le réseau comprend des sommets isolés, la liste de liens ne suffit pas. Deux options existent alors : créer la liste de sommets correspondants ; créer une boucle fictive du sommet isolé vers lui-même et la supprimer une fois les données importées dans le logiciel <a href="#fn14" class="footnote-ref" id="fnref14" role="doc-noteref"><sup>14</sup></a>. Dans la pratique, il est rare que l’on ait des sommets sans attribut et on a généralement une liste de liens d’une part, une liste de sommets d’autre part (figure <a href="#fig-chap42"><span>4.2</span></a>).</p>
+<div id="fig-chap42" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="images/chap42.png" class="img-fluid figure-img" style="width:45.0%"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;4.2: Isolés et listes</figcaption><p></p>
+</figure>
+</div>
+<p>Liste des sommets (nom, attribut)</p>
+<ul>
+<li><span class="math inline">\(a\)</span>, noir</li>
+<li><span class="math inline">\(b\)</span>, noir</li>
+<li><span class="math inline">\(c\)</span>, gris</li>
+<li><span class="math inline">\(d\)</span>, blanc</li>
+</ul>
+<p>Liste des liens (sommet1, sommet2, intensité)</p>
+<ul>
+<li><span class="math inline">\(a\)</span>,<span class="math inline">\(b\)</span>,1</li>
+<li><span class="math inline">\(a\)</span>,<span class="math inline">\(c\)</span>,2</li>
+<li><span class="math inline">\(b\)</span>,<span class="math inline">\(c\)</span>,3</li>
+</ul>
+<p><em>Le réseau simple, valué et non orienté présente un sommet isolé. Les sommets ont un attribut, les liens également. Les deux listes (sommets et liens) correspondent au réseau représenté. Là encore, le séparateur utilisé est la virgule.</em></p>
+</section>
+<section id="documenter-enrichir-partager" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="documenter-enrichir-partager"><span class="header-section-number">4.3</span> Documenter, enrichir, partager</h2>
+<p>Vous avez maintenant tout ce qu’il vous faut pour mener à bien une analyse de réseau : une liste de sommets et des attributs, une liste de liens et des attributs éventuels. En fonction de vos habitudes de travail, vous stockez ces listes dans deux feuilles d’un classeur LibreOffice ou Excel ou vous créez un fichier texte par liste. Le format .csv a ma préférence car il est lisible à la fois par les tableurs et par les éditeurs de texte type Notepad++ ; ce dernier outil est pratique notamment quand on doit gérer des caractères spéciaux et qu’on souhaite contrôler l’encodage utilisé. Par contre, il oblige à stocker dans des fichier différents les liens, les sommets et le troisième fichier indispensable, à savoir les métadonnées.</p>
+<p>Ce dernier fichier documente votre jeu de données, il précise quand et comment vous l’avez construit, quelles sont les règles utilisées pour définir sommets et liens, quels individus ont éventuellement été supprimés, quels sont les attributs et leurs modalités, etc. etc.</p>
+<p>Ce dernier fichier doit être aussi détaillé et précis que possible. Ok, c’est long et pénible mais prendre le temps et l’énergie de le faire correctement vous fera gagner un temps fou ensuite ; c’est à peu près le seul moyen permettant de construire un jeu de données et de l’analyser six mois ou deux ans après. Ce qui nous paraît évident quand on construit des données cesse de l’être quelques semaines plus tard et, sans métadonnées précises, on est le plus souvent obligé de reconstruire tout son jeu de données de A à Z. Ce qui est encore plus long et plus pénible.</p>
+<p>Comment savoir si vos métadonnées sont assez détaillées ? Imaginez que vous devez à l’issue de votre travail mettre vos données en accès ouvert afin qu’elles puissent être réutilisées de façon pertinente, ce qui est par ailleurs de plus en plus souvent exigé par les financeurs de la recherche <a href="#fn15" class="footnote-ref" id="fnref15" role="doc-noteref"><sup>15</sup></a>. En dehors des contraintes croissantes en vigueur dans nos milieux professionnels, se poser la question de l’ouverture des données dès leur construction oblige à documenter soigneusement l’ensemble des choix effectués (est-ce que je supprime certains sommets ? est-ce que je néglige certains liens ? si oui, pourquoi et comment est-ce que j’opère la sélection ?) et l’interprétation que vous ferez ensuite des résultats n’en sera que meilleure.</p>
+<p>Dernier point avant de voir comment analyser ces données relationnelles : il n’existe aucun lien entre le volume des données et la qualité des analyses possibles. On peut produire des connaissances passionnantes avec des données relatives à une douzaine de familles londoniennes (<span class="citation" data-cites="bott71">Bott (<a href="references.html#ref-bott71" role="doc-biblioref">1971</a>)</span>) ; on peut produire des résultats triviaux avec d’énormes volumes de données. L’inverse est tout aussi vrai : je peux réaliser des analyses médiocres sur de petits corpus et des analyses passionnantes sur de gros corpus. Il est vrai cependant que toutes les méthodes ne sont pas adaptées pour toutes les tailles de corpus mais ceci sera systématiquement signalé dans les chapitres qui suivent.</p>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" data-line-spacing="2" role="doc-bibliography" style="display: none">
+<div id="ref-arfaoui21" class="csl-entry" role="doc-biblioentry">
+Arfaoui, M. (2021). <span class="nocase">Du laboratoire à la plateforme. Enquête sur le Twitter des sociologues en France</span>. <em>Tracés</em>. <a href="https://journals.openedition.org/traces/13263">https://journals.openedition.org/traces/13263</a>
+</div>
+<div id="ref-bidart11" class="csl-entry" role="doc-biblioentry">
+Bidart, C., Degenne, A. and Grossetti, M. (2011). <em><span class="nocase">La vie en réseau. Dynamique des relations sociales</span></em>. PUF.
+</div>
+<div id="ref-bott71" class="csl-entry" role="doc-biblioentry">
+Bott, E. (1971). <em>Family and social network</em>. Tavistock.
+</div>
+<div id="ref-cattan90" class="csl-entry" role="doc-biblioentry">
+Cattan, N. (1990). <span class="nocase">Une image du réseau des métropoles européennes par le trafic aérien</span>. <em><span>L’Espace Géographique</span></em>. <a href="https://www.persee.fr/doc/spgeo_0046-2497_1990_num_19_2_2957">https://www.persee.fr/doc/spgeo_0046-2497_1990_num_19_2_2957</a>
+</div>
+<div id="ref-gribaudi98" class="csl-entry" role="doc-biblioentry">
+Gribaudi, M. (1998). <em><span class="nocase">Espaces, temporalités, stratifications</span></em>. <span>Editions de l’EHESS</span>.
+</div>
+<div id="ref-hennig12" class="csl-entry" role="doc-biblioentry">
+Hennig, M., Brandes, U., Pfeffer, J. and Mergel, I. (2012). <em>Studying social networks</em>. Campus Verlag.
+</div>
+<div id="ref-muraco72" class="csl-entry" role="doc-biblioentry">
+Muraco, W. A. (1972). Intraurban accessibility. <em>Economic Geography</em>. <a href="https://www.jstor.org/stable/pdf/142890.pdf">https://www.jstor.org/stable/pdf/142890.pdf</a>
+</div>
+<div id="ref-sade65" class="csl-entry" role="doc-biblioentry">
+Sade, D. S. (1965). Some aspects of parent‐offspring and sibling relations in a group of rhesus monkeys. <em>American Journal of Physical Anthropology</em>. <a href="https://onlinelibrary.wiley.com/doi/pdf/10.1002/ajpa.1330230115">https://onlinelibrary.wiley.com/doi/pdf/10.1002/ajpa.1330230115</a>
+</div>
+</div>
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>Les données ne sont pas “sales” au départ et “propres” à l’arrivée : les données initiales présentent un certain nombre de caractéristiques qui peuvent être intéressantes à analyser, les données que vous avez transformées de telle ou telle façon permettent de mieux répondre à vos questions de recherche. Oui, ceci est l’hypothèse optimiste.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p><span class="citation" data-cites="hennig12">Hennig et al. (<a href="references.html#ref-hennig12" role="doc-biblioref">2012</a>)</span> distinguent dans leur manuel les réseaux personnels (ego et ses alters) et les réseaux égocentrés (liens entre ego et alters et entre alters) (p.&nbsp;54). Les autres manuels consultés, et ce guide pratique, ne font pas cette distinction.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>Pour les définitions précises du lien fort dans cette enquête, voir la <a href="https://panelcaen.hypotheses.org/methodologie">page méthodologie</a> du carnet de recherche.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4"><p>Les précisions méthodologiques sont souvent omises, par manque de place, dans les articles ou dans les ouvrages tirés des thèses ; regarder les annexes de ces dernières est plus efficace.<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn5"><p>Un grand merci à mes collègues historiennes avec lesquelles j’ai souvent échangé sur le problème des données manquantes.<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn6"><p>Oui, je sais, j’ai une vision sombre de la petite enfance.<a href="#fnref6" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn7"><p>Voir le site <a href="http://www.sociopatterns.org/">http://www.sociopatterns.org/s</a>. Le jeu de données évoqué ici est le <a href="http://www.sociopatterns.org/datasets/sfhh-conference-data-set/"><em>SFHH conference data set</em></a>.<a href="#fnref7" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn8"><p>Il s’agit de regrouper les différentes formes pouvant être prises par un mot.<a href="#fnref8" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn9"><p>Ce qui n’est pas une tâche si facile qu’elle en a l’air.<a href="#fnref9" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn10"><p>Je le précise pour mes jeunes lectrices : avant de devenir un média réactionnaire spécialisé dans les paniques morales absurdes, ce fut un excellent quotidien d’information (cf notamment les articles de Patrick de Saint-Exupéry sur le Rwanda en 1994).<a href="#fnref10" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn11"><p>Que je sois active ou non sur le réseau étudié, le simple fait de me connecter à la plateforme génère des logs (<em>a minima</em> identifiant, date de début, date de fin, adresse IP).<a href="#fnref11" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn12"><p>La visualisation en question fait partie de la famille très très nombreuse des “grosse patates avec des couleurs”, j’y reviendrai au chapitre <a href="Cvisualiser.html"><span>12</span></a>.}<a href="#fnref12" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn13"><p>Ce n’est pas tout à fait vrai : on pourrait stocker ses données sous une forme plus compacte avec une seule ligne par individu où seraient listés ses voisins (donc les liens) et ses attributs. Ce format est peu employé en pratique.<a href="#fnref13" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn14"><p>J’utilise parfois cette astuce en phase exploratoire, quand je souhaite jeter un œil aux données que je suis en train de construire.<a href="#fnref14" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn15"><p>Il est possible de tenir des discours euphoriques sur l’ouverture des données ; on peut aussi considérer que cela revient à faire un cadeau supplémentaire au secteur privé sans la moindre contrepartie.<a href="#fnref15" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./Cvocabulaire.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Graphe et réseau : principes et vocabulaire de base</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./Cmesures.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Quelques mesures possibles</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>

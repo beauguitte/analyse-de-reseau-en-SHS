@@ -1,0 +1,7 @@
+# Conclusion {.unnumbered}
+
+J'espère que vous avez appris quelques bricoles utiles. J'espère aussi que le caractère inachevé de certains chapitres ne vous a pas trop déçu. J'espère enfin que ce texte ne contient pas trop d'erreurs ou de coquilles - il en contient un peu moins que la  version disponible sur HAL depuis début avril 2023...
+
+Je l'ai écrit dans l'avant-propos et je l'écris à nouveau ici : n'hésitez surtout pas à me faire part de vos retours sur ce petit guide pratique [^cconclusion-1]. Que vous soyez débutante ou praticienne, que vous ayez suivi ou animé des formations d'analyse de réseau, vos avis m'intéressent.
+
+[^cconclusion-1]: Les personnes scandalisées que je crache sur les éditeurs privés et que je fasse de la pub pour sci-hub et lib-gen peuvent s'abstenir. Merci. Bisous.

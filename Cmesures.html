@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.1.189">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>L’analyse de réseau en sciences sociales. Petit guide pratique - 5&nbsp; Quelques mesures possibles</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./Cpartitions.html" rel="next">
+<link href="./Cdonnees.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Quelques mesures possibles</span></h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">L’analyse de réseau en sciences sociales. Petit guide pratique</a> 
+    </div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">Remerciements plus des bricoles</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./intro.html" class="sidebar-item-text sidebar-link">Ce qu’est ce guide et ce qu’il n’est pas</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Cpourquoifaire.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Pourquoi faire de l’analyse de réseau ?</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Chistoires.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Histoires &amp; disciplines</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Cvocabulaire.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Graphe et réseau : principes et vocabulaire de base</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Cdonnees.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Construire ses données</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Cmesures.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Quelques mesures possibles</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Cpartitions.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Simplifier, partitionner</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Cbiparti.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Analyser des réseaux bimodaux</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Cmultiplexe.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Analyser des réseaux multiplexes</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Cdynamique.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Analyser la dynamique des réseaux</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Cegoreseau.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Analyser des réseaux personnels</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Cmodeles.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Modèles graphiques, modèles statistiques</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Cvisualiser.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Visualiser les données relationnelles</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Clogiciels.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Choisir un ou plusieurs logiciels</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Cupdate.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Se (re)mettre à jour</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Cconclusion.html" class="sidebar-item-text sidebar-link">Conclusion</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Aequation.html" class="sidebar-item-text sidebar-link">Annexe - Notations mathématiques et calcul matriciel</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">Références</a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Sommaire</h2>
+   
+  <ul>
+  <li><a href="#connexité-densité-diamètre" id="toc-connexité-densité-diamètre" class="nav-link active" data-scroll-target="#connexité-densité-diamètre"><span class="toc-section-number">5.1</span>  Connexité, densité, diamètre</a>
+  <ul class="collapse">
+  <li><a href="#densité" id="toc-densité" class="nav-link" data-scroll-target="#densité"><span class="toc-section-number">5.1.1</span>  Densité</a></li>
+  <li><a href="#diamètre-et-longueur-moyenne" id="toc-diamètre-et-longueur-moyenne" class="nav-link" data-scroll-target="#diamètre-et-longueur-moyenne"><span class="toc-section-number">5.1.2</span>  Diamètre et longueur moyenne</a></li>
+  </ul></li>
+  <li><a href="#mesures-de-centralité" id="toc-mesures-de-centralité" class="nav-link" data-scroll-target="#mesures-de-centralité"><span class="toc-section-number">5.2</span>  Mesures de centralité</a>
+  <ul class="collapse">
+  <li><a href="#degré" id="toc-degré" class="nav-link" data-scroll-target="#degré"><span class="toc-section-number">5.2.1</span>  Degré</a></li>
+  <li><a href="#degré-et-voisinage" id="toc-degré-et-voisinage" class="nav-link" data-scroll-target="#degré-et-voisinage"><span class="toc-section-number">5.2.2</span>  Degré et voisinage</a></li>
+  <li><a href="#intermédiarité" id="toc-intermédiarité" class="nav-link" data-scroll-target="#intermédiarité"><span class="toc-section-number">5.2.3</span>  Intermédiarité</a></li>
+  <li><a href="#nombre-associé" id="toc-nombre-associé" class="nav-link" data-scroll-target="#nombre-associé"><span class="toc-section-number">5.2.4</span>  Nombre associé</a></li>
+  <li><a href="#proximité" id="toc-proximité" class="nav-link" data-scroll-target="#proximité"><span class="toc-section-number">5.2.5</span>  Proximité</a></li>
+  </ul></li>
+  <li><a href="#dyades-triades-et-motifs" id="toc-dyades-triades-et-motifs" class="nav-link" data-scroll-target="#dyades-triades-et-motifs"><span class="toc-section-number">5.3</span>  Dyades, triades et motifs</a>
+  <ul class="collapse">
+  <li><a href="#triades-et-transitivité" id="toc-triades-et-transitivité" class="nav-link" data-scroll-target="#triades-et-transitivité"><span class="toc-section-number">5.3.1</span>  Triades et transitivité</a></li>
+  </ul></li>
+  <li><a href="#sec-Srandometc" id="toc-sec-Srandometc" class="nav-link" data-scroll-target="#sec-Srandometc"><span class="toc-section-number">5.4</span>  Des mesures aux modèles</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span id="sec-Cmesures" class="quarto-section-identifier d-none d-lg-block"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Quelques mesures possibles</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    
+  </div>
+  
+
+</header>
+
+<p>Ce chapitre pourrait être deux, trois voire dix fois plus long sans trop de problèmes : il existe de nombreuses mesures couramment utilisées en analyse de réseau. J’ai choisi d’en présenter une poignée en insistant à chaque fois sur ce que ces mesures permettent et sur ce qu’elles ne permettent pas. L’adaptation de ces mesures pour les réseaux valués et les réseaux planaires est systématiquement indiquée. Par contre, les mesures des réseaux bimodaux et multiplexes sont évoquées dans des chapitres indépendants. L’aspect mathématique a été réduit au minimum mais quelques formules sont cependant présentes ; les détails mathématiques se trouvent dans l’annexe.</p>
+<p>Dans les synthèses du groupe fmr (flux, matrices, réseaux) rédigées il y a presque dix ans avec des collègues géographes <a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>, nous distinguions les mesures locales, portant sur un sommet et plus rarement sur un lien, et les mesures globales portant sur le réseau dans son ensemble. Cette distinction commode, généralement absente des manuels d’analyse de réseau <a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>, n’est pas reprise ici : si les premières mesures présentées (densité, diamètre) peuvent être considérées comme globales, celles qui suivent, notamment le degré, sont utiles tant pour hiérarchiser les sommets que pour caractériser le réseau dans son ensemble (distribution des degrés).</p>
+<p>Deux rappels basiques avant de commencer cette courte exploration :</p>
+<ul>
+<li>si je choisis de mesurer quelque chose, c’est pour répondre à une question et non parce que l’indicateur est disponible dans le menu déroulant d’un logiciel. Si je ne comprends pas ce que je mesure, je ne saurai pas interpréter les résultats. Cela est encore pire s’il existe des paramètres que je peux modifier (voir <em>infra</em> les différentes centralités de vecteur propre) ;</li>
+<li>il n’existe pas d’indicateur adapté à tous les types de données et à toutes les questions que l’on se pose. Mesurer l’intermédiarité est très courant mais réfléchir à son interprétation sur certains types de réseaux est peut-être utile.</li>
+</ul>
+<p>J’insiste : mesurer tout ce qui est possible grâce à un logiciel donné puis chercher à comprendre les résultats est un très bon moyen pour 1. perdre son temps, 2. perdre son énergie et 3. commenter de manière impressionniste des résultats que l’on ne comprend pas très bien. Et, au pire, raconter ensuite n’importe quoi…</p>
+<section id="connexité-densité-diamètre" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="connexité-densité-diamètre"><span class="header-section-number">5.1</span> Connexité, densité, diamètre</h2>
+<p>Dans les chapitres précédents, nous avons déjà rencontré un certain nombre d’indicateurs permettant de caractériser un réseau : l’ordre (nombre de sommets, <em>order</em>), la taille (nombre de liens, <em>size</em>), le nombre de composantes connexes (<em>components</em>), le nombre de sommets isolés (<em>isolates</em>), la présence éventuelle de points d’articulation (<em>cut-points</em>, <em>cut-vertices</em>, <em>articulation points</em>) et d’isthmes (<em>bridges</em>). Il est toujours utile de rappeler ces mesures de base dans la mesure où de nombreux indicateurs sont sensibles à ces caractéristiques.</p>
+<p>Si le réseau étudié n’est pas connexe, mesurer la proportion de sommets et de liens présents dans les différentes composantes est utile : la grande majorité des réseaux non connexes issus de données empiriques comporte une composante principale comprenant la grande majorité des sommets et des liens, on parle souvent de composante géante (<em>giant component</em>). Si votre réseau présente une configuration autre, cela vaut la peine d’être mis en évidence et si possible expliqué.</p>
+<section id="densité" class="level3" data-number="5.1.1">
+<h3 data-number="5.1.1" class="anchored" data-anchor-id="densité"><span class="header-section-number">5.1.1</span> Densité</h3>
+<p>La densité (<em>density</em>) d’un réseau désigne le ratio entre le nombre de liens présents dans un réseau et le nombre de liens possibles. Elle varie entre 0 (réseau vide, <em>i.e.</em> absence de liens) et 1 (réseau complet, <em>i.e.</em> tous les liens possibles sont présents) et, multipliée par 100, elle peut s’exprimer en pourcentage (dans tel réseau, <span class="math inline">\(x\)</span> % des liens possibles sont présents). Ces valeurs extrêmes sont évidemment des bornes qu’on ne rencontre jamais en pratique - un réseau vide ou un réseau complet serait peu intéressant à étudier.</p>
+<p>Soit un réseau <span class="math inline">\(G\)</span> avec <span class="math inline">\(V\)</span> sommets et <span class="math inline">\(E\)</span> liens. La formule permettant de calculer la densité est la suivante pour un réseau non orienté :</p>
+<p><span class="math display">\[\frac{2E}{V(V - 1)}\]</span></p>
+<p>Pour un réseau orienté :</p>
+<p><span class="math display">\[\frac{E}{V(V - 1)}\]</span></p>
+<p>Pour un réseau planaire :</p>
+<p><span class="math display">\[\frac{E}{3(V - 2)}\]</span></p>
+<p>En géographie des transports, la densité est parfois appelée indice gamma (<span class="math inline">\(\gamma\)</span> <em>index</em>, cf <em>infra</em>).</p>
+<p>Il arrive dans certains cas que le nombre maximal de liens possibles doive être calculé différemment. Ainsi, les enquêtes sociométriques qui imposent une limite au nombre de réponses nécessitent d’adapter la formule.</p>
+<p><strong>Exemple</strong> : dans l’enquête de <span class="citation" data-cites="coleman57">Coleman et al. (<a href="references.html#ref-coleman57" role="doc-biblioref">1957</a>)</span> portant sur l’adoption d’innovation dans le milieu médical, il est demandé aux médecins à qui elles s’adressent pour obtenir des conseils. Les <span class="math inline">\(V\)</span> médecins interrogées doivent fournir 3 noms maximum <a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> : si les personnes enquêtées respectent les consignes, ce qu’il convient de vérifier, le nombre maximal de liens possibles est <span class="math inline">\(3V\)</span>.</p>
+<p>L’indicateur peut être utile pour comparer des réseaux de taille similaire, même s’il ne permet pas de différencier finement leur structure (la ligne et l’étoile de la figure <a href="Cvocabulaire.html#fig-cercle"><span>3.5</span></a> ont la même densité). Par contre, il est sensible à la taille et ne peut donc servir à comparer des réseaux d’ordres différents. Dans la plupart des réseaux, qu’ils s’agissent de réseaux complets ou de réseaux personnels, plus le nombre de sommets augmente et plus la densité tend à baisser. L’exemple des relations interpersonnelles permet de le comprendre intuitivement : dans un collectif de 20 personnes, tout le monde connaît le prénom de tout le monde ; dans un collectif de 300 personnes, c’est beaucoup plus rarement le cas.</p>
+<p>L’indicateur étant sensible à la taille, il est rarement pertinent, lorsqu’on étudie un réseau non connexe, de calculer les densités des différentes composantes pour les comparer les unes aux autres.</p>
+<p>Les termes de réseau dense ou de réseau clairsemé (<em>sparse network</em>) utilisés pour décrire les réseaux en fonction de leur densité dépendent davantage des données et des questions de recherche que de la densité <em>stricto sensu</em>.</p>
+<p>L’intensité des liens n’est généralement pas prise en compte pour le calcul de la densité. L’une des options proposées par Wasserman et Faust consiste à calculer l’intensité moyenne des liens (1994, p.&nbsp;143). Ceci est peu satisfaisant car 1. cela ne renseigne pas sur la densité et 2. utiliser la moyenne n’est pertinent que si la distribution des intensités est approximativement gaussienne. En pratique, la méthode la plus utilisée aujourd’hui encore est de choisir un seuil (en le justifiant), de dichotomiser les liens en fonction de ce seuil (0 si l’intensité du lien est inférieure, 1 sinon) puis d’utiliser les formules vues précédemment. Il est également possible d’adapter la formule en considérant que le nombre maximal de liens possibles correspond au cas où chaque lien est porteur de l’intensité maximale rencontrée dans le réseau.</p>
+<p>Comme toutes les mesures portant sur le réseau dans son ensemble, la densité seule est délicate à interpréter. Si je l’utilise pour comparer un même réseau à différents moments ou différents réseaux d’ordres similaires, je peux être plus loquace pour commenter les résultats.</p>
+</section>
+<section id="diamètre-et-longueur-moyenne" class="level3" data-number="5.1.2">
+<h3 data-number="5.1.2" class="anchored" data-anchor-id="diamètre-et-longueur-moyenne"><span class="header-section-number">5.1.2</span> Diamètre et longueur moyenne</h3>
+<p>Le diamètre correspond à la longueur, mesurée en nombre de liens, du plus long des plus courts chemins dans un réseau connexe. Si le réseau est composé de plusieurs composantes, chacune est susceptible d’avoir un diamètre différent. Le diamètre donne une indication sur la compacité ou le caractère étiré du réseau étudié.</p>
+<p>Que le réseau soit planaire ou non ne change rien au diamètre. Si le réseau est valué, le diamètre correspond au plus long des plus courts chemins dont l’intensité totale est minimale. Il est possible alors d’obtenir deux diamètres différents : un diamètre topologique (plus long des plus courts chemins mesuré en nombre de liens) et un diamètre pondéré (plus long des plus courts chemins minimisant l’intensité) (figure <a href="#fig-diametre"><span>5.1</span></a>).</p>
+<p>Une mesure différente, celle de la longueur moyenne des plus courts chemins, est devenue populaire en analyse de réseau, notamment grâce aux travaux de Milgram et à la notion de petit monde. L’expérience de Milgram dont il est question ici n’est pas la fameuse expérience concernant la soumission à l’autorité <a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a> mais celle sur les “six degrés de séparation” <a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a>. En deux mots, des personnes au centre des États-Unis sont censées envoyer un courrier à une personne qu’elles ne connaissent pas à Boston. Elles doivent l’adresser à une personne qu’elles connaissent dont elles supposent qu’elles pourraient connaître la personne cible. L’expérience n’a pas un succès fou (<span class="citation" data-cites="kleinfeld02">Kleinfeld (<a href="references.html#ref-kleinfeld02" role="doc-biblioref">2002</a>)</span>), 80 % des paquets s’égarent en chemin mais les 20 % qui arrivent à destination ont une longueur médiane de 5 (étendue de 2 à 10).</p>
+<div id="fig-diametre" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="images/diametre.png" class="img-fluid figure-img" style="width:70.0%"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;5.1: Diamètre topologique et pondéré</figcaption><p></p>
+</figure>
+</div>
+<p><em>Si je ne prends pas en compte la valuation des liens, le diamètre du réseau est égal à 2 (liens {<span class="math inline">\(ac\)</span>,<span class="math inline">\(cd\)</span>}). Si je prends en compte la valuation, le diamètre est égal à 3 liens {<span class="math inline">\(ab\)</span>, <span class="math inline">\(bc\)</span>,<span class="math inline">\(cd\)</span>} et l’intensité totale égale à 3.</em></p>
+<p>La notion de plus court chemin doit être maniée avec précaution lorsque la distance est supérieure à 2, notamment dans les réseaux sociaux. Supposons que je cherche un emploi. Je peux demander à mes connaissances si elles ont des pistes. Ces connaissances, si elles en ont le temps, l’énergie et la volonté, peuvent éventuellement mobiliser leurs propres connaissances. Il est cependant illusoire d’imaginer qu’une amie d’une amie d’une amie me contacte pour me proposer du travail. En d’autres termes, pour nombre de relations, une distance de 3 ou de 25 revient exactement au même, elle signale une ressource inaccessible. On pourrait d’ailleurs généraliser cette limite : il est rare que je choisisse un voyage en train ou en avion qui m’impose plus de 2 changements ; si je navigue sur internet à la recherche d’une information, je commence par la liste de résultats de mon moteur de recherche, vais voir l’un de ces sites puis éventuellement l’un des sites indiqués sur le site en question mais il est rare que j’aille plus loin.</p>
+<p>Les mesures qui suivent permettent de caractériser des éléments individuels du réseau (sommets essentiellement) ou d’étudier des micro-configurations (deux ou trois sommets et les liens éventuels entre ces sommets). Ils peuvent aussi être utilisés pour caractériser le réseau dans son ensemble.</p>
+</section>
+</section>
+<section id="mesures-de-centralité" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="mesures-de-centralité"><span class="header-section-number">5.2</span> Mesures de centralité</h2>
+<p>L’une des questions de recherche les plus courantes en analyse de réseau concerne la centralité des individus : est-ce que certains individus sont plus actifs, plus populaires, plus accessibles (tout dépend du type d’individus et de relations) que d’autres et comment l’expliquer ? Cette question étant souvent traitée, il existe bien sûr différentes façons d’y répondre.</p>
+<section id="degré" class="level3" data-number="5.2.1">
+<h3 data-number="5.2.1" class="anchored" data-anchor-id="degré"><span class="header-section-number">5.2.1</span> Degré</h3>
+<p>La mesure de centralité la plus simple à calculer est le degré (<em>degree</em>) : il s’agit du nombre de liens adjacents à un sommet, que le réseau soit planaire ou non planaire. Si le réseau étudié est orienté, on distingue les degrés entrants (<em>in-degree</em>), nombre de liens ayant pour destination le sommet étudié, et le degré sortant (<em>out-degree</em>), nombre de liens ayant pour origine le sommet étudié. L’examen de la matrice d’adjacence correspondant au réseau montre que le degré correspond aux sommes marginales de la matrice (figure <a href="#fig-degre1"><span>5.2</span></a>). Par ailleurs, dans un réseau orienté, le nombre total de liens entrants est égal au nombre total de liens sortants.</p>
+<div class="quarto-layout-panel">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div id="fig-degre1" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="images/degre1a.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;5.2: Degrés et sommes marginales</figcaption><p></p>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img src="images/degre1b.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img src="images/degre1a2.png" class="img-fluid"></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img src="images/degre1b2.png" class="img-fluid"></p>
+</div>
+</div>
+</div>
+<p><em>Dans les deux cas, le réseau est simple donc la diagonale de la matrice d’adjacence est vide. La matrice du réseau non orienté à gauche est symétrique, les sommes marginales sont donc égales. Le sommet <span class="math inline">\(b\)</span> est celui qui a le degré le plus élevé ; le sommet <span class="math inline">\(a\)</span> celui qui a le degré le plus faible. Lorsque le réseau est orienté, il est nécessaire d’examiner degré entrant d’un côté et degré sortant de l’autre. Ici, <span class="math inline">\(c\)</span> est le plus “attractif” (deux liens entrants), <span class="math inline">\(b\)</span> le plus “actif” (deux liens sortants).</em></p>
+<p>Le degré dans un réseau unimodal non planaire simple (pas de boucle, pas de liens multiples) d’ordre <span class="math inline">\(V\)</span> varie entre 0 (sommet isolé) et <span class="math inline">\(V\)</span> - 1. Il est donc possible de normaliser le degré en le divisant par <span class="math inline">\(V\)</span> - 1. Il arrive que certains sommets aient des degrés très élevés et on parle alors de <em>hubs</em>. Si tous les sommets d’un réseau ont le même degré <span class="math inline">\(k\)</span>, on parle de réseau <span class="math inline">\(k\)</span>-régulier ; ceci n’arrive évidemment jamais avec des données empiriques mais permet de construire un modèle de réseau (cf <em>infra</em> la description des réseaux petit-monde).</p>
+<p>En fonction de la nature des données, l’interprétation du résultat varie mais le fait qu’un sommet soit voisin de nombreux autres sommets est signe qu’il occupe une place importance dans le réseau étudié. Lorsque le réseau est orienté, un fort degré sortant peut généralement être considéré comme le marqueur d’une forte <em>activité</em>, un fort degré entrant comme celui d’une forte <em>attractivité</em>. Si l’on examine les interactions sur un site de rencontres, envoyer de nombreux <em>like</em> - degré sortant élevé - n’a pas le même sens qu’en recevoir beaucoup - degré entrant élevé. Tester la relation entre ces deux indicateurs peut être utile <a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a>.</p>
+<p>Lorsque le réseau est valué, je peux choisir de mesurer le degré sans prendre en compte l’intensité des liens. Cela est pertinent thématiquement si je considère que la présence ou l’absence d’un lien, quelle que soit son intensité, est le critère le plus pertinent pour étudier le phénomène observé. Je peux également calculer le degré en sommant les intensités des liens adjacents à un sommet, je calcule alors un degré pondéré (<em>weighted degree</em>, on rencontre parfois le terme <em>strength</em>). Si le réseau est à la fois valué et orienté, je distinguerai des degrés pondérés entrants (somme des intensités reçues par un sommet) et des degrés pondérés sortants (somme des intensités émises par un sommet). La normalisation des degrés pondérés se fait généralement sur la somme des intensités présente dans le réseau étudié.</p>
+<p>Si l’étendue des intensités est forte (commerce international entre États par exemple), je peux transformer mes données d’intensité avant les calculs pour obtenir des résultats plus faciles à interpréter. Il est également possible de transformer des variables continues en variables ordinales (volume faible, moyen ou fort par exemple).</p>
+<p>Le degré est une mesure simple et très employée. Elle est calculée pour chaque sommet et il est donc possible de calculer les paramètres statistiques de centralité et de dispersion de cet indicateur (degré moyen, étendue, variance, etc.). L’analyse de la distribution des degrés est devenue une démarche classique en analyse de réseau, elle est évoquée dans la section consacrée aux modèles de réseau (section <a href="#sec-Srandometc"><span>5.4</span></a>).</p>
+</section>
+<section id="degré-et-voisinage" class="level3" data-number="5.2.2">
+<h3 data-number="5.2.2" class="anchored" data-anchor-id="degré-et-voisinage"><span class="header-section-number">5.2.2</span> Degré et voisinage</h3>
+<p>La mesure du degré prend en compte les seuls voisins immédiats des sommets ; on parle des voisins d’ordre 1 (sommets situés à un lien de distance). Il peut être intéressant au niveau thématique de prendre en compte des voisinages plus larges. Si j’étudie des relations professionnelles, avoir de nombreux contacts est important mais avoir de nombreux contacts avec des personnes qui ont elles-mêmes de nombreux contacts est sans doute un avantage.</p>
+<p>Prendre en compte le voisinage d’ordre 2 revient à pondérer les degrés des sommets par les degrés de leurs voisins d’ordre 1. Différentes formules ont été proposées des années 1950 à nos jours pour prendre en compte ces paramètres : centralité de <span class="citation" data-cites="katz53">Katz (<a href="references.html#ref-katz53" role="doc-biblioref">1953</a>)</span>, centralité de vecteur propre (<span class="citation" data-cites="bonacich87">Bonacich (<a href="references.html#ref-bonacich87" role="doc-biblioref">1987</a>)</span>), PageRank, etc. <a href="#fn7" class="footnote-ref" id="fnref7" role="doc-noteref"><sup>7</sup></a>.</p>
+<p>Le calcul de ces différents indicateurs repose sur le calcul des vecteurs propres de la matrice d’adjacence (cf annexe) et suppose de choisir la valeur des paramètres utilisés pour ce calcul <a href="#fn8" class="footnote-ref" id="fnref8" role="doc-noteref"><sup>8</sup></a>. Certes, la mesure est un petit peu plus complexe à prendre en main mais elle peut être utile, notamment pour caractériser de manière fine des sommets ayant de même degré (figure <a href="#fig-feigen"><span>5.3</span></a>).</p>
+<p>Cette mesure peut être adaptée sans difficulté particulière aux réseaux planaires et/ou valués.</p>
+<div id="fig-feigen" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="images/eigen.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;5.3: Centralités de vecteur propre</figcaption><p></p>
+</figure>
+</div>
+<p><em>Dans ce réseau, les sommets <span class="math inline">\(b\)</span>, <span class="math inline">\(g\)</span> et <span class="math inline">\(f\)</span> ont un degré de 3. Le tableau compare les résultats obtenus avec la centralité de vecteur propre et l’algorithme PageRang. Dans les deux cas, <span class="math inline">\(a\)</span> obtient le plus faible score (degré de 1 et voisin de degré 3) et <span class="math inline">\(d\)</span> le score le plus élevé (degré de 4, 2 voisins de degré 2 et 2 de degré 3). On pourrait s’attendre à ce que <span class="math inline">\(c\)</span> et <span class="math inline">\(e\)</span> aient les mêmes scores : tous deux ont un degré de 2, un voisin de degré 4 (<span class="math inline">\(d\)</span>) et un de degré 3 ; leurs scores sont identiques dans un cas et très proches dans l’autre.</em></p>
+<table class="table">
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: center;">a</th>
+<th style="text-align: center;">b</th>
+<th style="text-align: center;">c</th>
+<th style="text-align: center;">d</th>
+<th style="text-align: center;">e</th>
+<th style="text-align: center;">f</th>
+<th style="text-align: center;">g</th>
+<th style="text-align: center;">h</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Eigen.</td>
+<td style="text-align: center;">0.24</td>
+<td style="text-align: center;">0.67</td>
+<td style="text-align: center;">0.61</td>
+<td style="text-align: center;">1.00</td>
+<td style="text-align: center;">0.63</td>
+<td style="text-align: center;">0.84</td>
+<td style="text-align: center;">0.75</td>
+<td style="text-align: center;">0.58</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">PageRank</td>
+<td style="text-align: center;">0.06</td>
+<td style="text-align: center;">0.16</td>
+<td style="text-align: center;">0.10</td>
+<td style="text-align: center;">0.19</td>
+<td style="text-align: center;">0.10</td>
+<td style="text-align: center;">0.14</td>
+<td style="text-align: center;">0.14</td>
+<td style="text-align: center;">0.10</td>
+</tr>
+</tbody>
+</table>
+<p><em>Pour obtenir les mêmes résultats avec deux logiciels différents, il est nécessaire de vérifier les paramètres utilisés par défaut par ces logiciels.</em></p>
+</section>
+<section id="intermédiarité" class="level3" data-number="5.2.3">
+<h3 data-number="5.2.3" class="anchored" data-anchor-id="intermédiarité"><span class="header-section-number">5.2.3</span> Intermédiarité</h3>
+<p>Le degré prend en compte les voisins d’ordre 1, les indicateurs basés sur les vecteurs propres les voisinages d’ordre 2, l’intermédiarité (<em>betweenness</em>) prend en compte la structure complète du réseau. L’intermédiarité d’un sommet est le rapport entre le nombre de plus courts chemins passant par un sommet donné et le nombre de plus courts chemins du réseau étudié. Les sommets les plus centraux ne seront pas nécessairement ceux qui ont le plus de liens mais ceux qui sont des points de passage obligés pour passer d’une zone du réseau à une autre.</p>
+<p>Cet indicateur peut être calculé pour les sommets, il peut également être calculé pour les liens (<em>edge betweenness</em>) : un lien sera considéré comme plus central s’il est situé sur de nombreux plus courts chemins entre paires de sommets.</p>
+<p>Trois remarques apparaissent nécessaires concernant cet indicateur très fréquemment utilisé pour tous types de données relationnelles :</p>
+<ul>
+<li>on suppose implicitement que seuls les plus courts chemins sont employés ;</li>
+<li>le calcul prend en compte la structure du réseau dans son ensemble, que celle-ci soit connue ou non des acteurs ;</li>
+<li>son interprétation a plus ou moins de sens selon les données étudiées.</li>
+</ul>
+<div id="fig-degre_clos_int" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="images/cercle.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;5.4: Réseaux idéaux-typiques et centralités</figcaption><p></p>
+</figure>
+</div>
+<table class="table">
+<colgroup>
+<col style="width: 6%">
+<col style="width: 6%">
+<col style="width: 6%">
+<col style="width: 6%">
+<col style="width: 8%">
+<col style="width: 6%">
+<col style="width: 6%">
+<col style="width: 6%">
+<col style="width: 8%">
+<col style="width: 8%">
+<col style="width: 6%">
+<col style="width: 6%">
+<col style="width: 6%">
+<col style="width: 6%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: center;">a</th>
+<th style="text-align: center;">.</th>
+<th style="text-align: center;">e</th>
+<th style="text-align: center;">a</th>
+<th style="text-align: center;">b</th>
+<th style="text-align: center;">c</th>
+<th style="text-align: center;">d</th>
+<th style="text-align: center;">e</th>
+<th style="text-align: center;">a</th>
+<th style="text-align: center;">b</th>
+<th style="text-align: center;">c</th>
+<th style="text-align: center;">d</th>
+<th style="text-align: center;">e</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Degré</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">.</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Interm.</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">.</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Proxim.</td>
+<td style="text-align: center;">1/6</td>
+<td style="text-align: center;">.</td>
+<td style="text-align: center;">1/6</td>
+<td style="text-align: center;">1/10</td>
+<td style="text-align: center;">1/7</td>
+<td style="text-align: center;">1/6</td>
+<td style="text-align: center;">1/7</td>
+<td style="text-align: center;">1/10</td>
+<td style="text-align: center;">1/4}</td>
+<td style="text-align: center;">1/7</td>
+<td style="text-align: center;">1/7</td>
+<td style="text-align: center;">1/7</td>
+<td style="text-align: center;">1/7</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: center;">Cercle</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">Ligne</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">Étoile</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+<p><em>Dans le réseau de type cercle, tous les sommets ont les mêmes centralités : un même degré 2 (le réseau est 2-régulier) ; une intermédiarité égale à 1 (<span class="math inline">\(a\)</span> a pour voisins <span class="math inline">\(b\)</span> et <span class="math inline">\(c\)</span> et un seul plus court chemin le traverse) et une centralité de proximité égale à 1/6 (2 plus courts chemins de 1 plus 2 plus courts chemins de longueur 2).</em></p>
+<p><em>Dans le réseau ligne, les extrémités ont des scores faibles voire nuls (aucun plus court chemin ne les traverse) et ces scores augmentent à mesure qu’on se rapproche du sommet central. Dans le réseau étoilé, le sommet central a un degré égal à <span class="math inline">\(V - 1\)</span> et tous ses voisins ont les mêmes faibles scores de centralité.</em></p>
+<hr>
+<p><strong>Mesures pour réseaux planaires</strong></p>
+<p>Différents indicateurs mis au point dans les années 1960 par des géographes quantitativistes nord-américains visent à caractériser des réseaux d’infrastructures pouvant être modélisés sous forme de réseaux planaires. Ces indicateurs sont peu connus et peu utilisés hors de la géographie des transports et la liste qui suit n’est pas exhaustive, elle est extraite de l’ouvrage de <span class="citation" data-cites="haggett69">Haggett and Chorley (<a href="references.html#ref-haggett69" role="doc-biblioref">1969</a>)</span>, p.&nbsp;32.</p>
+<p>Soit un réseau planaire <span class="math inline">\(R\)</span>, composé de <span class="math inline">\(C\)</span> composantes, avec <span class="math inline">\(V\)</span> sommets et <span class="math inline">\(E\)</span> liens :</p>
+<ul>
+<li>nombre cyclomatique (<span class="math inline">\(\mu\)</span>) : <span class="math inline">\(\mu = E - V + C\)</span>. Indicateur sur le nombre de circuits présents dans le réseau. Il varie de 0 (arbre) à 1 (réseau complet);</li>
+<li>indice <span class="math inline">\(\alpha\)</span> : rapport entre le nombre de circuits présents (<span class="math inline">\(\mu\)</span>) et le nombre de circuits possibles (<span class="math inline">\(2E - 5\)</span>). Plus il est élevé, plus le réseau est redondant donc coûteux à entretenir mais peu vulnérable (si une route est coupée, d’autres routes existent) ;</li>
+<li>indice <span class="math inline">\(\beta\)</span> : nombre de liens divisés par le nombre de sommets ;</li>
+<li>indice <span class="math inline">\(\gamma\)</span> : nombre de liens présents divisés par le nombre de liens possibles.</li>
+</ul>
+<p>Dans sa thèse, <span class="citation" data-cites="kansky63">Kansky (<a href="references.html#ref-kansky63" role="doc-biblioref">1963</a>)</span> propose également des indices d’intensité moyenne, notamment les indices <span class="math inline">\(\eta\)</span> (longueur moyenne des liens), <span class="math inline">\(\pi\)</span> (longueur totale du réseau divisée par son diamètre), <span class="math inline">\(\theta\)</span> (volume moyen par lien) et <span class="math inline">\(\iota\)</span> (rapport entre kilomètrage total et volume transporté). Le chapitre correspondant est accessible en ligne (<span class="citation" data-cites="dancoisne89">Dancoisne and Kansky (<a href="references.html#ref-dancoisne89" role="doc-biblioref">1989</a>)</span>), le lien entre ces indicateurs et la théorie des graphes est évoqué une entrée de l’encyclopédie en ligne <em>Hypergeo</em> (<span class="citation" data-cites="beauguitte20">Beauguitte (<a href="references.html#ref-beauguitte20" role="doc-biblioref">2020</a>)</span>) ; une version traduite et commentée de la thèse de Kansky est disponible dans la <a href="https://hal.science/FMR">collection “textes” du groupe fmr</a>.</p>
+<hr>
+</section>
+<section id="nombre-associé" class="level3" data-number="5.2.4">
+<h3 data-number="5.2.4" class="anchored" data-anchor-id="nombre-associé"><span class="header-section-number">5.2.4</span> Nombre associé</h3>
+<p>Une mesure directement issue de la théorie des graphes, celle de nombre associé (<em>associated number</em>), peut être utile pour déterminer des sommets centraux. Le nombre associé d’un sommet <span class="math inline">\(v_i\)</span> est la longueur du plus long des plus courts chemins entre <span class="math inline">\(v_i\)</span> et les autres sommets du graphe. Dans le réseau à gauche de la figure <a href="#fig-degre1"><span>5.2</span></a>, les nombres associés des différents sommets sont <span class="math inline">\(a\)</span> : 2, <span class="math inline">\(b\)</span> : 1 ; <span class="math inline">\(c\)</span> : 2 et <span class="math inline">\(d\)</span> : 2. Le ou les sommets ayant le nombre associé le plus faible sont considérés comme des sommets centraux.</p>
+</section>
+<section id="proximité" class="level3" data-number="5.2.5">
+<h3 data-number="5.2.5" class="anchored" data-anchor-id="proximité"><span class="header-section-number">5.2.5</span> Proximité</h3>
+<p>Différents indicateurs existent pour mesurer la proximité moyenne entre un sommet et tous les autres sommets du réseau, ce dernier pouvant être planaire et/ou valué.</p>
+<p>L’un des plus employés en analyse des réseaux sociaux est la centralité de proximité (<em>closeness</em>). Il s’agit de mesurer la distance moyenne des plus courts chemins entre un sommet <span class="math inline">\(v\)</span> et l’ensemble des autres sommets du réseau. Afin que les sommets les plus centraux pour ce critère aient les scores les plus élevés, on calcule généralement l’inverse de cette distance moyenne.</p>
+<p>Si l’on étudie des logiques de circulation d’information, le sommet ayant une forte centralité de proximité peut transmettre rapidement (<em>i.e.</em> avec le moins d’intermédiaires possibles) une information à l’ensemble des autres sommets.</p>
+<p>Cette mesure est peu adaptée aux réseaux non connexes dans la mesure où la distance entre deux sommets appartenant à deux composantes différentes est, par convention, considérée comme infinie. Il est nécessaire dans ce cas de calculer cet indicateur composante par composante mais la comparaison n’a de sens qu’entre les sommets situés dans la même composante.</p>
+<p>Cet indicateur est en partie lié à l’ordre du réseau (plus le nombre de sommets est faible, plus les distances moyennes tendent à être faibles) et au diamètre (plus il est faible, plus les distances moyennes le sont).</p>
+<p>Si les liens portent une intensité (réseau valué), la longueur des plus courts chemins peut être mesurée en sommant ces intensités. Les deux indices de Shimbel <a href="#fn9" class="footnote-ref" id="fnref9" role="doc-noteref"><sup>9</sup></a>, régulièrement utilisés pour l’analyse des réseaux de transport, prennent en compte une mesure de distance (généralement kilométriques) entre les sommets :</p>
+<ul>
+<li>l’indice d’accessibilité, calculé pour chaque sommet, est la somme de la longueur des plus courts chemins entre un sommet et les autres sommets du réseau connexe. Plus l’indice est élevé, plus le sommet est considéré comme éloigné des autres ;</li>
+<li>l’indice de dispersion porte sur le réseau connexe dans son ensemble et consiste à sommer tous les plus courts chemins présents dans le réseau. Plus l’indice est bas, plus le réseau est considéré comme compact.</li>
+</ul>
+<p>Toutes les mesures évoquées dans cette section concernent les sommets pris individuellement, plus les liens pour l’intermédiarité. L’étude de la distribution de ces indicateurs, et notamment celle des degrés, est une pratique devenue très courante en analyse de réseau. Dans la mesure où elle permet de distinguer différents modèles de réseaux, elle est évoquée dans la section <a href="#sec-Srandometc"><span>5.4</span></a>.</p>
+<p>Les distributions des autres indicateurs sont beaucoup plus rarement étudiées alors qu’elles peuvent s’avérer intéressantes. Si on souhaite utiliser ces indicateurs pour des analyses multivariées, tester leurs relations éventuelles est utile pour éviter d’inclure des variables redondantes : il n’est pas rare que les sommets les plus centraux le soient selon les différents indicateurs évoqués ici et cela est vrai également pour les sommets les moins centraux (un sommet isolé ou de degré 1 a une intermédiarité nulle). Pour faciliter la comparaison des résultats, normaliser les résultats ou les passer en rangs peut être utile.</p>
+<p>Toutes les mesures évoquées précédemment portaient sur des éléments considérés individuellement, les mesures qui suivent s’intéressent aux micro-configurations formées par les dyades (deux sommets et les liens éventuels entre eux) et les triades (trois sommets et les liens éventuels entre eux).</p>
+</section>
+</section>
+<section id="dyades-triades-et-motifs" class="level2" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="dyades-triades-et-motifs"><span class="header-section-number">5.3</span> Dyades, triades et motifs</h2>
+<p>Si le réseau étudié est non orienté, les liens dans les dyades sont soit présents soit absents et la densité est un indicateur suffisant. Par contre, si le réseau est orienté, il est intéressant de calculer la proportion de liens mutuels (<span class="math inline">\(v_1\)</span> envoie un lien vers <span class="math inline">\(v_2\)</span> et <span class="math inline">\(v_2\)</span> envoie un lien vers <span class="math inline">\(v_1\)</span>) et asymétriques (présence du lien {<span class="math inline">\(v_1, v_2\)</span>} ou du lien {<span class="math inline">\(v_2, v_1\)</span>}). On peut calculer un indicateur de réciprocité (<em>reciprocity</em>) en divisant le nombre de liens mutuels par le nombre de liens total.</p>
+<p>Une mesure plus récente concernant les dyades est l’assortativité (<em>assortativity</em> ou <em>assortative mixing</em>) : il s’agit d’une mesure de l’homophilie des sommets voisins. Cette mesure peut porter sur une variable attributaire ou sur une variable structurale <a href="#fn10" class="footnote-ref" id="fnref10" role="doc-noteref"><sup>10</sup></a> comme le degré. La formalisation mathématique est un peu longue à expliquer mais le principe est simple : on compare le nombre de liens dont les deux sommets partagent la même caractéristique au nombre de liens de ce type qu’on obtiendrait dans un réseau où les liens seraient placés au hasard ; on parle dans ce dernier cas de graphe aléatoire (<em>random graph</em>).</p>
+<p>Quand la variable attributaire testée est qualitative, une mesure possible de l’assortativité repose sur le calcul de la modularité (<em>modularity</em>), indicateur que nous retrouverons dans la section consacrée à la détection de communautés ; quand la variable attributaire testée est quantitative, la mesure peut reposer sur un coefficient de corrélation de Pearson.</p>
+<p>Lorsque la mesure est inférieure à 0, le réseau est disassortatif : les liens existent plus souvent qu’attendu entre individus ayant des attributs différents. Lorsqu’elle est supérieure à 0, le réseau est dit assortatif et les liens sont présents plus souvent qu’attendu entre individus partageant le même attribut. Il est possible de normaliser cette mesure pour la faire varier entre 0 et 1 ; sa version normalisée est appelée coefficient d’assortativité.</p>
+<section id="triades-et-transitivité" class="level3" data-number="5.3.1">
+<h3 data-number="5.3.1" class="anchored" data-anchor-id="triades-et-transitivité"><span class="header-section-number">5.3.1</span> Triades et transitivité</h3>
+<p>Une triade désigne un ensemble de trois sommets et les liens présents entre ces trois sommets. Cette microconfiguration a fait l’objet de plusieurs théorisations en sociologie depuis le milieu des années 1960, qu’il s’agisse de la notion d’équilibre, de trou structural ou de triade interdite.</p>
+<hr>
+<p><em>Un même objet, trois formalisations théoriques</em></p>
+<p>Dans leur manuel, <span class="citation" data-cites="harary65">Harary et al. (<a href="references.html#ref-harary65" role="doc-biblioref">1965</a>)</span> proposent une conceptualisation sur le caractère équilibré ou non (<em>un-balanced</em>) des triades. Ils étudient des réseaux signés où les liens sont porteurs d’une intensité positive ou négative. Remplacer le signe par une expression du type “apprécie - n’apprécie pas” permet de saisir intuitivement la notion d’équilibre dans le réseau.</p>
+<p>Granovetter propose une conceptualisation très proche avec la notion de triade interdite (<em>forbidden triad</em>). Si l’on prend une triade <span class="math inline">\(\{v_1,v_2,v_3\}\)</span> et que des liens intenses existent entre <span class="math inline">\(v_1\)</span> et <span class="math inline">\(v_2\)</span> et entre <span class="math inline">\(v_1\)</span> et <span class="math inline">\(v_3\)</span> alors il est très probable qu’un lien fort existe également entre <span class="math inline">\(v_2\)</span> et <span class="math inline">\(v_3\)</span>. La raison est liée au coût (en temps, en énergie) que prend l’entretien d’un lien fort : si mes deux meilleures amies ne se supportent pas (cas de triade interdite), je vais avoir du mal à maintenir ces deux liens.</p>
+<p>Dans un cadre différent, Burt utilise la même triade pour proposer le concept de trou structural (<em>structural hole</em>). L’absence de lien entre <span class="math inline">\(v_2\)</span> et <span class="math inline">\(v_3\)</span> procure un avantage stratégique à <span class="math inline">\(v_1\)</span> qui peut choisir de faire circuler ou de bloquer (d’où les termes anglophones de <em>broker</em> et <em>brokerage</em>) une ressource quelle qu’elle soit.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/triades.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Triades</figcaption><p></p>
+</figure>
+</div>
+<p>Il est important lorsqu’on étudie nos données de se rappeler qu’une même configuration peut se prêter à des interprétations très différentes les unes des autres, en fonction notamment du sens donné aux relations entre les entités.</p>
+<hr>
+<p>L’une des mesures les plus courantes est la recherche de la transitivité (<em>transitivity</em>), parfois appelée <em>clustering coefficient</em>. Il s’agit de mesurer au niveau des sommets et/ou au niveau du réseau dans son ensemble la proportion entre le nombre de triades fermées et le nombre de triades ouvertes.</p>
+<p>Si le réseau (non planaire) est complet, la transitivité est égale à 1 au niveau local et au niveau global. Inversement, tout réseau en forme d’arbre (absence de cycle) a une transitivité nulle, localement et globalement.</p>
+<p>Dans la figure ci-dessous, le sommet <span class="math inline">\(v_1\)</span> a une transitivité égale à 1 : il a deux voisins et ses deux voisins sont eux-même voisins ; le sommet participe à une seule triade et elle est fermée. Inversement, le sommet <span class="math inline">\(v_3\)</span> n’ayant qu’un seul voisin, il n’est inclus dans aucune triade et l’indicateur ne peut être calculé. Le sommet <span class="math inline">\(v_2\)</span> a 5 voisins mais seules deux triades sont fermées, il a donc une transitivité de 0.2.</p>
+<p><img src="images/transitivite.png" class="img-fluid"></p>
+<p>Si dans le cadre d’un petit guide pratique, s’arrêter au niveau de la triade apparaît suffisant, il existe un certain nombre de recherches, notamment en informatique <a href="#fn11" class="footnote-ref" id="fnref11" role="doc-noteref"><sup>11</sup></a>, portant sur la détection de motifs de quatre sommets ou plus dans les réseaux.</p>
+<p>Chaque fois que l’on procède à une mesure sur l’ensemble des sommets, on crée de fait un nouvel attribut. Comme toute variable quantitative, il est possible d’examiner sa distribution (minimum et maximum, quartiles, moyenne, écart-type, coefficient de variation). Il est également possible d’utiliser ces variables pour mener des analyses multivariées. Il est préférable de contrôler que les différents indicateurs calculés ne soient pas trop corrélées les uns aux autres.</p>
+<p>Une autre possibilité est de mesurer l’écart entre les données obtenues pour un indicateur sur le réseau empirique étudié et le score qu’on obtiendrait sur le réseau le plus hiérarchique qui soit. C’est le principe des indicateurs de centralisation (<em>centralization</em>) disponibles dans certains logiciels : pour le degré par exemple, ils comparent la distribution observée à celle d’un réseau étoilé ayant le même nombre de sommets.</p>
+</section>
+</section>
+<section id="sec-Srandometc" class="level2" data-number="5.4">
+<h2 data-number="5.4" class="anchored" data-anchor-id="sec-Srandometc"><span class="header-section-number">5.4</span> Des mesures aux modèles</h2>
+<p>Lorsqu’on étudie un réseau, à quoi le comparer et comment le qualifier ? Depuis les années 1950, il était possible de le comparer au <strong>graphe aléatoire</strong> (<em>random graph</em>) proposé par les deux mathématiciens Erdös et Rényi dans une série d’articles.</p>
+<p>La construction d’un tel graphe est relativement simple : soit un ensemble de sommets et une probabilité de présence de liens entre ces sommets créant un ensemble de liens. Les deux auteurs ont montré qu’il se produit une bifurcation à mesure que la probabilité augmente : passé un certain seuil, variable en fonction du nombre de sommets, une composante géante rassemblant la grande majorité des sommets et des liens apparaît et la distribution des degrés tend à suivre une loi normale. On observe peu de valeurs extrêmes (faibles ou fortes), un mode correspondant à la moyenne et une courbe en cloche.</p>
+<p>Il s’agit d’un modèle mathématique et les auteurs n’ont jamais prétendu que ces graphes aléatoires puissent avoir un quelconque intérêt pour étudier des réseaux issus de données empiriques. Pourtant, ces graphes aléatoires servent encore aujourd’hui pour les modèles statistiques de réseaux (chapitre <a href="Cmodeles.html"><span>11</span></a>).</p>
+<p>Le modèle du <strong>réseau petit-monde</strong> (<em>small-world network</em>) proposé par Watts et Strogatz en 1998 se situe entre le graphe <span class="math inline">\(k\)</span>-régulier et le graphe aléatoire (figure <a href="#fig-fwatts"><span>5.5</span></a>). En supprimant de façon itérative un lien dans le graphe <span class="math inline">\(k\)</span>-régulier de départ et en le replaçant de façon aléatoire, on obtient un graphe qui présente deux propriétés intéressantes : il existe une forte transitivité locale (nombre important de triades fermées) mais la distance moyenne entre paires de sommets diminue rapidement (il y a besoin de peu d’intermédiaires pour passer d’un sommet à l’autre).</p>
+<div class="quarto-layout-panel">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
+<p><img src="images/watts.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
+<div id="fig-fwatts" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="images/bara.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;5.5: Deux figures devenues iconiques</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<p><em>Figures extraites des articles de Watts et Strogatz (haut) et Barabási et Albert (bas). La première montre tout d’abord la construction des réseaux petit-monde, le graphique de droite croise distance moyenne entre paires de sommets <span class="math inline">\(L\)</span> et transitivité locale <span class="math inline">\(C\)</span>, la première diminuant beaucoup plus vite que la seconde. La figure du bas montre la distribution des degrés de trois gros réseaux ; la comparaison des courbes est rendue difficile par la non harmonisation des abscisses mais dans les trois cas, la hiérarchie est très forte et calculer un degré moyen n’aurait pas grand sens.</em></p>
+<p>Le <strong>réseau sans-échelle</strong> (<em>scale-free network</em>) proposé par Barabási et Albert en 1999 correspond à un réseau très hiérarchisé : une poignée de sommets est très connectée (degré très élevé), la très grande majorité a peu de liens. La distribution des degrés peut être représentée par une droite sur une échelle logarithmique. Aucune valeur centrale (mode, moyenne) ne permet de qualifier cette distribution des degrés, d’où le terme sans échelle. Le mécanisme expliquant l’apparition de cette structure est nommé par les autrices l’attachement préférentiel : un sommet nouveau dans un réseau tend à se connecter aux sommets les plus connectés. Ce mécanisme fonctionne pour un grand nombre de phénomènes sociaux comme les réseaux de transport, les réseaux de citations ou les liens entre sites internet.</p>
+<p>Ces deux modèles ont eu un très fort impact, tant chez les physiciennes analystes de réseau que dans les autres disciplines. On trouve facilement en ligne des milliers d’articles visant à déterminer si tel ou tel réseau (aérien, lexical, social, numérique, etc.) peut être considéré comme sans-échelle et/ou petit-monde. Un grand nombre de phénomènes sociaux étant très hiérarchisés, il n’est pas rare de trouver des réseaux sans-échelle ; la très grande majorité des réseaux issus de données empiriques n’étant ni aléatoires ni <span class="math inline">\(k\)</span>-réguliers, ils sont le plus souvent petit-monde. Ceci étant, si dans votre discipline, la vague n’est pas encore retombée, ne vous privez surtout pas de publier ce type de résultats.</p>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" data-line-spacing="2" role="doc-bibliography" style="display: none">
+<div id="ref-beauguitte20" class="csl-entry" role="doc-biblioentry">
+Beauguitte, L. (2020). Indices kansky. <em>Hypergeo</em>. <a href="https://shs.hal.science/halshs-02570652v1/file/2020_LB_kansky.pdf">https://shs.hal.science/halshs-02570652v1/file/2020_LB_kansky.pdf</a>
+</div>
+<div id="ref-bonacich87" class="csl-entry" role="doc-biblioentry">
+Bonacich, P. (1987). Power and centrality: A family of measures. <em>American Journal of Sociology</em>. <a href="https://www.jstor.org/stable/pdf/2780000.pdf">https://www.jstor.org/stable/pdf/2780000.pdf</a>
+</div>
+<div id="ref-coleman57" class="csl-entry" role="doc-biblioentry">
+Coleman, J., Katz, E. and Menzel, H. (1957). The diffusion of an innovation among physicians. <em>Sociometry</em>. <a href="https://www.jstor.org/stable/pdf/2785979.pdf">https://www.jstor.org/stable/pdf/2785979.pdf</a>
+</div>
+<div id="ref-dancoisne89" class="csl-entry" role="doc-biblioentry">
+Dancoisne, P. and Kansky, K. J. (1989). Measures of network structure. <em>Flux</em>. <a href="https://www.persee.fr/doc/flux_1154-2721_1989_hos_5_1_913">https://www.persee.fr/doc/flux_1154-2721_1989_hos_5_1_913</a>
+</div>
+<div id="ref-gourdon21" class="csl-entry" role="doc-biblioentry">
+Gourdon, P. (2021). <em><span class="nocase">La coopération entre villes européennes: convergences dans l’action publique urbaine par la circulation transnationale de modèles</span></em>. <span>Thèse de géographie, Paris 1</span>. <a href="https://www.theses.fr/2021PA01H070.pdf">https://www.theses.fr/2021PA01H070.pdf</a>
+</div>
+<div id="ref-haggett69" class="csl-entry" role="doc-biblioentry">
+Haggett, P. and Chorley, R. J. (1969). <em>Network analysis in geography</em>. Edward Arnold.
+</div>
+<div id="ref-harary65" class="csl-entry" role="doc-biblioentry">
+Harary, F., Norman, R. Z. and Cartwright, D. (1965). <em>Structural models: An introduction to the theory of directed graphs</em>. John Wiley &amp; Sons.
+</div>
+<div id="ref-kansky63" class="csl-entry" role="doc-biblioentry">
+Kansky, K. J. (1963). <em>Structure of transportation networks : Relationships between network geometry and regional characteristics</em>. University of Chicago Press.
+</div>
+<div id="ref-katz53" class="csl-entry" role="doc-biblioentry">
+Katz, L. (1953). A new status index derived from sociometric analysis. <em>Psychometrika</em>. <a href="http://www.cse.cuhk.edu.hk/~cslui/CMSC5734/katz-1953.pdf">http://www.cse.cuhk.edu.hk/~cslui/CMSC5734/katz-1953.pdf</a>
+</div>
+<div id="ref-kleinfeld02" class="csl-entry" role="doc-biblioentry">
+Kleinfeld, J. S. (2002). Could it be a big world after all? The six degrees of separation myth. <em>Society</em>. <a href="https://www.cs.princeton.edu/~chazelle/courses/BIB/big-world.htm">https://www.cs.princeton.edu/~chazelle/courses/BIB/big-world.htm</a>
+</div>
+<div id="ref-letexier18" class="csl-entry" role="doc-biblioentry">
+Le Texier, T. (2018). <em><span class="nocase">Histoire d’un mensonge. Enquête sur l’expérience de Stanford</span></em>. La Découverte.
+</div>
+<div id="ref-newman18" class="csl-entry" role="doc-biblioentry">
+Newman, M. (2018). <em>Networks</em>. Oxford University Press.
+</div>
+</div>
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>Voir les <em>Synthèses méthodologiques</em> de la <a href="https://hal.archives-ouvertes.fr/FMR">collection fmr</a> sur HAL.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>Dans le manuel de Wasserman et Faust déjà cité, le terme <em>global</em> renvoie au réseau dans son ensemble ; le terme <em>local</em> à un sous-graphe de ce réseau (1994, p.&nbsp;507). Merci à Paul Gourdon d’avoir attiré mon attention sur ce point dans sa thèse (<span class="citation" data-cites="gourdon21">Gourdon (<a href="references.html#ref-gourdon21" role="doc-biblioref">2021</a>)</span>, p.&nbsp;254).}<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>“Each doctor interviewed was asked three sociometric questions: To whom did he most often turn for advice and information? With whom did he most often discuss his cases in the course of an ordinary week? Who were the friends, among his colleagues, whom he saw most often socially? In response to each of these questions, the names of three doctors were requested.”, <span class="citation" data-cites="coleman57">Coleman et al. (<a href="references.html#ref-coleman57" role="doc-biblioref">1957</a>)</span>, p.&nbsp;254.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4"><p>Sur la popularité délirante de certaines expériences sociologiques nord-américaines des années 1960-1970, expériences souvent fragiles, je renvoie à l’ouvrage de <span class="citation" data-cites="letexier18">Le Texier (<a href="references.html#ref-letexier18" role="doc-biblioref">2018</a>)</span>. S’il étudie l’expérience bidonnée dite de Stanford, il évoque celle de Milgram sur la soumission à l’autorité p.&nbsp;133-135.<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn5"><p>Cette expression, apparemment commune dans le monde anglophone, et totalement inconnue dans le monde francophone, correspond à l’idée selon laquelle six liens nous séparerait de n’importe quelle autre personne située n’importe où sur Terre.<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn6"><p>En règle générale, il est utile de tester les relations entre les différents indicateurs calculés sur les sommets, notamment pour détecter d’éventuelles redondances.<a href="#fnref6" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn7"><p>On trouvera dans le manuel de <span class="citation" data-cites="newman18">Newman (<a href="references.html#ref-newman18" role="doc-biblioref">2018</a>)</span> un exposé clair et synthétique des avantages et inconvénients des différentes formules disponibles (p.&nbsp;159-167).<a href="#fnref7" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn8"><p>Garder les valeurs par défaut du logiciel utilisé sans savoir ce qu’elles signifient est une option possible mais peu satisfaisante.<a href="#fnref8" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn9"><p>Les deux articles de Shimbel (1951 et 1953) sont disponibles en version bilingue et commentée dans la collection “textes” du <a href="https://hal.archives-ouvertes.fr/FMR">groupe fmr</a>. Shimbel apparaît régulièrement dans les manuels de <em>Social Network Analysis</em>, non pas pour ces deux mesures, mais parce qu’à la fin de son article de 1953, il évoque une mesure de <em>stress</em> dont la description annonce la centralité d’intermédiarité.<a href="#fnref9" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn10"><p>L’adjectif structural désigne une propriété liée à la structure du réseau. Mes sommets peuvent avoir <span class="math inline">\(x\)</span> attributs exogènes (pour des personnes, âge, pays de naissance, genre, etc.); la centralité de degré, de vecteur propre, etc. sont des variables structurales ou endogènes.<a href="#fnref10" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn11"><p>Voir notamment les <a href="https://hal.science/search/index/q/*/authIdHal_s/priieur">travaux de Christophe Prieur</a>, MCF en informatique devenu professeur de sociologie à l’Université Gustave Eiffel. Attention, le profil Google Scholar est celui d’un homonyme mathématicien grenoblois.<a href="#fnref11" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./Cdonnees.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Construire ses données</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./Cpartitions.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Simplifier, partitionner</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>

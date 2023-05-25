@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.1.189">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>L’analyse de réseau en sciences sociales. Petit guide pratique - 6&nbsp; Simplifier, partitionner</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./Cbiparti.html" rel="next">
+<link href="./Cmesures.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Simplifier, partitionner</span></h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">L’analyse de réseau en sciences sociales. Petit guide pratique</a> 
+    </div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">Remerciements plus des bricoles</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./intro.html" class="sidebar-item-text sidebar-link">Ce qu’est ce guide et ce qu’il n’est pas</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Cpourquoifaire.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Pourquoi faire de l’analyse de réseau ?</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Chistoires.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Histoires &amp; disciplines</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Cvocabulaire.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Graphe et réseau : principes et vocabulaire de base</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Cdonnees.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Construire ses données</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Cmesures.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Quelques mesures possibles</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Cpartitions.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Simplifier, partitionner</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Cbiparti.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Analyser des réseaux bimodaux</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Cmultiplexe.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Analyser des réseaux multiplexes</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Cdynamique.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Analyser la dynamique des réseaux</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Cegoreseau.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Analyser des réseaux personnels</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Cmodeles.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Modèles graphiques, modèles statistiques</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Cvisualiser.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Visualiser les données relationnelles</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Clogiciels.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Choisir un ou plusieurs logiciels</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Cupdate.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Se (re)mettre à jour</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Cconclusion.html" class="sidebar-item-text sidebar-link">Conclusion</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Aequation.html" class="sidebar-item-text sidebar-link">Annexe - Notations mathématiques et calcul matriciel</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">Références</a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Sommaire</h2>
+   
+  <ul>
+  <li><a href="#supprimer-des-éléments" id="toc-supprimer-des-éléments" class="nav-link active" data-scroll-target="#supprimer-des-éléments"><span class="toc-section-number">6.1</span>  Supprimer des éléments</a>
+  <ul class="collapse">
+  <li><a href="#arbre-couvrant-minimum-et-flux-dominants" id="toc-arbre-couvrant-minimum-et-flux-dominants" class="nav-link" data-scroll-target="#arbre-couvrant-minimum-et-flux-dominants"><span class="toc-section-number">6.1.1</span>  Arbre couvrant minimum et flux dominants</a></li>
+  <li><a href="#suppression-etou-agrégation-de-sommets" id="toc-suppression-etou-agrégation-de-sommets" class="nav-link" data-scroll-target="#suppression-etou-agrégation-de-sommets"><span class="toc-section-number">6.1.2</span>  Suppression et/ou agrégation de sommets</a></li>
+  </ul></li>
+  <li><a href="#rechercher-les-cliques" id="toc-rechercher-les-cliques" class="nav-link" data-scroll-target="#rechercher-les-cliques"><span class="toc-section-number">6.2</span>  Rechercher les cliques</a></li>
+  <li><a href="#blockmodel-et-équivalences" id="toc-blockmodel-et-équivalences" class="nav-link" data-scroll-target="#blockmodel-et-équivalences"><span class="toc-section-number">6.3</span>  <em>Blockmodel</em> et équivalences</a></li>
+  <li><a href="#détecter-des-communautés" id="toc-détecter-des-communautés" class="nav-link" data-scroll-target="#détecter-des-communautés"><span class="toc-section-number">6.4</span>  Détecter des communautés</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span id="sec-Cpartitions" class="quarto-section-identifier d-none d-lg-block"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Simplifier, partitionner</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    
+  </div>
+  
+
+</header>
+
+<p>Deux démarches complémentaires sont présentées dans ce chapitre :</p>
+<ul>
+<li>les démarches de simplification d’un réseau ;</li>
+<li>les démarches de partitionnement des sommets.</li>
+</ul>
+<p>Dans le premier cas, il s’agit de se débarrasser d’éléments (sommets et/ou liens) considérés comme peu utiles pour l’analyse ; dans le deuxième cas, de créer des classes de sommets basées sur les propriétés structurales du réseau étudié. Les méthodes de partitionnement sont nombreuses et seules celles couramment implémentés dans les logiciels les plus utilisés sont présentées ici.</p>
+<p>Toutes les démarches présentées ne sont pas adaptées à tous les réseaux étudiés et, comme pour les mesures présentées dans le chapitre précédent, il est prudent de comprendre ce que l’on fait (propriétés générales de l’algorithme choisi, rôle des paramètres) avant de commenter les résultats obtenus, certaines méthodes ayant un aspect boîte noire quelque peu gênant (cf <em>infra</em> l’exemple de la méthode CONCOR).</p>
+<section id="supprimer-des-éléments" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="supprimer-des-éléments"><span class="header-section-number">6.1</span> Supprimer des éléments</h2>
+<p>Une fois les données relationnelles mises en forme, une fois les mesures de base effectuées, il peut être utile de simplifier le réseau obtenu. C’est notamment le cas lorsque le réseau est gros et/ou dense. Les méthodes de simplification visent généralement à préserver la structure d’ensemble du réseau tout en éliminant au maximum les phénomènes considérés comme peu significatifs. Trois démarches complémentaires peuvent être mises en œuvre pour faciliter l’analyse et/ou proposer des visualisations lisibles du ou des réseaux étudiés (ce dernier aspect sera abordé dans le chapitre <a href="Cvisualiser.html"><span>12</span></a>) : supprimer des liens, agréger des sommets et enfin supprimer des sommets. Dans tous les cas, il est bien sûr nécessaire de décrire la méthode utilisée, de la justifier et de ne pas oublier les transformations effectuées lorsqu’on commente les résultats obtenus sur le réseau simplifié.</p>
+<section id="arbre-couvrant-minimum-et-flux-dominants" class="level3" data-number="6.1.1">
+<h3 data-number="6.1.1" class="anchored" data-anchor-id="arbre-couvrant-minimum-et-flux-dominants"><span class="header-section-number">6.1.1</span> Arbre couvrant minimum et flux dominants</h3>
+<p>La recherche de l’<em>arbre couvrant minimum</em> (<em>minimum spanning tree</em>) peut permettre de mieux comprendre la structure générale du réseau, que celui-ci soit ou non valué. Comme le nom le suggère, il s’agit d’un arbre (suppression de tous les cycles présents dans le réseau étudié) couvrant (il passe par tous les sommets) et il contient le nombre de liens le plus faible possible. Cette manière de supprimer des liens peut donner des résultats plus ou moins probants en fonction des données étudiées. Lorsque le réseau est valué, l’objectif est d’obtenir un arbre où la somme du poids des liens est minimale. Les réseaux d’infrastructures se prêtent généralement bien à ce type de simplification ; les réseaux sociaux très denses avec un diamètre faible gagnent peu à être simplifiés ainsi.</p>
+<p>Une autre méthode visant à supprimer des liens valués a été proposé par les géographes étasuniens <span class="citation" data-cites="nystuen61">Nystuen and Dacey (<a href="references.html#ref-nystuen61" role="doc-biblioref">1961</a>)</span> <a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. L’objectif est, en partir d’une matrice de flux orientés, de créer un arbre (ou une forêt) hiérarchisant les sommets.</p>
+<p>Les flux sont sélectionnés en appliquant les deux règles suivantes :</p>
+<ul>
+<li>pour chaque sommet <span class="math inline">\(v_i\)</span>, ne garder que le flux sortant le plus important <span class="math inline">\(f_i\)</span>;</li>
+<li>si le flux est émis vers un sommet <span class="math inline">\(v_j\)</span> dont le degré entrant pondéré est inférieur à celui de <span class="math inline">\(v_i\)</span>, supprimer ce flux.</li>
+</ul>
+<p>On obtient quatre catégories de sommets :</p>
+<ul>
+<li>les sommets isolés qui ne dominent personne et ne sont pas dominés ;</li>
+<li>les sommets dominés avec un lien sortant ;</li>
+<li>les sommets intermédiaires avec un ou plusieurs liens entrants et un lien sortant ;</li>
+<li>les sommets dominants avec uniquement des liens entrants.</li>
+</ul>
+<p>Cette méthode simple crée une partition et une hiérarchie entre sommets. À ma connaissance, cette méthode n’a jamais été testée en dehors de la géographie quantitative où elle donne souvent des résultats intéressants et des régionalisations convaincantes.</p>
+<p>Les autres méthodes disponibles pour sélectionner des liens valués sont généralement basées sur des critères statistiques et elles supposent d’étudier la distribution des intensités. La grande majorité des matrices de flux suivent des distributions de Paretto (20 % des liens concentrent au moins 80 % du volume) : il est donc souvent possible de supprimer les liens les plus faibles, qui sont aussi les plus nombreux, tout en conservant la très grande majorité du volume du flux étudié.</p>
+</section>
+<section id="suppression-etou-agrégation-de-sommets" class="level3" data-number="6.1.2">
+<h3 data-number="6.1.2" class="anchored" data-anchor-id="suppression-etou-agrégation-de-sommets"><span class="header-section-number">6.1.2</span> Suppression et/ou agrégation de sommets</h3>
+<p>Une des méthodes les plus répandues pour mieux appréhender la structure globale d’un réseau consiste à supprimer les sommets les moins connectés, qu’ils soient isolés ou de degré faible. Il est recommandé de rappeler la proportion de sommets supprimés lorsqu’on commente les résultats obtenus sur le réseau ainsi modifié.</p>
+<p>Inversement, dans certains cas, il peut être intéressant de supprimer les sommets les plus centraux. Si j’étudie les relations diplomatiques au niveau mondial, il est propable que tous les États ou presque entretiennent des relations avec les États-Unis, la Belgique (UE oblige) et la Chine. Supprimer ces liens attendus peut permettre de mettre en évidence des configurations régionales intéressantes.</p>
+<p>Une troisième option consiste à agréger les sommets qui occupent la même position dans le réseau ; on parle dans ce cas d’isomorphisme. Les méthodes développées dans les sections suivantes permettent de créer des partitions, partielles ou exhaustives, des sommets afin d’obtenir des représentations simplifiées du réseau analysé.</p>
+<p>Si le réseau étudié est particulièrement dense, il peut être intéressant, plutôt que de supprimer des liens et/ou des sommets, de se pencher sur les <strong>liens manquants</strong> en étudiant le complément du graphe <a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>.</p>
+</section>
+</section>
+<section id="rechercher-les-cliques" class="level2" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="rechercher-les-cliques"><span class="header-section-number">6.2</span> Rechercher les cliques</h2>
+<p>La recherche de sous-ensembles denses dans un réseau présente un intérêt, notamment que le réseau étudié a une structure de type centre - périphérie ou, au contraire, lorsqu’il est éclaté en différents sous-réseaux denses.</p>
+<p>L’une des définitions les plus anciennes, et qui peut garder sa pertinence si le réseau est de taille réduite, est celle de clique (terme identique en anglais <a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>). Une clique est un sous-graphe maximal complet de trois sommets ou plus. Si la définition brille par sa concision, elle mérite d’être expliquée terme à terme. Un sous-graphe consiste en un sous-ensemble du réseau. Il est maximal si et seulement si il n’est pas possible d’y ajouter le moindre sommet sans lui faire perdre sa caractéristique. Enfin, il est complet : tous les liens possibles entre les sommets de ce sous-graphe sont présents. La contrainte sur le nombre de sommets évite que chaque lien ne soit compté comme une clique.</p>
+<p>Un même sommet peut être présent dans plusieurs cliques (figure <a href="#fig-clique"><span>6.1</span></a>): le terme d’<em>overlap</em> (chevauchement) est utilisé dans la littérature anglophone. Si la clique a une définition mathématique claire, elle présente deux inconvénients majeurs. Elle peut être considérée comme trop exigeante dans la mesure où il suffit qu’un seul lien manque pour que des sommets soient dans des cliques différentes. Par ailleurs, si elle a une utilité pour les réseaux de petite dimension, la recherche des cliques présente peu d’intérêt lorsque le nombre de sommets dépasse les centaines (nombre élevé de cliques de petite taille, chevauchements importants, temps de calcul élevé).</p>
+<div id="fig-clique" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="images/clique.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;6.1: Cliques</figcaption><p></p>
+</figure>
+</div>
+<p><em>Intuitivement, on voudrait obtenir un ensemble de sommets centraux (<span class="math inline">\(bcdfg\)</span>) et des sommets périphériques (<span class="math inline">\(aeh\)</span>). L’absence du lien entre <span class="math inline">\(b\)</span> et <span class="math inline">\(f\)</span> entraine la présence de deux cliques différentes : <span class="math inline">\(cdfg\)</span> et <span class="math inline">\(bcdg\)</span>.</em></p>
+<p>Un certain nombre de définitions plus souples ont donc été proposées en <em>SNA</em> (<span class="citation" data-cites="wasserman94">Wasserman and Faust (<a href="references.html#ref-wasserman94" role="doc-biblioref">1994</a>)</span>, p.&nbsp;257-270 <a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a>). Un <em>k-core</em> est un sous-graphe maximal dans lequel chaque sommet à un degré minimal de <span class="math inline">\(k\)</span>. La figure <a href="#fig-clique"><span>6.1</span></a> comprend un 4-<em>core</em> constitué par les sommets <span class="math inline">\(bcdfg\)</span>. La valeur de <span class="math inline">\(k\)</span> est fixée par la chercheuse et dépend de la densité du réseau étudié (plus la densité augmente, plus je peux augmenter <span class="math inline">\(k\)</span>).</p>
+<p>Qu’il s’agisse des cliques ou des <em>k-cores</em>, ces méthodes sont principalement employées pour des réseaux non planaires, non orientés, unimodaux et binaires. Des adaptations ont été proposées pour les réseaux bimodaux (chapitre <a href="Cbiparti.html"><span>7</span></a>) ; pour les réseaux valués, une stratégie possible serait de tester différents seuils pour conserver les liens (supprimer les liens inférieurs à 1, à 2, etc.) et de voir quelles cliques restent présentes avec des seuils élevés. Il s’agirait alors moins de définir des cliques <em>stricto sensu</em> que de déterminer des zones d’intensité plus ou moins forte.</p>
+<p>Si la recherche de cliques peut mettre en évidence des sous-réseaux denses, elle ne permet pas une partition de l’ensemble des sommets. À l’inverse, les méthodes de <em>blockmodeling</em> et les méthodes de détection de communautés créent des partitions exhaustives, tout sommet du réseau appartient à un bloc/une communauté, et généralement exclusives, aucun sommet ne peut être membre de plus d’un bloc/une communauté.</p>
+</section>
+<section id="blockmodel-et-équivalences" class="level2" data-number="6.3">
+<h2 data-number="6.3" class="anchored" data-anchor-id="blockmodel-et-équivalences"><span class="header-section-number">6.3</span> <em>Blockmodel</em> et équivalences</h2>
+<p>L’objectif du <em>blockmodel</em> est de produire une image simplifiée du réseau étudié. Il suppose trois étapes :</p>
+<ul>
+<li>ordonner la matrice d’adjacence afin de produire des ensembles présentant une forte densité interne ;</li>
+<li>agréger les ensembles détectés afin de créer une partition des sommets en des sous-ensembles discrets appelés positions ;</li>
+<li>créer la matrice d’adjacence entre ces positions (<em>image matrix</em>) ; le réseau entre ces positions est parfois qualifié de réseau réduit (<em>reduced graph</em>).</li>
+</ul>
+<p>Plusieurs méthodes sont disponibles pour créer cette partition. Classiquement en <em>SNA</em>, deux formes d’équivalence sont régulièrement utilisées : l’équivalence dite structurale (<em>structural equivalence</em>) et l’équivalence régulière (<em>regular equivalence</em>). Dans le premier cas, deux sommets sont regroupés lorsqu’ils sont en relation avec les mêmes autres sommets ; dans le deuxième cas, deux sommets sont regroupés s’ils ont le même type de relation avec le même type de sommets. L’équivalence structurale est particulièrement exigeante : le réseau de 8 sommets à gauche de la figure <a href="#fig-equivalence"><span>6.2</span></a> permet la création d’un seul ensemble de deux sommets seulement (les deux sommets blancs émettant un lien vers le même sommet noir).</p>
+<div id="fig-equivalence" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="images/equivalence.png" class="img-fluid figure-img" style="width:60.0%"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;6.2: Équivalence régulière et *image matrix</figcaption><p></p>
+</figure>
+</div>
+<span class="math display">\[\begin{matrix}
+      &amp;A &amp; B &amp; C \\
+     A&amp;0 &amp; 1 &amp; 0 \\
+     B&amp;0 &amp; 0 &amp; 1 \\
+     C&amp;0 &amp; 0 &amp; 0 \\
+\end{matrix}\]</span>
+<p><em>La teinte des sommets à gauche est fonction de l’équivalence régulière et donc les liens avec le même type de sommets. La matrice résume le réseau de départ en montrant les liens entre les trois positions.</em></p>
+<p><strong>Exemple</strong> : <span class="citation" data-cites="snyder79">Snyder and Kick (<a href="references.html#ref-snyder79" role="doc-biblioref">1979</a>)</span> proposent dans leur article une analyse structurale des relations internationales basée sur les théories de l’échange inégal. Ils partent de quatre matrices binaires et orientées de relations entre États (relations économiques, diplomatiques, commerciales, militaires) et utilisent la méthode CONCOR pour produire un <em>blockmodel</em> avec trois positions correspondants au centre, à la périphérie intégrée et à la périphérie. Cette méthode, fondée sur une itération de corrélations de matrices, produit souvent des résultats interprétables même si, comme le notent Wasserman et Faust dans leur manuel, les propriétés mathématiques de cette méthode sont mal comprises voire obscures <a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a>.</p>
+<p>Ces méthodes ont été développées dans la <em>SNA</em> au début des années 1970 pour des réseaux uni-modaux, orientés et non valuées. Différentes adaptations ont été proposées depuis pour des réseaux valués, non orientés, bimodaux, etc. Elles sont semble-t-il moins utilisées aujourd’hui pour partitionner les sommets que les méthodes de détection de communautés présentées dans la section suivante.</p>
+</section>
+<section id="détecter-des-communautés" class="level2" data-number="6.4">
+<h2 data-number="6.4" class="anchored" data-anchor-id="détecter-des-communautés"><span class="header-section-number">6.4</span> Détecter des communautés</h2>
+<p>En analyse de réseau, notamment en physique et en informatique, on parle de communautés (<em>communities</em>) pour désigner des sous-graphes où la densité de liens entre les sommets de ce sous-graphe est plus importante qu’avec les sommets extérieurs. Le terme <em>cluster</em> est parfois utilisé dans le même sens. Là où les méthodes de <em>blockmodeling</em> créent des partitions de sommets non nécessairement voisins les uns des autres, les méthodes de détections de communautés créent des sous-graphes fortement connexes.</p>
+<p>Une détection de communautés crée une partition exhaustive (tous les sommets sont assignés à une communauté) et généralement exclusive (les sommets sont assignés à une seule communauté). Une détection de communautés se fait en deux temps : choisir l’algorithme (il en existe beaucoup) puis mesurer la qualité de la partition obtenue (là aussi, plusieurs indicateurs existent pour mesurer cette qualité).</p>
+<p>Deux petites mises en garde me paraissent utiles. Quand vous présentez vos résultats, s’il vous plaît, n’affirmez pas “dans mon réseau, on a les communautés suivantes” tout en projetant un “joli” réseau plein de couleurs. Ce que vous présentez est la partition obtenue avec un algorithme donné et des paramètres donnés : d’autres algorithmes créeraient des partitions différentes et peut-être tout aussi pertinentes. Le fait que certains logiciels ne proposent qu’une seule méthode de détection de communautés favorise sans doute cette façon maladroite de présenter ses résultats. N’hésitez pas, comme le fait par exemple Paul Gourdon dans sa thèse (<span class="citation" data-cites="gourdon21">Gourdon (<a href="references.html#ref-gourdon21" role="doc-biblioref">2021</a>)</span>, p.278-315), à tester différents algorithmes pour repérer quels sommets sont systématiquement mis ensemble et, à l’inverse, quels sommets ont des appartenances changeantes. Il est tout à fait possible de créer ainsi des gradients d’appartenance aux communautés qui évitent le côté parfois arbitraire des assignations obtenues avec un seul algorithme.</p>
+<p>Plus important peut-être : il existe des structures de réseaux où la détection de communautés n’a strictement aucun intérêt. Chercher des communautés dans un arbre est inutile : chercher des communautés dans un réseau de type centre très densément connecté et périphérie très peu connectée est tout aussi inutile ; préférez les <em>blockmodels</em> dans ce dernier cas.</p>
+<p>Si l’on en croit <span class="citation" data-cites="cazabet13">Cazabet (<a href="references.html#ref-cazabet13" role="doc-biblioref">2013</a>)</span>, il y aurait plus de 250 algorithmes de détection de communautés ; sa thèse ayant dix ans, le nombre a dû sensiblement augmenter. En pratique, une poignée seulement d’algorithmes est utilisée : certains sont dits déterministes , ils produiront toujours la même partition ; d’autres non déterministes, la partition créée sur un même réseau peut varier légèrement. Par ailleurs, certaines méthodes sont descendantes (la population de sommets est divisée par itérations successives) ; d’autres sont ascendantes (les sommets sont groupés deux à deux par itérations successives). Dans les deux cas, cela produit un dendogramme qui sera coupé pour obtenir des classes, la coupe s’effectuant à un niveau maximisant une mesure de qualité de la partition. L’une des mesures les plus couramment utilisée est celle de la modularité : plus elle est proche de 1, meilleure est la partition.</p>
+<p>La figure <a href="#fig-fpartitions"><span>6.3</span></a> montre les différentes partitions obtenues sur le jeu de données du <em>Zachary karate club</em> <a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a>. Le nom indiqué est celui de l’algorithme ayant produit la partition, l’indice celui de la modularité.</p>
+<div id="fig-fpartitions" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="images/partitions.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;6.3: Un réseau, <span class="math inline">\(x\)</span> méthodes de détection de communautés</figcaption><p></p>
+</figure>
+</div>
+<p>La détection de communautés est devenue une pratique très commune en analyse de réseau, la recherche sur le sujet est très dynamique et des adaptations sont régulièrement proposées pour tous les types possibles et imaginables de réseaux (valués, multiplexe, bimodaux, dynamiques, etc.). L’implémentation dans des logiciels utilisables en sciences sociales reste rare.</p>
+<hr>
+<p><em>À l’intention des formatrices</em></p>
+<p>Il n’est ni utile ni nécessaire de rentrer dans les subtilités mathématiques des différents algorithmes couramment utilisés en analyse de réseau ; par contre, avoir une toute petite idée du processus et des limites est intéressant (je renvoie au billet évoqué à l’instant).</p>
+<p>Le principal objectif quand on aborde ce sujet est d’expliquer voire de marteler :</p>
+<ul>
+<li>qu’il existe différents méthodes ;</li>
+<li>qu’elles donnent différents résultats ;</li>
+<li>que la qualité des partitions peut s’évaluer de différentes manières.</li>
+</ul>
+<p>Pour le formuler autrement : aucun logiciel ne sait “détecter les communautés dans un réseau”. Par contre, plusieurs logiciels proposent d’utiliser la méthode de Louvain en maximisant la modularité - parce que c’est rapide et relativement efficace sur les gros réseaux.</p>
+<p>N’hésitez pas à encourager les pratiques comparatives et à prôner les partitions floues qui peuvent être plus intéressantes à commenter d’un point de vue thématique.</p>
+<p>Dans les quatre chapitres suivants, vous ne trouverez pas d’encadré <em>À l’intention des formatrices</em>. Les réseaux bimodaux, multiplexes et dynamiques sont souvent transformés pour être étudiés comme des réseaux simples, éventuellement valués. Garder la structure originale du réseau étudié suppose me semble-t-il un minimum de familiarité avec les méthodes les plus courantes. L’absence d’encadré dans le chapitre consacré à l’analyse des réseaux personnels est lié à ma faible pratique de ce type d’analyse.</p>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" data-line-spacing="2" role="doc-bibliography" style="display: none">
+<div id="ref-cazabet13" class="csl-entry" role="doc-biblioentry">
+Cazabet, R. (2013). <em><span class="nocase">Détection de communautés dynamiques dans des réseaux temporels</span></em>. <span>Thèse d’informatique, Université Paul Sabatier-Toulouse III</span>. <a href="https://tel.archives-ouvertes.fr/tel-00874017/file/TheseIRITSeptembre4.pdf">https://tel.archives-ouvertes.fr/tel-00874017/file/TheseIRITSeptembre4.pdf</a>
+</div>
+<div id="ref-gourdon21" class="csl-entry" role="doc-biblioentry">
+Gourdon, P. (2021). <em><span class="nocase">La coopération entre villes européennes: convergences dans l’action publique urbaine par la circulation transnationale de modèles</span></em>. <span>Thèse de géographie, Paris 1</span>. <a href="https://www.theses.fr/2021PA01H070.pdf">https://www.theses.fr/2021PA01H070.pdf</a>
+</div>
+<div id="ref-nystuen61" class="csl-entry" role="doc-biblioentry">
+Nystuen, J. D. and Dacey, M. F. (1961). A graph theory interpretation of nodal regions. <em>Papers of the Regional Science Association</em>. <a href="https://hal.archives-ouvertes.fr/hal-03443034/document">https://hal.archives-ouvertes.fr/hal-03443034/document</a>
+</div>
+<div id="ref-snyder79" class="csl-entry" role="doc-biblioentry">
+Snyder, D. and Kick, E. L. (1979). Structural position in the world system and economic growth, 1955-1970: A multiple-network analysis of transnational interactions. <em>American Journal of Sociology</em>. <a href="https://www.jstor.org/stable/pdf/2778218.pdf">https://www.jstor.org/stable/pdf/2778218.pdf</a>
+</div>
+<div id="ref-wasserman94" class="csl-entry" role="doc-biblioentry">
+Wasserman, S. and Faust, K. (1994). <em>Social network analysis. Methods and applications</em>. Cambridge University Press.
+</div>
+</div>
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>Une version bilingue et commentée est disponible dans la <a href="https://hal.archives-ouvertes.fr/hal-03443034/document">collection “textes” du groupe fmr</a>.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>Le complément du graphe, appelé aussi graphe complémentaire ou graphe inversé, du graphe simple <span class="math inline">\(G\)</span> est le graphe <span class="math inline">\(G'\)</span> tel que deux sommets de <span class="math inline">\(G'\)</span> sont adjacents si et seulement si ils ne sont pas adjacents dans <span class="math inline">\(G\)</span>.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>Le terme a souvent été, et reste encore, employé dans la sociologie anglophone dans un sens métaphorique de petit groupe soudé d’individus ; ce n’est pas le sens retenu ici.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4"><p>La détection de cliques et de <em>k-cores</em> est présente dans plusieurs logiciels ; les autres méthodes sont plus rarement implémentées.<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn5"><p>“the formal properties of the procedure are not well understood […] the exact mathematical properties of CONCOR remain obscure (it is not clear what, if anything, it is optimizing)” (<span class="citation" data-cites="wasserman94">Wasserman and Faust (<a href="references.html#ref-wasserman94" role="doc-biblioref">1994</a>)</span>, p.&nbsp;380-381).<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn6"><p>Figure tirée d’<a href="https://arshs.hypotheses.org/1314">un billet de 2019</a> où je détaille les algorithmes disponibles avec <em>igraph</em>.<a href="#fnref6" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./Cmesures.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Quelques mesures possibles</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./Cbiparti.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Analyser des réseaux bimodaux</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>

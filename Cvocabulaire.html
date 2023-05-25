@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.1.189">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>L’analyse de réseau en sciences sociales. Petit guide pratique - 3&nbsp; Graphe et réseau : principes et vocabulaire de base</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./Cdonnees.html" rel="next">
+<link href="./Chistoires.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Graphe et réseau : principes et vocabulaire de base</span></h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">L’analyse de réseau en sciences sociales. Petit guide pratique</a> 
+    </div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">Remerciements plus des bricoles</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./intro.html" class="sidebar-item-text sidebar-link">Ce qu’est ce guide et ce qu’il n’est pas</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Cpourquoifaire.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Pourquoi faire de l’analyse de réseau ?</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Chistoires.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Histoires &amp; disciplines</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Cvocabulaire.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Graphe et réseau : principes et vocabulaire de base</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Cdonnees.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Construire ses données</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Cmesures.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Quelques mesures possibles</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Cpartitions.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Simplifier, partitionner</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Cbiparti.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Analyser des réseaux bimodaux</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Cmultiplexe.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Analyser des réseaux multiplexes</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Cdynamique.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Analyser la dynamique des réseaux</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Cegoreseau.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Analyser des réseaux personnels</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Cmodeles.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Modèles graphiques, modèles statistiques</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Cvisualiser.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Visualiser les données relationnelles</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Clogiciels.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Choisir un ou plusieurs logiciels</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Cupdate.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Se (re)mettre à jour</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Cconclusion.html" class="sidebar-item-text sidebar-link">Conclusion</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Aequation.html" class="sidebar-item-text sidebar-link">Annexe - Notations mathématiques et calcul matriciel</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">Références</a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Sommaire</h2>
+   
+  <ul>
+  <li><a href="#des-points-des-lignes-et-des-chemins" id="toc-des-points-des-lignes-et-des-chemins" class="nav-link active" data-scroll-target="#des-points-des-lignes-et-des-chemins"><span class="toc-section-number">3.1</span>  Des points, des lignes et des chemins</a></li>
+  <li><a href="#qualifier-un-réseau-daprès-ses-liens" id="toc-qualifier-un-réseau-daprès-ses-liens" class="nav-link" data-scroll-target="#qualifier-un-réseau-daprès-ses-liens"><span class="toc-section-number">3.2</span>  Qualifier un réseau d’après ses liens</a></li>
+  <li><a href="#qualifier-un-réseau-daprès-ses-propriétés" id="toc-qualifier-un-réseau-daprès-ses-propriétés" class="nav-link" data-scroll-target="#qualifier-un-réseau-daprès-ses-propriétés"><span class="toc-section-number">3.3</span>  Qualifier un réseau d’après ses propriétés</a>
+  <ul class="collapse">
+  <li><a href="#graphe-unimodal-bimodal-et-hypergraphe" id="toc-graphe-unimodal-bimodal-et-hypergraphe" class="nav-link" data-scroll-target="#graphe-unimodal-bimodal-et-hypergraphe"><span class="toc-section-number">3.3.1</span>  Graphe unimodal, bimodal et hypergraphe</a></li>
+  <li><a href="#réseau-planaire-et-réseau-non-planaire" id="toc-réseau-planaire-et-réseau-non-planaire" class="nav-link" data-scroll-target="#réseau-planaire-et-réseau-non-planaire"><span class="toc-section-number">3.3.2</span>  Réseau planaire et réseau non planaire</a></li>
+  </ul></li>
+  <li><a href="#vos-réseaux-vos-choix" id="toc-vos-réseaux-vos-choix" class="nav-link" data-scroll-target="#vos-réseaux-vos-choix"><span class="toc-section-number">3.4</span>  Vos réseaux, vos choix</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span id="sec-Cvocabulaire" class="quarto-section-identifier d-none d-lg-block"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Graphe et réseau : principes et vocabulaire de base</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    
+  </div>
+  
+
+</header>
+
+<p>Ce chapitre tente d’être simultanément complet et synthétique. Il n’est pas utile de retenir toutes les définitions mais le consulter à l’occasion pour vérifier que vous savez qualifier correctement un réseau donné peut être utile, notamment pour échanger avec vos collègues. La quasi totalité des logiciels et des très bons manuels <a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> étant en anglais, les termes anglais sont systématiquement indiqués en italiques et entre parenthèses.</p>
+<hr>
+<p><em>À l’intention des formatrices</em></p>
+<p>Il est sans doute temps d’abandonner le diaporama (si vous en utilisez un) et le cours magistral, de vous munir d’un feutre et de dessiner, de faire dessiner, de faire remplir des matrices avec des 0 et des 1, etc. Dessiner des réseaux très simples (orientés ou non, avec boucle ou simple, avec isolés) puis faire écrire les listes de liens et les matrices d’adjacence correspondantes est un bon moyen pour faire assimiler le vocabulaire et faire comprendre les enjeux liés à la mise en forme des données. Vous gagnerez du temps quand vous expliquerez ce qu’attendent les logiciels ou quand vous aurez des questions des participantes à propos de leurs propres données.</p>
+<hr>
+<section id="des-points-des-lignes-et-des-chemins" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="des-points-des-lignes-et-des-chemins"><span class="header-section-number">3.1</span> Des points, des lignes et des chemins</h2>
+<p>Un graphe est un objet mathématique formé d’un ensemble fini et non vide de points et d’un ensemble fini et éventuellement vide de liens entre ces points (<span class="math inline">\(G = \{V,E\}\)</span> <a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>). Le nombre de sommets est appelé l’ordre (<em>order</em>) du graphe ; le nombre de liens la taille (<em>size</em>) du graphe. Les sommets (<em>vertex</em>, pluriel <em>vertices</em>) sont également appelés nœuds, points ou acteurs (<em>node</em>, <em>point</em>, <em>actor</em>). Les liens (<em>edges</em>) sont aussi appelés relations, arcs ou arêtes (<em>relation</em>, <em>arc</em>). Les deux derniers termes sont employés lorsqu’on souhaite différencier les liens dits orientés (un lien du sommet <span class="math inline">\(v_1\)</span> vers le sommet <span class="math inline">\(v_2\)</span> n’implique pas l’existence d’un lien de <span class="math inline">\(v_2\)</span> vers <span class="math inline">\(v_1\)</span>) - on parle alors d’arcs - et les liens non orientés (tout lien entre <span class="math inline">\(v_1\)</span> et <span class="math inline">\(v_2\)</span> suppose l’existence d’un lien entre <span class="math inline">\(v_2\)</span> et <span class="math inline">\(v_1\)</span>) - on parle alors d’arêtes.</p>
+<p>L’analyse de réseau pour être utile en sciences sociales nécessite des éléments supplémentaires : les sommets sont systématiquement pourvus d’attributs (<em>a minima</em> un nom) et les liens peuvent également être pourvus d’attributs. La figure ci-dessous montre un graphe (à gauche) et un réseau (à droite).</p>
+<div id="fig-figure31" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="images/graphvsreseau.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;3.1: Graphe <em>vs</em> réseau</figcaption><p></p>
+</figure>
+</div>
+<p><em>L’objet mathématique à gauche est constitué d’un ensemble de sommets et d’un ensemble de liens entre ces sommets, il s’agit d’un graphe et il n’y a pas besoin d’attributs pour l’étudier ; le réseau à droite a exactement la même forme mais les sommets sont nommés et de deux couleurs différentes. Les liens sont plus ou moins épais, ce qui suggère des relations plus ou moins intenses.</em></p>
+<p><em>Extrait du fameux jeu de données</em> Zachary Karate Club <em>tiré de l’article de l’anthropologue Wayne <span class="citation" data-cites="zachary77">Zachary (<a href="references.html#ref-zachary77" role="doc-biblioref">1977</a>)</span> sur les relations au sein d’un club de karaté.</em></p>
+<p>Un chemin (<em>path</em>) est une suite de liens entre deux sommets. Le plus court chemin (<em>shortest path</em>) désigne le ou les chemins entre deux sommets comprenant le minimum de liens. La longueur d’un chemin entre deux sommets correspond au nombre de liens sur ce chemin ; s’il s’agit d’un plus court chemin, on parle parfois de distance géodésique (<em>geodesic distance</em>, voir figure <a href="#fig-graphecon"><span>3.2</span></a>). Un chemin comprenant au moins trois liens et dont le sommet de départ et le sommet d’arrivée sont identiques est appelé un cycle <a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> (terme identique en anglais).</p>
+<p>L’ensemble des sommets liés par au moins un chemin s’appelle une composante ou composante connexe (<em>component</em>). Si tous les sommets d’un graphe appartiennent à la même composante, on parle alors de graphe connexe (<em>connected graph</em>). S’il n’existe pas de chemin entre certains sommets, le graphe est alors non connexe et il est composé de deux composantes ou plus. Il arrive qu’un sommet ne soit connecté à aucun autre, on parle alors d’isolé (<em>isolate</em>). Lorsqu’un réseau est connexe si et seulement si on ne tient pas compte de l’orientation des liens (figure <a href="#fig-graphecon"><span>3.2</span></a>, réseau 2), on parle de réseau faiblement connexe (<em>weakly connected</em>) ; si un réseau est connexe, y compris lorsqu’on prend en compte l’orientation des liens, on parle de réseau fortement connexe <a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a> (<em>strongly connected</em>). La distance entre deux composantes connexes est considérée par convention comme infinie.</p>
+<p>Le caractère connexe ou non du réseau étudié a des conséquences importantes d’un point de vue méthodologique : les indicateurs basés sur des calculs de plus courts chemins (cf chapitre <a href="Cmesures.html"><span>5</span></a>) doivent être interprétés avec précaution lorsque le réseau étudié comprend plusieurs composantes connexes.</p>
+<div id="fig-graphecon" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="images/figure1a.png" class="img-fluid figure-img" style="width:70.0%"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;3.2: Chemin, distance et connexité (1)</figcaption><p></p>
+</figure>
+</div>
+<p><em>Le réseau ci-dessus est connexe : il est possible en partant d’un sommet de rejoindre n’importe quel autre sommet. On peut par exemple rejoindre</em> <span class="math inline">\(a\)</span> et <span class="math inline">\(e\)</span> avec les liens {<span class="math inline">\(ab\)</span>,<span class="math inline">\(bd\)</span>,<span class="math inline">\(de\)</span>}, ce qui donne un chemin de longueur 3. Le plus court chemin entre ces deux sommets est de longueur 2 {<span class="math inline">\(ab\)</span>,<span class="math inline">\(be\)</span>}. Il peut exister plusieurs plus courts chemins entre deux sommets : entre <span class="math inline">\(d\)</span> et <span class="math inline">\(c\)</span>, les deux chemins de longueur 2 {<span class="math inline">\(de\)</span>,<span class="math inline">\(ec\)</span>} et {<span class="math inline">\(db\)</span>,<span class="math inline">\(be\)</span>} sont des plus courts chemins.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/figure1b.png" class="img-fluid figure-img" style="width:70.0%"></p>
+<p></p><figcaption class="figure-caption">Chemin, distance et connexité (2)</figcaption><p></p>
+</figure>
+</div>
+<p><em>Si les liens sont orientés, il est beaucoup plus difficile d’obtenir un réseau fortement connexe : le nombre de composantes peut devenir élevé, même avec un nombre de sommets réduit, et la longueur des chemins augmente. Ici, les sommets {</em><span class="math inline">\(abcde\)</span>} forment une composante connexe, <span class="math inline">\(f\)</span> et <span class="math inline">\(g\)</span> sont isolés. Le plus court chemin entre <span class="math inline">\(e\)</span> et <span class="math inline">\(c\)</span> est de longueur 1 ({<span class="math inline">\(ec\)</span>}) ; le plus court chemin entre <span class="math inline">\(c\)</span> et <span class="math inline">\(e\)</span> est lui de longueur 2 ({<span class="math inline">\(cb\)</span>,<span class="math inline">\(be\)</span>}). La plupart des logiciels ne prennent pas en compte l’orientation éventuelle des liens pour calculer les indicateurs basés sur les plus courts chemins.</p>
+<p>Certains sommets et certains liens jouent un rôle particulier dans la connexité des réseaux : leur suppression augmente le nombre de composantes. Quand il s’agit d’un sommet, on parle de point d’articulation (<em>articulation point</em>, <em>cutpoint</em> ou <em>cut-vertex</em>) ; quand il s’agit d’un lien, on parle d’isthme (<em>bridge</em>). Dans le réseau de la figure <a href="#fig-graphecon"><span>3.2</span></a>, <span class="math inline">\(b\)</span>, <span class="math inline">\(e\)</span> et <span class="math inline">\(f\)</span> sont des points d’articulation (la suppression d’un sommet entraîne la suppression des liens adjacents à ce sommet). Les liens {<span class="math inline">\(ab\)</span>}, {<span class="math inline">\(ef\)</span>} et {<span class="math inline">\(fg\)</span>} sont des isthmes (un sommet isolé est une composante d’ordre 1 - cf <a href="#fig-cutpoint"><span>3.3</span></a>). Un nombre élevé de points d’articulation et/ou d’isthmes signale un réseau potentiellement vulnérable.</p>
+<div id="fig-cutpoint" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="images/cutpoints.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;3.3: Points d’articulation et isthmes</figcaption><p></p>
+</figure>
+</div>
+<p><em>En haut, suppression des points d’articulation (grisé) et conséquences sur la connexité ; en bas, suppression des isthmes. Lorsqu’un sommet est adjacent à un seul lien, ce lien est nécessairement un isthme.</em></p>
+</section>
+<section id="qualifier-un-réseau-daprès-ses-liens" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="qualifier-un-réseau-daprès-ses-liens"><span class="header-section-number">3.2</span> Qualifier un réseau d’après ses liens</h2>
+<p>Le type de liens dans un réseau peut permettre de catégoriser ce dernier. Si les liens ont une direction et qu’un lien de <span class="math inline">\(v_1\)</span> vers <span class="math inline">\(v_2\)</span> n’implique pas nécessairement un lien de <span class="math inline">\(v_2\)</span> vers <span class="math inline">\(v_1\)</span>, on parle de graphe orienté (<em>directed graph</em> ou <em>digraph</em>) ; dans le cas contraire, on parle de graphe non orienté (<em>non directed graph</em>). Il est cependant possible de ne pas prendre en compte la direction des liens et de traiter un graphe orienté comme s’il était non orienté <a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a>. Il arrive également que les données disponibles ne permettent pas de connaître la direction initiale. Enfin, certains logiciels ignorent l’éventuelle orientation des liens pour le calcul de certains indicateurs (chapitre <a href="Cmesures.html"><span>5</span></a>).</p>
+<p><strong>Exemple 1</strong> : les liens d’amitié sur le réseau social Facebook sont au départ orientés : une personne demande à une autre si elle peut être ajoutée comme amie. Cette information est cependant perdue dès que la demande est acceptée : vous êtes amie avec telle personne mais il n’est pas possible de retrouver qui a fait la demande. Dans ce cas, la structure même des données récoltées impose l’absence d’orientation des liens.</p>
+<p><strong>Exemple 2</strong> : certains liens familiaux sont non orientés. Si je suis mariée à une personne, cette personne est nécessairement mariée avec moi (ou l’une des deux ment). À l’inverse, un lien de filiation est nécessairement orienté. En fonction de mes questions de recherche, je peux cependant supprimer cette orientation si elle n’est pas utile dans ma démarche.</p>
+<p>Le lien entre deux sommets dans le réseau peut être de type présence (1) - absence (0) ; on a alors affaire à un réseau dit binaire ou booléen (<em>binary</em> ou <em>boolean</em>). Il arrive, notamment dans les enquêtes sociométriques, que les liens soient porteurs de signes positifs, indiquant généralement une préférence (j’aime telle personne), ou négatifs, exprimant généralement un rejet (je n’aime pas telle personne). On parle dans ce cas de réseau signé (<em>signed graph</em>). Les logiciels n’étant qu’exceptionnellement conçus pour analyser ce type de réseau, il est rare de les garder sous cette forme et les réseaux signés sont à peine évoqués dans ce petit guide pratique. Enfin, le lien peut être porteur d’une intensité ; on parle dans ce cas de réseau valué ou pondéré (<em>weighted graph</em>).</p>
+<p><strong>Exemple</strong> : j’étudie les données du commerce international. Je peux choisir de les modéliser sous forme de réseau entre États. Les liens sont orientés (la France exporte tant vers l’Allemagne, l’Allemagne exporte tant vers la France) et valués. Ce réseau peut être transformé de multiples façons afin d’obtenir un réseau non orienté (si je m’intéresse au volume des échanges et non à leur direction) et/ou un réseau binaire (je justifie un seuil permettant de conserver la plus grande partie du flux tout en simplifiant l’analyse).</p>
+<p>On appelle graphe simple (<em>simple graph</em>) un graphe qui ne comprend ni boucle (lien d’un sommet vers lui-même, <em>self-tie</em> ou <em>loop</em> en anglais) ni liens multiples (présence de plusieurs liens entre les mêmes sommets). S’il existe des liens multiples, on parlera le plus souvent de graphe multiplexe (<em>multigraph</em>) ou multi-couches (<em>multi-layers</em>) <a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a> (figure <a href="#fig-typegraph"><span>3.4</span></a>). Le terme de réseau complexe (<em>complex network</em>), souvent utilisé dans les travaux des informaticiennes et physiciennes, désigne dans l’immense majorité des cas un réseau simple de grande taille (<em>a minima</em> plusieurs milliers de liens et de sommets).</p>
+<div id="fig-typegraph" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="images/typegraph.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;3.4: Types de graphes</figcaption><p></p>
+</figure>
+</div>
+<p><em>Le graphe de gauche est un graphe simple. Celui du centre présente à la fois une boucle et des liens multiples. À droite, l’épaisseur des liens suggère une intensité de relations différentes entre les sommets ; il s’agit d’un graphe valué. Ces trois graphes sont non orientés.</em></p>
+<p>Quel que soit l’aspect du monde social, passé ou présent, que vous étudiez, il est rare qu’un seul type de relations existe entre vos individus : choisir de modéliser ces relations par un réseau simple est une simplification, souvent nécessaire et utile, de la réalité et il est prudent dans s’en rappeler lorsqu’on commente ses résultats. Les méthodes d’analyse des réseaux multiplexes étant encore aujourd’hui en grande partie exploratoires, elles sont abordées dans le chapitre <a href="Cmultiplexe.html"><span>8</span></a>.</p>
+<p><strong>Exemple 1</strong> : j’étudie les pratiques de citations dans une discipline donnée. Je crée un lien de l’autrice <span class="math inline">\(a\)</span> vers l’autrice <span class="math inline">\(b\)</span> quand un travail de <span class="math inline">\(a\)</span> cite un travail de <span class="math inline">\(b\)</span>. Comme tous les réseaux de citations, mon réseau est orienté : <span class="math inline">\(a\)</span> cite sa directrice de thèse mais cette dernière ne cite pas <span class="math inline">\(a\)</span>, <span class="math inline">\(a\)</span> cite des autrices décédées, etc. La probabilité que les autrices se citent elles-mêmes est forte, ce qui créent des boucles dans mon réseau. Il est également probable que je puisse valuer mon réseau dans la mesure où <span class="math inline">\(a\)</span> cite sans doute plusieurs travaux d’une chercheuse de sa discipline. Je peux bien entendu choisir d’ignorer les boucles si la pratique de l’auto-citation ne fait pas partie de mes questions de recherche. Je peux aussi négliger la valuation des liens si je considère que le critère pertinent est la citation <em>vs</em> la non-citation. Aucune solution n’est meilleure qu’une autre : tout dépend de ce que j’étudie. Et tant que cette dernière question n’est pas totalement fermée, j’ai tout intérêt à garder les données les plus complètes possibles (chapitre <a href="Cdonnees.html"><span>4</span></a>).</p>
+<p><strong>Exemple 2</strong> : dans un article paru dans la revue <em>Cybergeo</em>, Sandrine <span class="citation" data-cites="berroir17">Berroir et al. (<a href="references.html#ref-berroir17" role="doc-biblioref">2017</a>)</span> étudient les relations entre les villes françaises (sommets) et elles prennent en compte sept types de liens différents (navettes domicile-travail, offre aérienne et/ou tgv, partenariats scientifiques, etc.) ; elles obtiennent un réseau multiplexe où certaines relations sont orientées et d’autres non, toutes sont valuées. Il est bien entendu possible de transformer ce réseau multiplexe en partie orienté afin de créer un réseau simple. Les autrices de l’article créent un lien synthétique entre deux villes en trois étapes : discrétiser chaque flux en cinq classes et attribuer un score de 0 (20 % des flux les plus faibles) à 4 (20 % des flux les plus intenses) ; sommer ces scores pour créer un indice synthétique mesurant “l’intensité globale des liens interurbains” ; sélectionner les paires de villes où le score est maximal (4) pour au moins 3 des 7 flux. D’autres critères pouvaient tout à fait être choisis pour cette transformation ; il était également possible de garder la structure multiplexe du réseau pour l’analyser (chapitre <a href="Cmultiplexe.html"><span>8</span></a>).</p>
+<p>Il est possible, à partir des données relationnelles que vous avez récoltées et mises en forme, de construire un réseau et le type de liens permet de qualifier ce réseau. Gardez cependant à l’esprit que ce réseau peut être modifié. On a tout à fait le droit de ne pas considérer l’orientation ou l’intensité des liens si ces deux critères n’ont pas d’importance pour nos questions de recherche. Il arrive également que la transformation soit liée à nos lacunes (je ne sais pas comment analyser un réseau multiplexe) ou au logiciel que nous utilisons (ce logiciel ne permet pas d’analyser un réseau multiplexe). Ce qui importe est d’expliciter et de justifier les transformations réalisées afin que vos lectrices puissent comprendre votre démarche.</p>
+</section>
+<section id="qualifier-un-réseau-daprès-ses-propriétés" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="qualifier-un-réseau-daprès-ses-propriétés"><span class="header-section-number">3.3</span> Qualifier un réseau d’après ses propriétés</h2>
+<p>Les manuels d’analyse de réseau utilisent souvent pour expliquer les variations d’un indicateur des idéaux-types de réseaux à des fins pédagogiques. Ainsi on peut, pour évoquer la densité (nombre de liens présents divisé par le nombre de liens possibles), distinguer les graphes vides (aucun lien n’existe) et les graphes complets <a href="#fn7" class="footnote-ref" id="fnref7" role="doc-noteref"><sup>7</sup></a> (tous les liens possibles sont présents). Il va de soi que de tels réseaux ne présentent guère d’intérêt pour l’analyse.</p>
+<p>Plus proche de certains réseaux, comme beaucoup de réseaux hydrographiques ou d’arbres généalogiques, les réseaux où aucun cycle n’est présent sont appelés des arbres s’ils sont connexes. Un arbre (<em>tree</em>) possède des propriétés intéressantes pour certaines méthodes d’analyse de réseau, notamment parce qu’un arbre de <span class="math inline">\(V\)</span> sommets contient au minimum et au maximum <span class="math inline">\(V\)</span> - 1 liens. Si le réseau acyclique n’est pas connexe, on parle de forêt (<em>forest</em>).</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/arbre.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Arbre et forêt</figcaption><p></p>
+</figure>
+</div>
+<p><em>Le réseau à gauche est connexe (on peut trouver un chemin entre toute paire de sommets) et acyclique (il n’est pas possible de partir d’un sommet et d’y revenir en empruntant des liens différents). Il comprend 10 sommets et, pour être connexe, il doit avoir au minimum 9 liens. Ce minimum est également le maximum : tout ajout d’un lien sur la figure créerait un cycle. La suppression d’un seul lien crée un graphe non connexe, composé de 2 arbres, appelé forêt (à droite) : tout lien dans un arbre est un isthme.</em></p>
+<p>Certains idéaux-types peuvent avoir des structures proches de celles des réseaux étudiés, par exemple les réseaux linéaires, les réseaux circulaires ou les réseaux en étoile (<em>star-graph</em>). La figure ci-dessous présente ces trois formes : chacun des graphes possède le même nombre de sommets, ligne et étoile ont également le même nombre de liens.</p>
+<div id="fig-cercle" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="images/cercle.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;3.5: Cercle, ligne et étoile</figcaption><p></p>
+</figure>
+</div>
+<p><em>Les réseaux étudiés peuvent avoir des similitudes formelles avec ces trois idéaux-types. Si l’on imagine que les sommets représentent des personnes et les liens des échanges d’information, on note que la situation devient de plus en plus inégalitaire à mesure que l’on se rapproche de l’étoile où le sommet central est un point obligé pour tout échange d’information. Par ailleurs, il est important de se rappeler que des réseaux ayant le même nombre de sommets et le même nombre de liens peuvent avoir des structures très différentes.</em></p>
+<p>Il existe des structures de réseaux, issues des mathématiques ou de la physique, qui servent régulièrement de points de repère pour étudier nos propres réseaux (réseau aléatoire, réseau petit-monde, réseau sans échelle). Dans la mesure où ces modèles nécessitent de connaître certaines mesures, ils seront évoqués dans le chapitre <a href="Cmesures.html"><span>5</span></a>.</p>
+<hr>
+<p><em>À l’intention des formatrices</em></p>
+<p>Débuter une formation par une liste de définitions de vingt ou trente termes n’est sans doute pas nécessaire. Il me semble pourtant utile que les personnes sachent rapidement comment qualifier et transformer un réseau. N’hésitez pas à multiplier les dessins et les exemples pour illustrer chaque cas. Il me paraît également essentiel d’insister sur le fait que le réseau est un objet construit pour la recherche : il n’est pas “par nature” orienté, valué ou que sais-je encore mais peut être transformé sans aucun problème, à condition évidemment d’indiquer explicitement les transformations opérées. Il faut cependant être claire avec les participantes : choisir de conserver certaines propriétés originelles du réseau (notamment pour les réseaux bimodaux et multiplexes) restreint le choix des logiciels adaptés pour leur analyse (chapitre <a href="Clogiciels.html"><span>13</span></a>).</p>
+<hr>
+<section id="graphe-unimodal-bimodal-et-hypergraphe" class="level3" data-number="3.3.1">
+<h3 data-number="3.3.1" class="anchored" data-anchor-id="graphe-unimodal-bimodal-et-hypergraphe"><span class="header-section-number">3.3.1</span> Graphe unimodal, bimodal et hypergraphe</h3>
+<p>On parle de réseau uniparti, unimodal ou <em>one-mode</em> quand le réseau est constitué d’un ensemble de sommets et d’un ensemble de liens entre ces sommets. Lorsqu’aucun adjectif n’est présent, le réseau considéré est dans l’immense majorité des cas unimodal. La grande majorité des articles publiés en analyse de réseau concerne ce type d’objet et la majeure partie des mesures et des méthodes d’analyse a été construite pour des réseaux unimodaux.</p>
+<p>Un graphe est dit biparti (<em>bipartite graph</em>) si son ensemble de sommets <span class="math inline">\(V\)</span> peut être divisé en deux sous-ensembles disjoints <span class="math inline">\(V_1\)</span> et <span class="math inline">\(V_2\)</span> tel que chaque arête ait une extrémité dans <span class="math inline">\(V_1\)</span> et l’autre dans <span class="math inline">\(V2\)</span> ; on le note alors <span class="math inline">\(G = \{V_1, V_2, E\}\)</span>. En sciences sociales, les termes de réseau biparti, bimodal ou <em>2-mode</em> sont souvent considérés comme synonymes <a href="#fn8" class="footnote-ref" id="fnref8" role="doc-noteref"><sup>8</sup></a>. J’utiliserai dans la suite de ce guide le terme bimodal qui me parait le plus adapté pour désigner les relations entre deux ensembles différents de sommets.</p>
+<p>Les liens dans un réseau bimodal sont généralement considérés comme non orientés ; ils peuvent par contre être binaires ou valués. Une opération mathématique simple, illustrée dans la figure <a href="#fig-bitoone"><span>3.6</span></a>, permet de transformer un réseau bimodal en deux réseaux unimodaux valués. On pourrait tout à fait imaginer des réseaux tripartis ou quadripartis mais aucune méthode n’a su s’imposer pour les analyser <a href="#fn9" class="footnote-ref" id="fnref9" role="doc-noteref"><sup>9</sup></a>.</p>
+<p>Les données modélisées sous forme de réseau bimodal pourraient souvent être modélisées sous forme d’hypergraphe. Un hypergraphe est un graphe où un lien peut contenir de 1 à <span class="math inline">\(n\)</span> sommets, <span class="math inline">\(n\)</span> étant le nombre de sommets du graphe. Peu de logiciels permettent de les analyser et l’utilisation des hypergraphes reste rare en sciences sociales.</p>
+<p><strong>Exemple 1</strong> : je m’intéresse aux pratiques de co-signatures d’articles scientifiques. Je constitue un corpus d’articles (ensemble de sommets <span class="math inline">\(V_1\)</span>) et un corpus d’autrices ayant signé ces articles (ensemble de sommets <span class="math inline">\(V_2\)</span>). Le réseau est bimodal car les liens existants sont entre autrices et articles. Si je le transforme en réseau unimodal autrices - autrices, un lien entre deux autrices signifie qu’elles ont signé ensemble un nombre d’articles au moins égal à 1. Si je le transforme en réseau articles - articles, un lien entre deux articles signale la présence d’au moins une autrice commune aux deux articles (figure <a href="#fig-bitoone"><span>3.6</span></a>).</p>
+<p><strong>Exemple 1bis</strong> : je m’intéresse aux pratiques de cosignatures d’articles scientifiques. Je peux choisir une modélisation des données sous forme de réseau bimodal ; je peux également choisir d’utiliser des hypergraphes où un lien équivaut à un article et les <span class="math inline">\(x\)</span> sommets de ce lien aux autrices (figure <a href="#fig-bihyper"><span>3.7</span></a>).</p>
+<div id="fig-bitoone" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="images/bitoone.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;3.6: Du réseau bimodal aux réseaux unimodaux</figcaption><p></p>
+</figure>
+</div>
+<p><em>Le réseau bimodal de gauche peut être transformé en deux réseaux unimodaux valués : le réseau articles - articles au centre, le réseau autrices - autrices à droite. Dans le réseau central, l’intensité du lien A2-A3 est de 2, cela signifie que ces deux articles partagent deux mêmes autrices. Dans le réseau de droite, l’intensité du lien a2-a4 est de 2, cela signifie qu’elles ont co-signé deux articles. La transformation en réseau unimodal valué s’accompagne d’une perte d’informations dans la mesure où il n’est plus possible, une fois la transformation réalisée, de retrouver la structure de départ du graphe bimodal. Cette transformation peut s’avérer nécessaire pour l’analyse, de nombreux logiciels n’étant pas conçus pour analyser des réseaux bimodaux.</em></p>
+<div id="fig-bihyper" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="images/bi_R.PNG" class="img-fluid figure-img" style="width:30.0%"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;3.7: Deux modélisations d’un même corpus : réseau bimodal et hypergraphe (1)</figcaption><p></p>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/bi_paohvis.PNG" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Deux modélisations d’un même corpus : réseau bimodal et hypergraphe (2)</figcaption><p></p>
+</figure>
+</div>
+<p><em>La représentation sous forme de réseau bimodal est courante, celle par hypergraphe l’est moins. Cette dernière présente pourtant des atouts intéressants pour l’exploration visuelle des données (chapitre <a href="Cvisualiser.html"><span>12</span></a>). La deuxième figure a été réalisée avec le logiciel <a href="https://www.aviz.fr/paohvis">Paohvis</a>, <span class="citation" data-cites="valdivia18">Valdivia et al. (<a href="references.html#ref-valdivia18" role="doc-biblioref">2018</a>)</span>.</em></p>
+<p>Le réseau unimodal valué issu du réseau bimodal de départ indique une cooccurence et cette relation n’est pas nécessairement synonyme d’interactions ou de relations <a href="#fn10" class="footnote-ref" id="fnref10" role="doc-noteref"><sup>10</sup></a>. Si je remplace mon corpus d’articles par un corpus de conférences scientifiques, je peux transformer mon réseau pour obtenir un réseau chercheuses - chercheuses où le lien indique qu’elles ont assisté à 1, 2 ou <span class="math inline">\(x\)</span> conférences communes ; rien ne me permet de supposer que ces deux personnes se connaissent, connaissent leurs travaux respectifs ou se sont adressées la parole.</p>
+<p>Le réseau multi-niveaux (<em>multilevel network</em>) peut être considéré comme un mélange entre réseaux unimodaux et bimodaux. Le réseau est en partie bimodal : on étudie les liens entre deux catégories de sommets, par exemple entre des personnes et des organisations. Il est également unimodal dans la mesure où on cherche à étudier dans le même temps les liens à l’intérieur des deux niveaux considérés. J’aurai donc d’une part les liens d’appartenance entre individus et organisations, les liens entre les individus et enfin les liens entre organisations. Ce type d’approche nécessite un dispositif méthodologique de recueil des données plus lourd que les précédents.</p>
+</section>
+<section id="réseau-planaire-et-réseau-non-planaire" class="level3" data-number="3.3.2">
+<h3 data-number="3.3.2" class="anchored" data-anchor-id="réseau-planaire-et-réseau-non-planaire"><span class="header-section-number">3.3.2</span> Réseau planaire et réseau non planaire</h3>
+<p>Un graphe planaire (<em>planar</em>) est un graphe pouvant être projeté sur un plan sans qu’aucun lien ne se croise. Dans un graphe non planaire, deux liens peuvent se croiser sans problème. Lorsqu’on passe du graphe au réseau, le choix est en partie lié au type de sommets et au type de liens étudiés. Un réseau routier est généralement considéré comme un réseau planaire : les routes forment les liens et les intersections forment les sommets. Certes, il peut y avoir des ponts et des tunnels qui perturbent légèrement la structure mais, dans l’ensemble, le réseau peut être considéré comme planaire. Certains réseaux de métro sont planaires (Marseille), d’autres ne le sont pas (Paris). Le réseau aérien peut lui être considéré comme non planaire, les couloirs aériens pouvant emprunter les trois dimensions.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/planaire.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Réseau planaire et non planaire</figcaption><p></p>
+</figure>
+</div>
+<p><em>Le réseau de gauche est planaire, aucune arête ne se croise. Il est également complet ; le seul lien manquant (2-4) ne peut être ajouté sans provoquer une intersection de liens. Le réseau de droite est non planaire et complet.</em></p>
+<p>Le fait de considérer qu’un réseau est planaire a des conséquences méthodologiques fortes dans la mesure où les formules permettant de calculer les indicateurs doivent être adaptées (chapitre <a href="Cmesures.html"><span>5</span></a>), cela impacte également le choix du logiciel utilisé. Le choix planaire/non planaire est moins fonction des liens présents et de l’existence d’éventuels croisements que de la possibilité d’<strong>imaginer</strong> des liens entre tous les sommets. Par exemple, si je considère les relations ferroviaires entre les villes françaises de plus de 20 000 habitants, imaginer une voie ferrée directe entre chacune de ces villes n’a pas de sens, que ce soit au niveau économique ou environnemental, et le réseau sera considéré comme planaire. Si je considère les relations au sein d’une classe de 25 élèves, je peux très bien imaginer que chaque élève connaisse les noms et prénoms de tous les autres élèves et le réseau sera considéré comme un réseau non planaire, quelles que soient les relations existant réellement dans cette classe.</p>
+</section>
+</section>
+<section id="vos-réseaux-vos-choix" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="vos-réseaux-vos-choix"><span class="header-section-number">3.4</span> Vos réseaux, vos choix</h2>
+<p>Au risque de me répéter, un réseau, qu’il s’agisse d’un réseau d’infrastructures, d’un réseau social (au sens sociologique et non numérique du terme) ou d’un réseau écologique, n’existe pas en soi, c’est un construit comme le sont les données relationnelles ayant servi à créer ce réseau. Il est toujours nécessaire de définir son ensemble de sommets et de définir ce que représentent les liens entre ces sommets.</p>
+<p>Un réseau peut être transformé afin d’être plus adapté aux questions que vous vous posez et/ou aux outils et aux méthodes disponibles. La seule règle est d’expliquer comment on passe des données de départ au réseau analysé et, c’est quand même préférable, de justifier les transformations ou sélections opérées avant de mener à bien l’analyse.</p>
+<p>Ce qui est vrai pour la construction du réseau reste bien entendu vrai pour l’analyse et la visualisation des données relationnelles : chaque fois que je fais un choix, que je décide de supprimer telle ou telle information, il est important d’expliquer comment et pourquoi je le fais.</p>
+<hr>
+<p><em>À l’intention des formatrices</em></p>
+<p>Les six termes de vocabulaire que les participantes sont censées connaître à l’issue d’une initiation à l’analyse de réseau sont sommet, lien, connexe, réseau orienté, réseau valué, réseau bimodal. Si on connaît la signification de ces termes, on doit pouvoir retrouver les autres (ex : sommets + liens = réseau ; inverse de réseau orienté = réseau non orienté, etc.).</p>
+<p>Si les participantes oublient les boucles ou les liens multiples, ce n’est pas très grave : 95 % de la littérature en sciences sociales analysent des réseaux simples (pourcentage non validé par une étude empirique digne de ce nom). Les réseaux planaires intéressent les seules géographes des transports, et encore, réseaux fluvial, routier et ferré uniquement.</p>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" data-line-spacing="2" role="doc-bibliography" style="display: none">
+<div id="ref-beauguitte23" class="csl-entry" role="doc-biblioentry">
+Beauguitte, L. (2023). <span class="nocase">L’analyse de réseaux bimodaux en sciences sociales. Aperçus épistémologiques et historiques</span>. <em><span>Groupe Fmr</span></em>. <a href="https://hal.science/hal-04002125">https://hal.science/hal-04002125</a>
+</div>
+<div id="ref-berroir17" class="csl-entry" role="doc-biblioentry">
+Berroir, S., Cattan, N., Dobruszkes, F., Guerois, M., Paulus, F. and Vacchiani-Marcuzzo, C. (2017). <span class="nocase">Les systèmes urbains français: une approche relationnelle</span>. <em>Cybergeo: European Journal of Geography</em>. <a href="https://journals.openedition.org/cybergeo/27945">https://journals.openedition.org/cybergeo/27945</a>
+</div>
+<div id="ref-kivela14" class="csl-entry" role="doc-biblioentry">
+Kivela, M., Arenas, A., Barthelemy, M., Gleeson, J. P., Moreno, Y. and Porter, M. A. (2014). Multilayer networks. <em>Journal of Complex Networks</em>. <a href="https://academic.oup.com/comnet/article/2/3/203/2841130">https://academic.oup.com/comnet/article/2/3/203/2841130</a>
+</div>
+<div id="ref-lazega14" class="csl-entry" role="doc-biblioentry">
+Lazega, E. (2014). <em><span class="nocase">Réseaux sociaux et structures relationnelles</span></em>. PUF.
+</div>
+<div id="ref-merckle11" class="csl-entry" role="doc-biblioentry">
+Mercklé, P. (2011). <em><span class="nocase">Sociologie des réseaux sociaux</span></em>. La Découverte.
+</div>
+<div id="ref-newman18" class="csl-entry" role="doc-biblioentry">
+Newman, M. (2018). <em>Networks</em>. Oxford University Press.
+</div>
+<div id="ref-valdivia18" class="csl-entry" role="doc-biblioentry">
+Valdivia, P., Buono, P., Plaisant, C., Dufournaud, N. and Fekete, J.-D. (2018). Using dynamic hypergraphs to reveal the evolution of the business network of a 17th century french woman merchant. <em>Proceeding of the VIS4DH Workshop</em>. <a href="https://hal.inria.fr/hal-01855675">https://hal.inria.fr/hal-01855675</a>
+</div>
+<div id="ref-wasserman94" class="csl-entry" role="doc-biblioentry">
+Wasserman, S. and Faust, K. (1994). <em>Social network analysis. Methods and applications</em>. Cambridge University Press.
+</div>
+<div id="ref-zachary77" class="csl-entry" role="doc-biblioentry">
+Zachary, W. W. (1977). An information flow model for conflict and fission in small groups. <em>Journal of Anthropological Research</em>. <a href="https://www.jstor.org/stable/pdf/3629752.pdf">https://www.jstor.org/stable/pdf/3629752.pdf</a>
+</div>
+</div>
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>Les manuels francophones d’analyse de réseaux sociaux sont de bonne qualité et se complètent bien les uns les autres, je pense notamment à la paire <span class="citation" data-cites="lazega14">Lazega (<a href="references.html#ref-lazega14" role="doc-biblioref">2014</a>)</span> - <span class="citation" data-cites="merckle11">Mercklé (<a href="references.html#ref-merckle11" role="doc-biblioref">2011</a>)</span>, mais leur format réduit ne leur permet pas de lutter contre le manuel de <span class="citation" data-cites="wasserman94">Wasserman and Faust (<a href="references.html#ref-wasserman94" role="doc-biblioref">1994</a>)</span> - une mise à jour s’impose - ni contre celui de <span class="citation" data-cites="newman18">Newman (<a href="references.html#ref-newman18" role="doc-biblioref">2018</a>)</span>. Ces deux ouvrages sont indispensables à qui souhaite utiliser sérieusement l’analyse de réseau ; le manuel de Newman est nécessaire si l’on souhaite échapper à la seule <em>Social Network Analysis</em>. On les trouve gratuitement en ligne sans problème (zlibrary était votre ami, libgen l’est encore).<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>Dans l’ensemble de ce texte, les graphes sont notés <span class="math inline">\(G\)</span>, les ensembles de sommets <span class="math inline">\(V\)</span> (comme <em>vertices</em>) et les ensembles de liens <span class="math inline">\(E\)</span> (<em>edges</em>). Un sommet donné sera noté <span class="math inline">\(v\)</span>, un lien précis <span class="math inline">\(e\)</span>.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>La théorie des graphes distingue les cycles dans les graphes non orientés et les circuits dans les graphes orientés ; la distinction a peu d’intérêt en sciences sociales.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4"><p>Wasserman et Faust (<em>op. cit.</em>) distinguent également les <em>uniterally</em> et les <em>recursively connected graphs</em> selon que les mêmes liens sont empruntés dans un sens et dans l’autre dans les graphes orientés (p.&nbsp;132).<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn5"><p>Il est <strong>toujours</strong> possible de transformer ses données, et donc ses réseaux, pour les adapter à ses questions de recherche et/ou aux méthodes disponibles, il suffit simplement de documenter les transformations effectuées.<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn6"><p>La terminologie est en pratique beaucoup plus confuse : <span class="citation" data-cites="kivela14">Kivela et al. (<a href="references.html#ref-kivela14" role="doc-biblioref">2014</a>)</span> répertorient 26 termes différents désignant peu ou prou le même type d’objet. Le terme de pseudographe désignant les graphes avec boucles et liens multiples n’est quasiment jamais utilisé en sciences sociales.<a href="#fnref6" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn7"><p>Attention à ne pas confondre les deux emplois du terme “réseau complet” : il peut s’agir de la démarche de recueil de données (ensemble des liens au sein d’un groupe donné, par opposition aux approches par réseau personnel) ou d’un réseau où tous les liens possibles sont présents.<a href="#fnref7" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn8"><p>En théorie des graphes, le caractère biparti d’un graphe est lié à sa structure ; ainsi tout arbre est un graphe biparti (<span class="citation" data-cites="beauguitte23">Beauguitte (<a href="references.html#ref-beauguitte23" role="doc-biblioref">2023</a>)</span>).<a href="#fnref8" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn9"><p>Je pourrais par exemple avoir un corpus d’autrices, un corpus de revues où publient ces autrices et un corpus d’éditrices propriétaires de ces revues et créer ainsi un réseau triparti.<a href="#fnref9" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn10"><p>On connaît en général les autrices avec lesquelles on signe un article. Mais ce n’est pas toujours le cas.<a href="#fnref10" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./Chistoires.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Histoires &amp; disciplines</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./Cdonnees.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Construire ses données</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>

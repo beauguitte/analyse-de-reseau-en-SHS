@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.1.189">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>L’analyse de réseau en sciences sociales. Petit guide pratique - 7&nbsp; Analyser des réseaux bimodaux</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./Cmultiplexe.html" rel="next">
+<link href="./Cpartitions.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Analyser des réseaux bimodaux</span></h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">L’analyse de réseau en sciences sociales. Petit guide pratique</a> 
+    </div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">Remerciements plus des bricoles</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./intro.html" class="sidebar-item-text sidebar-link">Ce qu’est ce guide et ce qu’il n’est pas</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Cpourquoifaire.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Pourquoi faire de l’analyse de réseau ?</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Chistoires.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Histoires &amp; disciplines</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Cvocabulaire.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Graphe et réseau : principes et vocabulaire de base</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Cdonnees.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Construire ses données</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Cmesures.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Quelques mesures possibles</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Cpartitions.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Simplifier, partitionner</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Cbiparti.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Analyser des réseaux bimodaux</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Cmultiplexe.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Analyser des réseaux multiplexes</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Cdynamique.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Analyser la dynamique des réseaux</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Cegoreseau.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Analyser des réseaux personnels</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Cmodeles.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Modèles graphiques, modèles statistiques</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Cvisualiser.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Visualiser les données relationnelles</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Clogiciels.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Choisir un ou plusieurs logiciels</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Cupdate.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Se (re)mettre à jour</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Cconclusion.html" class="sidebar-item-text sidebar-link">Conclusion</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Aequation.html" class="sidebar-item-text sidebar-link">Annexe - Notations mathématiques et calcul matriciel</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">Références</a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Sommaire</h2>
+   
+  <ul>
+  <li><a href="#précisions-terminologiques" id="toc-précisions-terminologiques" class="nav-link active" data-scroll-target="#précisions-terminologiques"><span class="toc-section-number">7.1</span>  Précisions terminologiques</a></li>
+  <li><a href="#du-réseau-bimodal-aux-réseaux-unimodaux" id="toc-du-réseau-bimodal-aux-réseaux-unimodaux" class="nav-link" data-scroll-target="#du-réseau-bimodal-aux-réseaux-unimodaux"><span class="toc-section-number">7.2</span>  Du réseau bimodal aux réseaux unimodaux</a></li>
+  <li><a href="#quelques-mesures" id="toc-quelques-mesures" class="nav-link" data-scroll-target="#quelques-mesures"><span class="toc-section-number">7.3</span>  Quelques mesures</a>
+  <ul class="collapse">
+  <li><a href="#ordres-taille-diamètre" id="toc-ordres-taille-diamètre" class="nav-link" data-scroll-target="#ordres-taille-diamètre"><span class="toc-section-number">7.3.1</span>  Ordres, taille &amp; diamètre</a></li>
+  <li><a href="#centralités" id="toc-centralités" class="nav-link" data-scroll-target="#centralités"><span class="toc-section-number">7.3.2</span>  Centralités</a></li>
+  <li><a href="#de-la-triade-au-cycle-de-longueur-4" id="toc-de-la-triade-au-cycle-de-longueur-4" class="nav-link" data-scroll-target="#de-la-triade-au-cycle-de-longueur-4"><span class="toc-section-number">7.3.3</span>  De la triade au cycle de longueur 4</a></li>
+  <li><a href="#cliques-et-communautés" id="toc-cliques-et-communautés" class="nav-link" data-scroll-target="#cliques-et-communautés"><span class="toc-section-number">7.3.4</span>  Cliques et communautés</a></li>
+  <li><a href="#boucle-et-copinage-mais-pas-que" id="toc-boucle-et-copinage-mais-pas-que" class="nav-link" data-scroll-target="#boucle-et-copinage-mais-pas-que"><span class="toc-section-number">7.3.5</span>  Boucle et copinage (mais pas que)</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span id="sec-Cbiparti" class="quarto-section-identifier d-none d-lg-block"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Analyser des réseaux bimodaux</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    
+  </div>
+  
+
+</header>
+
+<section id="précisions-terminologiques" class="level2" data-number="7.1">
+<h2 data-number="7.1" class="anchored" data-anchor-id="précisions-terminologiques"><span class="header-section-number">7.1</span> Précisions terminologiques</h2>
+<p>Un petit point de vocabulaire pour commencer : les termes de réseaux bipartis (<em>bipartite</em>) et bimodaux (<em>2-mode</em>), ceux de réseaux d’affiliation (<em>affilation network</em>) et d’<em>interlock</em> sont régulièrement utilisés comme synonymes. Au sens strict du terme, un réseau <span class="math inline">\(R\)</span> est biparti s’il est possible de diviser l’ensemble des sommets <span class="math inline">\(V\)</span> en deux sous-ensembles disjoints <span class="math inline">\(V_1\)</span> et <span class="math inline">\(V_2\)</span> tels que tout lien de <span class="math inline">\(R\)</span> a une extrémité dans <span class="math inline">\(V_1\)</span> et l’autre dans <span class="math inline">\(V_2\)</span>. Tout arbre par exemple est un graphe biparti (figure <a href="#fig-farbre"><span>7.1</span></a>).</p>
+<div id="fig-farbre" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="images/farbre.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;7.1: Tout arbre est un graphe biparti</figcaption><p></p>
+</figure>
+</div>
+<p><em>En théorie des graphes, tout arbre (graphe connexe acyclique) et toute forêt (graphe non connexe acyclique) est un graphe biparti : il est en effet toujours possible de créer une partition des sommets en deux sous-ensembles</em> <span class="math inline">\(V_1\)</span> et <span class="math inline">\(V_2\)</span> telle que tout lien ait une extrémité dans <span class="math inline">\(V_1\)</span> et l’autre dans <span class="math inline">\(V_2\)</span>.</p>
+<p>Quand on utilise ce terme en analyse de réseau, on suggère le plus souvent que le réseau étudié est bimodal, c’est-à-dire qu’on étudie les relations entre deux ensembles différents de sommets (des actrices <span class="math inline">\(V_1\)</span> jouant dans des films <span class="math inline">\(V_2\)</span>, des autrices <span class="math inline">\(V_1\)</span> publiant dans des revues <span class="math inline">\(V_2\)</span>, des relations entre enseignantes <span class="math inline">\(V_1\)</span> et élèves <span class="math inline">\(V_2\)</span>, etc. etc.) ; les liens éventuels entre les sommets de <span class="math inline">\(V_1\)</span> et entre les sommets de <span class="math inline">\(V_2\)</span> ne sont pas pris en compte.</p>
+<p>Le réseau d’affiliation lie des individus à des organisations. L’<em>interlock</em> est un cas particulier de réseau d’affiliation où les organisations en question sont des conseils d’administration. On peut également trouver le terme d’<em>actor-event network</em> signalant la participation de personnes à des événements. Ces trois types de réseau sont des formes particulières de réseau bimodal.</p>
+<p>Dans la majorité des cas, la direction n’est pas prise en compte et le lien n’est pas valué. Mais on pourrait tout à fait imaginer des liens orientés et valués.</p>
+<p><strong>Exemple</strong> : soit un réseau bimodal de participantes (<span class="math inline">\(V_1\)</span>) à des conférences (<span class="math inline">\(V_2\)</span>). On pourrait construire un réseau orienté en distinguant les personnes invitées par les organisatrices de la conférence (lien de <span class="math inline">\(V_2\)</span> vers <span class="math inline">\(V_1\)</span>) et les personnes qui demandant à participer à la conférence (lien de <span class="math inline">\(V_1\)</span> vers <span class="math inline">\(V_2\)</span>). Le lien pourrait être valué en indiquant le coût (en temps de voyage, en frais d’inscription, etc.) pour les participantes.</p>
+</section>
+<section id="du-réseau-bimodal-aux-réseaux-unimodaux" class="level2" data-number="7.2">
+<h2 data-number="7.2" class="anchored" data-anchor-id="du-réseau-bimodal-aux-réseaux-unimodaux"><span class="header-section-number">7.2</span> Du réseau bimodal aux réseaux unimodaux</h2>
+<p>La méthode d’analyse la plus couramment utilisée pour les réseaux bimodaux est de réaliser une projection afin les transformer en deux réseaux unimodaux non orientés et valués <a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. Ces liens sont ensuite généralement dichotomisés (1 si l’intensité de la relation dépasse un seuil donné, 0 sinon) et le réseau projeté est analysé comme un réseau unimodal simple.</p>
+<p><strong>Exemple</strong> : soit un ensemble <span class="math inline">\(V_1\)</span> d’autrices et un ensemble <span class="math inline">\(V_2\)</span> d’articles (figure <a href="Cvocabulaire.html#fig-bitoone"><span>3.6</span></a>). Le moyen le plus fréquent d’analyser ces données est de créer deux réseaux unimodaux non orientés, l’un pour les autrices, l’autre pour les articles. Un lien entre les autrices indiquent qu’elles ont publié ensemble 1 à <span class="math inline">\(V_2\)</span> articles; un lien entre deux articles indique qu’ils ont en commun 2 à <span class="math inline">\(V_1\)</span> autrices.</p>
+<p>Il existe des méthodes plus subtiles pour passer du réseau bimodal au réseau unimodal valué, méthodes issues notamment de la bibliométrie. Si un article a deux autrices, on peut supposer qu’elles se connaissent et qu’elles ont réellement travaillé ensemble. Si, comme c’est le cas dans certaines disciplines, un article a plusieurs dizaines d’autrices, il est probable que l’interconnaissance soit plus faible. On peut donc choisir la valuation du lien de cosignaure qui sera d’autant plus faible que le nombre d’autrices est élevé.</p>
+<p>Les méthodes permettant d’analyser les réseaux unimodaux valués ont déjà été abordées précédemment. L’objectif de ce chapitre est de montrer comment analyser les données tout en gardant la structure bimodale du réseau. Je rappelle par ailleurs que ces données pourraient être modélisées sous forme d’hypergraphe (un article = 1 lien, une autrice = 1 sommet) ; les analyses d’hypergraphes restant très rares en sciences sociales, elles ne seront pas abordées.</p>
+</section>
+<section id="quelques-mesures" class="level2" data-number="7.3">
+<h2 data-number="7.3" class="anchored" data-anchor-id="quelques-mesures"><span class="header-section-number">7.3</span> Quelques mesures</h2>
+<p>Les mesures vues dans les chapitres précédents doivent généralement être adaptées pour prendre en compte la nature bimodale du réseau ; les définitions restent les mêmes et ne sont rappelées que pour mémoire.</p>
+<section id="ordres-taille-diamètre" class="level3" data-number="7.3.1">
+<h3 data-number="7.3.1" class="anchored" data-anchor-id="ordres-taille-diamètre"><span class="header-section-number">7.3.1</span> Ordres, taille &amp; diamètre</h3>
+<p>L’ordre est le nombre de sommets d’un réseau, on précisera dans le cas d’un réseau bimodal l’ordre des deux ensembles de sommets <span class="math inline">\(V_1\)</span> et <span class="math inline">\(V_2\)</span>. La taille est le nombre de liens du réseau : les réseaux bimodaux ne sont par construction jamais vides. Le nombre maximum de liens dans un réseau bimodal est égal à <span class="math inline">\(V_1 \times V_2\)</span>.</p>
+<p>La définition de la connexité et des composantes ne change pas. Le calcul du diamètre (plus long des plus courts chemins) d’un réseau bimodal connexe ne pose aucun problème particulier ; on peut cependant distinguer un diamètre pour chaque ensemble de sommets.</p>
+</section>
+<section id="centralités" class="level3" data-number="7.3.2">
+<h3 data-number="7.3.2" class="anchored" data-anchor-id="centralités"><span class="header-section-number">7.3.2</span> Centralités</h3>
+<p>La définition du degré ne change pas et reste le nombre de liens adjacents à un sommet. La seule différence concerne la normalisation de la mesure : le degré maximal d’un sommet de l’ensemble <span class="math inline">\(V_1\)</span> correspond au nombre de sommets présents dans l’ensemble <span class="math inline">\(V_2\)</span> et, par construction, il est rare d’avoir des sommets isolés donc le minimum est généralement 1 (figure <a href="#fig-degrebiparti"><span>7.2</span></a>). Lorsqu’on commente les degrés d’un réseau biparti et leur distribution, on commente les résultats pour l’un des ensembles de sommets puis ceux obtenus pour l’autre ensemble.</p>
+<div id="fig-degrebiparti" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="images/degre2a.png" class="img-fluid figure-img" style="width:60.0%"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;7.2: Degré et degré normalisé dans un réseau bimodal</figcaption><p></p>
+</figure>
+</div>
+<span class="math display">\[\begin{matrix}
+        &amp;1 &amp; 2 &amp; 3 &amp; 4 &amp; \textrm{degré} &amp; \textrm{d. norm.}\\
+     a&amp;1 &amp; 1 &amp; 1 &amp; 1 &amp; 4&amp; 1\\
+     b&amp;0 &amp; 1 &amp; 1 &amp; 0 &amp; 2&amp; 0.5\\
+     c&amp;0 &amp; 0 &amp; 0 &amp; 1 &amp; 1&amp; 0.25\\
+\end{matrix}\]</span>
+<p><em>Pour calculer le degré, on fait la somme marginale de la matrice rectangulaire correspondant au réseau étudié. Pour normaliser cette mesure, on divise par le nombre de sommets présents dans l’autre ensemble de sommets. L’opération pour les sommets du haut n’est pas indiquée car ils ont tous le même degré (2) et donc le même degré pondéré (2/3), à l’exception du sommet 1 (degré 1 et degré normalisé 1/3).</em></p>
+<p>Les centralités de vecteur propres sont à ma connaissance rarement mobilisées pour étudier des réseaux bimodaux. Pourtant Bonacich a proposé dès 1991 une mesure de la centralité des événements proportionnelle à la centralité des individus qui y assistent et une centralité des acteurs proportionnelle aux événements auxquels ils participent (<span class="citation" data-cites="bonacich91">Bonacich (<a href="references.html#ref-bonacich91" role="doc-biblioref">1991</a>)</span>).</p>
+<p>Le calcul des centralités d’intermédiarité et de proximité ne pose pas de problème particulier d’un point de vue mathématique mais il peut-être plus délicat d’analyser les résultats d’un point de vue thématique.</p>
+</section>
+<section id="de-la-triade-au-cycle-de-longueur-4" class="level3" data-number="7.3.3">
+<h3 data-number="7.3.3" class="anchored" data-anchor-id="de-la-triade-au-cycle-de-longueur-4"><span class="header-section-number">7.3.3</span> De la triade au cycle de longueur 4</h3>
+<p>Il ne peut exister par construction de triade fermée au sein d’un réseau bimodal. La mesure de la transitivité étant devenue très populaire suite à l’article de Watts et Strogatz sur les réseaux petit-monde, il existe des dizaines de propositions permettant d’adapter cette mesure aux réseaux bimodaux <a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> et de manière générale à tous les types de réseaux.</p>
+<p>L’indicateur global est obtenu en divisant le nombre de nombre de cycles de longueur 4 par le nombre de chemins de longueur 4. Il varie entre 0 (absence de chemin) et 1 (réseau complet).</p>
+<p><strong>Exemple</strong> : dans le réseau de la figure <a href="#fig-degrebiparti"><span>7.2</span></a>, le seul cycle de longueur 4 présent est le cycle <span class="math inline">\(\{a2, 2b, b3, 3a\}\)</span> (le point de départ n’a aucune importance). Un exemple de chemin de longueur 4 est <span class="math inline">\(\{c4, 4a, a3, 3b\}\)</span>.</p>
+</section>
+<section id="cliques-et-communautés" class="level3" data-number="7.3.4">
+<h3 data-number="7.3.4" class="anchored" data-anchor-id="cliques-et-communautés"><span class="header-section-number">7.3.4</span> Cliques et communautés</h3>
+<p>Il est possible d’adapter la définition de la clique en prenant en compte la nature bimodale du réseau étudié : il s’agit du sous-graphe maximal complet composé d’au moins 4 sommets, 2 sommets minimum étant inclus dans <span class="math inline">\(V_1\)</span> et deux sommets minimum étant inclus dans <span class="math inline">\(V_2\)</span>. Dans le réseau de la figure <a href="#fig-degrebiparti"><span>7.2</span></a>, l’ensemble de sommets <span class="math inline">\(\{ab23 \}\)</span> forme la seule bi-clique du réseau.</p>
+<p>La détection de communautés étant tout aussi populaire que la transitivité, de très nombreuses méthodes ont été et sont proposées pour prendre en compte la nature bimodale du réseau étudié.</p>
+<p>N’ayant pas les compétences mathématiques pour hiérarchiser les méthodes proposées d’une part, considérant que ces méthodes ne sont pas implémentées dans les logiciels courants en analyse de réseau d’autre part, il ne me paraît pas tout à fait utile de poursuivre sur ce sujet.</p>
+</section>
+<section id="boucle-et-copinage-mais-pas-que" class="level3" data-number="7.3.5">
+<h3 data-number="7.3.5" class="anchored" data-anchor-id="boucle-et-copinage-mais-pas-que"><span class="header-section-number">7.3.5</span> Boucle et copinage (mais pas que)</h3>
+<p>Il est souvent intéressant de garder la structure bimodale des données et il est possible de produire des résultats thématiquement intéressants, même avec des mesures basiques. Les deux exemples qui suivent ne prétendent absolument pas être représentatifs ou exemplaires et sont très (trop) clairement ancrés dans ma discipline mais ils me paraissent cependant dignes d’être évoqués.</p>
+<p><strong>Exemple 1</strong> : dans ma thèse (<span class="citation" data-cites="beauguitte11">Beauguitte (<a href="references.html#ref-beauguitte11" role="doc-biblioref">2011</a>)</span>), j’ai notamment étudié les déclarations faites à l’Assemblée générale de l’ONU par les groupes régionaux puis j’ai relevé les déclarations faites par des représentant.e.s des États membres qui déclaraient soutenir ou d’associer aux déclarations faites au nom des groupes régionaux. Ce relevé a été fait à quatre dates différentes et sur les réseaux bipartis obtenus, j’ai mesuré l’ordre (<span class="math inline">\(V_1\)</span> nombre d’États et <span class="math inline">\(V_2\)</span> nombre de groupes régionaux), la densité, la distance moyenne à l’intérieur de la plus grande composante connexe, le diamètre (idem) et le nombre de composantes connexes.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/stategroup51.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Exemple de réseau bimodal : les déclarations des groupes régionaux à l’AG de l’ONU</figcaption><p></p>
+</figure>
+</div>
+<p><em>Les liens sont valués, un État pouvant soutenir à plusieurs reprises des déclarations faites par un groupe régional ; la valuation des liens n’a pas été utilisée pour le calcul des indicateurs. Le simple examen visuel montre un clivage net UE et pays occidentaux vs le reste du monde et l’absence des États-Unis qui se méfient beaucoup de l’AG de l’ONU.</em></p>
+<p><strong>Exemple 2</strong> : dans sa thèse soutenue en 2021, Paul Gourdon s’intéresse à la participation de villes à des associations européennes ainsi qu’à leur participation à des projets de recherche. Le chapitre 4 est consacré à l’étude des réseaux bimodaux. Il mobilise différents indicateurs (ordre, taille, densité, distribution des degrés, centralités, réseaux personnels des villes) avant de tester différentes méthodes de détection de communautés. La transformation en réseau unimodal termine l’analyse et cherche à mettre en évidence les liens absents ainsi que l’homophilie des villes et des organisations.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/gourdon_p262.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Une chaîne de traitements qui prend en compte la structure bimodale du réseau</figcaption><p></p>
+</figure>
+</div>
+<p><em>Extrait de la thèse de <span class="citation" data-cites="gourdon21">Gourdon (<a href="references.html#ref-gourdon21" role="doc-biblioref">2021</a>)</span>, p.&nbsp;262. La lecture de l’ensemble du chapitre 4 est conseillée ; l’auteur a mis à disposition le <a href="https://github.com/pgourdongeo/Chap4_NetworkAnalysis">code R écrit pour réaliser ses analyses</a> et la thèse est évidemment <a href="https://theses.hal.science/tel-03684225/document">disponible en ligne</a>.</em></p>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" data-line-spacing="2" role="doc-bibliography" style="display: none">
+<div id="ref-beauguitte11" class="csl-entry" role="doc-biblioentry">
+Beauguitte, L. (2011). <em><span class="nocase">L’Assemblée générale de l’ONU de 1985 à nos jours: acteur et reflet du Système-Monde. Essai de géographie politique quantitative</span></em>. <span>Thèse de géographie, Université Paris VII</span>. <a href="https://theses.hal.science/file/index/docid/634403/filename/These_Beauguitte_2011_ONU_et_Systeme_Monde.pdf">https://theses.hal.science/file/index/docid/634403/filename/These_Beauguitte_2011_ONU_et_Systeme_Monde.pdf</a>
+</div>
+<div id="ref-bonacich91" class="csl-entry" role="doc-biblioentry">
+Bonacich, P. (1991). Simultaneous group and individual centralities. <em>Social Networks</em>.
+</div>
+<div id="ref-gourdon21" class="csl-entry" role="doc-biblioentry">
+Gourdon, P. (2021). <em><span class="nocase">La coopération entre villes européennes: convergences dans l’action publique urbaine par la circulation transnationale de modèles</span></em>. <span>Thèse de géographie, Paris 1</span>. <a href="https://www.theses.fr/2021PA01H070.pdf">https://www.theses.fr/2021PA01H070.pdf</a>
+</div>
+</div>
+</section>
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>L’opération matricielle correspondante est décrite dans l’annexe.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>Voir en première approche les références listées par l’informaticien Tore Opsahl sur son site à la page <a href="https://toreopsahl.com/tnet/two-mode-networks/clustering/"><em>Two-mode network clustering</em></a>. J’utilise dans la suite de cette section les formules qu’il a proposées ; je ne sais pas si ce sont les plus pertinentes mais elles sont implémentées dans <code>R</code> (<em>package</em> <code>tnet</code>) et donc utilisables en sciences sociales.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./Cpartitions.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Simplifier, partitionner</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./Cmultiplexe.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Analyser des réseaux multiplexes</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>

@@ -1,0 +1,112 @@
+# Pourquoi faire de l'analyse de réseau ? {#sec-Cpourquoifaire}
+
+Se former à l'analyse de réseau prend du temps, de l'énergie et les résultats peuvent être décevants voire triviaux. Répondre à la question posée ici n'est donc pas tout à fait inutile. J'examine d'abord la question des données avant d'aborder celle des questions de recherche.
+
+## Des méthodes quantitatives adaptées aux données relationnelles
+
+L'analyse de réseau, quelle que soit votre discipline, est utile si et seulement si vous souhaitez étudier de manière **quantitative** un **ensemble de données** que vous considérez comme **relationnelles**. Le terme **quantitatif** ne doit pas effrayer : il signifie qu'une analyse de réseau suppose à un moment ou à un autre des mesures portant sur vos données, mesures qui permettront notamment de qualifier votre réseau et de classer vos individus (au sens statistique du terme, voir encadré page précédente). Pourquoi parler de données "considérées comme relationnelles" ? Tout simplement parce que les données que vous souhaitez étudier pour répondre à vos questions de recherche sont des objets que vous avez construits ou que vous avez récupérés et, dans ce cas, d'autres que vous les ont construits. Il n'existe pas de données qui soient "par nature" relationnelles[^cpourquoifaire-1].
+
+[^cpourquoifaire-1]: Il n'existe pas dans le monde social des choses qui pourraient être considérées comme des données "brutes" qu'il suffirait de "nettoyer" pour produire de la connaissance ; il est toujours nécessaire de **construire** ces données. L'illusion de transparence liée à certains types de données, notamment les données numériques issues d'activités en ligne, est abordée dans le [chapitre @sec-Cdonnees].
+
+Imaginons que je souhaite travailler sur la production scientifique en mobilisant l'analyse de réseau. Je construis un corpus d'articles et, pour chacun des articles, je récupère un ensemble de données sur les autrices (genre, institution, discipline) et sur les articles (date, résumé, mots clés) (figure [-@fig-figure0]). Il existe de très nombreux moyens d'analyser un tel corpus : je pourrais calculer des indicateurs statistiques univariés pour les autrices, les revues, caractériser les articles (combien d'articles écrits seule ? combien d'articles à plusieurs ? combien d'articles co-signés par des personnes de disciplines différentes ? etc.) ; je pourrais mobiliser des méthodes d'analyse lexicale pour analyser l'ensemble des résumés (liste non exhaustive).
+
+Si je décide d'utiliser l'analyse de réseau, je dois définir un type de relations entre certains des éléments présents. La liste qui suit n'est pas exhaustive et vise simplement à montrer qu'un même corpus peut se prêter à différentes modélisations, le choix d'une modélisation étant lié aux thématiques que je souhaite traiter :
+
+-   mes individus sont les autrices : je crée un lien entre deux autrices quand elles ont publié un article ensemble ;
+-   mes individus sont les mots clés : je crée un lien quand deux mots clés sont utilisés pour le même article ;
+-   mes individus sont les institutions : je crée un lien entre deux institutions quand des autrices issues d'institutions différentes co-signent un article ;
+-   je choisis d'étudier les liens entre deux populations : celle des autrices et celle des revues, celle des mots clés et celle des revues, etc. ([chapitre @sec-Cbiparti])
+
+Dans la mesure où je construis une liste de liens entre des individus, il est possible de mener ensuite une analyse de réseau.
+
+![Un article scientifique, *x* réseaux potentiels](images/image0.png){#fig-figure0}
+
+*Capture d'écran du site de la revue [Social Inclusion](https://www.cogitatiopress.com/socialinclusion/article/view/5381)* faite le 24 février 2023. <!--\index{Bidart, Claire}\index{Maisonobe, Marion}\index{Viry, Gil}*-->
+
+Il n'existe pas **une** façon pertinente de modéliser ses données, un même corpus de départ peut donc donner lieu à des formalisations multiples. Ce n'est pas parce que tel aspect du monde social est **toujours** modélisé de la même façon dans une discipline donnée qu'il s'agit de la seule modélisation pertinente : la recherche académique est parfois d'une paresse et d'un conformisme terribles. Mais répéter ce qui a déjà été fait $x$ fois dans nos disciplines n'est peut-être pas le moyen le plus adapté pour produire des résultats intéressants.
+
+```{=html}
+<!--%\textbf{Exemple} : je travaille sur l'évolution des thématiques dans une discipline et j'ai constitué un corpus d'articles scientifiques. Je peux choisir de créer un jeu de données avec les mots-clés utilisés par les autrices. Je peux ensuite décider de mobiliser l'analyse de réseau en créant dans un premier temps une liste de liens entre les mots clés lorsqu'ils sont utilisés par la ou les mêmes autrices pour le même article. J'obtiens dans ce cas un jeu de données de ce type :
+
+%\begin{itemize}
+%\item Mot clé 1 - Mot clé 2
+%\item Mot clé 1 - Mot clé 3
+%\item Mot clé 2 - Mot clé 3
+%\item Mot clé 4 - Mot clé 5
+%\item etc. etc.
+%\end{itemize}
+%\end{quote}
+
+%L'exemple choisi pourrait être modélisé de façon différente : je pourrais créer des liens entre les mots clés et les articles, entre les mots clés et les autrices des articles, entre les autrices et les revues, entre les autrices lorsqu'elles signent ensemble un article, entre les laboratoires des autrices et les revues, etc. etc. -->
+```
+Les choix opérés lors de la construction des données relationnelles sont fonction des questions de recherche que l'on souhaite explorer. Travailler sur les seuls mots clés du corpus peut permettre d'identifier les thématiques d'une discipline donnée, leur évolution ou les effets de mode scientifique ; travailler sur les liens entre laboratoires des autrices et revues permet de construire une géographie de l'activité scientifique ; travailler sur les liens entre autrices et revues peut permettre de mettre en évidence des communautés au sein d'une discipline. Comme toujours avec les méthodes, qu'elles soient qualitatives, quantitatives ou mixtes, les questions de recherche sont premières et guident la construction des données.
+
+------------------------------------------------------------------------
+
+*À l'intention des formatrices*
+
+Partir de données les plus "brutes" possibles est intéressant dans la mesure où il est possible de montrer comment les questions de recherche permettent de construire les données. Inversement, partir d'un jeu de données classique de l'analyse de réseau escamote la construction des questions de recherche et donc des données. Il peut être intéressant au niveau pédagogique de prendre des exemples connus de l'ensemble des participantes (réseau social numérique, corpus de livres ou d'articles).
+
+Il me semble important de présenter rapidement ce dont on a besoin pour mener à bien une analyse de réseau : une question, une liste d'individus, une relation entre ces individus. Présenter dès le départ les formats liste et matrice me paraît également une pratique souhaitable dans la mesure où les participantes peuvent utiliser toute la durée de la formation pour réfléchir aux mises en forme possibles de leurs données (quand elles en ont déjà évidemment).
+
+------------------------------------------------------------------------
+
+Quelle que soit la formalisation choisie, vous obtenez une liste de liens entre des individus. Si je prends la première des options listées plus haut ("mes individus sont les autrices et je crée un lien entre deux autrices quand elles ont publié un article ensemble"), j'obtiens les liens suivants : CB-MM, CB-GV et MM-GV. La liste de liens peut être transformée en une tableau carré rempli de 1 (lien présent entre les individus) et de 0 (lien absent) : on parle de matrice d'adjacence (*adjacency matrix*). Par convention, si le sens de la relation importe, ce qui n'est pas le cas dans cet exemple, les origines sont disposées en lignes et les destinations en colonnes. La petite liste donnée plus haut devient alors :
+
+|     | CB  | MM | GV  |
+|-----|-----|------|-----|
+| CB  | 0   | 1    | 1   |
+| MM  | 1   | 0    | 1   |
+| GV  | 1   | 1    | 0   |
+
+Ce type de tableau permet de mener à bien une analyse de réseau mais également d'autres méthodes statistiques type analyse des correspondances multiples (ACM). Si une liste de liens entre des individus est nécessaire pour faire de l'analyse de réseau, elle n'impose pas d'en faire et d'autres traitements sont possibles.
+
+Il est d'ailleurs tout à fait possible de combiner les méthodes d'analyse : mener à bien une analyse de réseau peut permettre de générer de nouveaux attributs portant sur les individus, attributs pouvant ensuite servir pour une analyse statistique multivariée. Si les individus possèdent des coordonnées géographiques, il est possible d'utiliser des méthodes d'analyse spatiale et/ou de cartographier les relations étudiées. Une autre possibilité est de partir de la matrice d'adjacence pour mener à bien d'un côté une analyse de réseau et de l'autre une ACM pour comparer les résultats obtenus. L'analyse de réseau permet aussi de produire des visualisations devenues très prisées ces dernières années, ce dernier aspect est traité dans le [chapitre @sec-Cvisualiser].
+
+Enfin, l'analyse de réseau peut favoriser la curiosité extra-disciplinaire dans la mesure où de nombreuses disciplines mobilisent ces méthodes. Il n'est pas rare lorsqu'on cherche à maîtriser une approche de parcourir des travaux de sociologues, de biologistes, de physiciennes et/ou de géographes. Si cette ouverture disciplinaire est stimulante d'un point de vue intellectuel, elle peut être compliquée[^cpourquoifaire-2] dans la mesure où les traditions disciplinaires d'analyse de réseau se sont développées de manière relativement autonomes les unes par rapport aux autres (voir la page suivante).
+
+[^cpourquoifaire-2]: La destruction en cours de l'enseignement supérieur et de la recherche (ESR) est évidemment un frein majeur à la curiosité extra-disciplinaire. Si vous êtes précaire et que vous aspirez à entrer dans le monde de l'ESR, il est essentiel d'être identifiée **d'abord** par les praticiennes de votre discipline : ce sont elles qui vous qualifient (CNU), ce sont elles qui éventuellement vous recruteront (comités de sélection, sections CNRS, etc.).
+
+------------------------------------------------------------------------
+
+*À l'intention des formatrices*
+
+L'un des principaux objectifs d'une formation d'initiation à l'analyse de réseau devrait être de permettre aux participantes de répondre à la question suivante : ai-je vraiment besoin de faire de l'analyse de réseau ? Il existe des milliers de jeux de données et de questions de recherche qui ne nécessitent pas cette approche. La question est particulièrement importante pour les personnes ayant de fortes contraintes de temps (doctorantes en milieu de thèse par exemple).
+
+------------------------------------------------------------------------
+
+Il est important de préciser que d'autres types de méthodes quantitatives existent pour analyser des données relationnelles. Ainsi, la famille des modèles gravitaires développés en économie régionale et en géographie quantitative pour analyser des flux entre lieux peut permettre d'étudier certains types de liens. Nombre de modèles portant sur des relations entre espèces animales et/ou végétales développés en écologie permettent d'étudier des données relationnelles, notamment entre deux populations différentes. Les modèles épidémiologiques et plus généralement de diffusion sont également des outils permettant l'analyse de données relationnelles. On peut donc étudier des données relationnelles sans nécessairement mobiliser l'analyse de réseau. Inversement, on peut mobiliser l'analyse de réseau pour étudier des phénomènes qui ne traduisent qu'indirectement une relation (co-participation à un événement par exemple).
+
+## Quelques grandes questions de recherche
+
+Vous avez votre population d'individus - au sens statistique du terme donc ça peut être n'importe quoi, des plantes, des personnes, des films, des mots, des entreprises, des pays, des licornes, etc. etc. - et vous avez défini un type de relations entre ces individus (ex. un lien entre deux mots clés signifie que ces deux mots clés ont été utilisé ensemble pour un article paru entre telle date et telle date dans un corpus de revues construit de telle et telle façon). L'analyse de réseau vous permet de répondre à des questions du type : 
+
+- comment qualifier le réseau ?
+- certains individus occupent-ils une place particulière dans le réseau ?
+- certaines relations sont-elles spécifiques ?
+- les individus partageant certaines caractéristiques sont-ils plus susceptibles d'être en relation les uns avec les autres ?
+- peut-on créer des sous-ensembles pertinents au sein du réseau ?
+- quels sont les mécanismes susceptibles d'expliquer la structure du réseau étudié ?
+- l'ajout ou la suppression de certains liens ou de certains sommets est-elle susceptible de modifier la structure du réseau ?
+
+Les questions dépendent évidemment du type de données étudiées. Si je m'intéresse à des relations entre des enfants dans une classe de maternelle, je ne vais pas imaginer qu'un des enfants disparaisse subitement pour étudier l'impact sur mon réseau. Si j'étudie un réseau d'infrastructures ferroviaires, étudier l'impact de l'ouverture d'une nouvelle ligne à grande vitesse et de la fermetures de $x$ lignes locales[^cpourquoifaire-3] serait au contraire bienvenu. Malgré ces différences en partie liées aux données et en partie disciplinaires, certaines questions restent classiques.
+
+[^cpourquoifaire-3]: Cet exemple est évidemment tout à fait fictif.
+
+Qualifier le réseau étudié est une étape incontournable en analyse de réseau : certains indicateurs sont basiques (nombre d'individus, nombre de liens entre ces individus), d'autres plus élaborés. Les mesures permettent généralement de qualifier le réseau mais également de le rapprocher de modèles de réseau largement étudiés dans la littérature (ces modèles sont rapidement évoqués dans le chapitre suivant et détaillés dans la [ @sec-Srandometc]). Le fait d'étudier tel ou tel type de réseau peut faciliter votre travail dans la mesure où il restreint de fait les mesures pertinentes [^cpourquoifaire-4].
+
+[^cpourquoifaire-4]: Certaines mesures n'ont pas de sens avec certains types de réseaux. Cela ne signifie pas qu'un type donné de réseau suppose **obligatoirement** telle ou telle démarche d'analyse de réseau. Il existe des canons disciplinaires, il n'est pas nécessairement utile de les appliquer au pied de la lettre.
+
+Une des questions essentielles en analyse de réseau concerne la notion de centralité : y-a-t'il dans le réseau étudié des individus particulièrement importants ? Des individus qui à eux seuls créent en grande partie la structure du réseau (imaginez le réseau aérien français sans l'aéroport Roissy Charles de Gaulle, la structure du réseau internet sans Google ou un réseau de citations en sociologie sans Bourdieu) ? La notion de centralité a une telle importance que différents indicateurs ont été construits par la mesurer (voir la section Centralités du [chapitre @sec-Cmesures]). Elle prend parfois un nom différent dans telle ou telle discipline mais le principe général reste le même.
+
+Si la centralité permet de hiérarchiser les individus, certaines mesures visent à qualifier l'efficacité et la robustesse du réseau dans son ensemble. Qu'il s'agisse d'un réseau d'infrastructures (circulation des personnes, des biens et des services) ou d'un réseau de personnes (circulation de l'information), la structure du réseau permet-elle de remplir efficacement son rôle ? Si non, est-il possible d'identifier des micro-configurations qui expliquent la faible efficacité du réseau ?
+
+Des notions et des concepts développés dans la sociologie quantitative nord-américaine ont eu un fort impact dans leur discipline et dans les disciplines voisines. Distinguer liens forts et liens faibles dans un réseau ou identifier des individus en position de *broker*[^cpourquoifaire-5] est fréquent quelles que soient les données étudiées.
+
+[^cpourquoifaire-5]: Personne occupant une position d'intermédiaire entre deux autres personnes et susceptible de faire circuler ou de bloquer une information, une ressource, etc.
+
+Depuis les années 1930, la recherche de sous-groupes comprenant des individus fortement inter-connectés entre eux fait partie des questions de recherche fréquentes en analyse de réeau. Là encore, quelles que soient les données et la discipline, mettre en évidence différentes "communautés" est fréquent, ce qui ne signifie pas que ce soit toujours pertinent. D'autres méthodes de partition, essentiellement utilisée en *Social Network Analysis* (*SNA*) visent à rassembler les individus en fonction de leur position dans le réseau. Ces différentes méthodes sont présentées au [chapitre @sec-Cpartitions].
+
+La majeure partie des questions évoquées dans les lignes qui précèdent est d'ordre **descriptive**. La description des propriétés du réseau et des individus est indispensable mais elle est rarement suffisante : l'étape suivante consiste généralement à identifier les processus expliquant la structure du réseau. Si l'apparition des liens entre individus peut s'expliquer par une caractéristique commune, on vise alors à mettre en évidence des effets d'homophilie (*homophily*). Les réseaux amicaux chez les enfants montrent une forte homophilie de genre ; les réseaux amicaux chez les adultes une forte homophilie liée à la catégorie socio-professionnelle. On observe par ailleurs dans certains réseaux une très forte hiérarchie entre les individus : certains ont des milliers de liens et la grande majorité en ont très peu [^cpourquoifaire-6]. La mise en évidence des logiques d'avantage cumulatif, renommé attachement préférentiel (*preferential attachment*) en analyse de réseau, est devenue une démarche fréquente. Enfin, des familles de modèles statistiques visent à mettre en évidence et à expliquer les caractéristiques les plus saillantes des réseaux étudiés. Ces modèles étant plutôt adaptés à un public expert, ils ne seront que brièvement évoqués dans ce guide ([chapitre @sec-Cmodeles]) tout comme les modélisations graphiques qui sont rarement utilisées mais présentent pourtant des intérêts heuristiques évidents.
+
+[^cpourquoifaire-6]: Les réseaux de citations scientifiques en sont un exemple caricatural, la majorité des articles n'étant **jamais** cités.

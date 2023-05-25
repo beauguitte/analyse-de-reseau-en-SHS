@@ -1,0 +1,63 @@
+# Se (re)mettre à jour {#sec-Cupdate}
+
+Cela a été signalé, l'analyse de réseau est un domaine actif dans de nombreuses disciplines. La bonne nouvelle, c'est que de nouvelles méthodes, de nouveaux indicateurs et de nouveaux outils apparaissent régulièrement. La mauvaise nouvelle, c'est que se maintenir à niveau (notamment quand on donne des cours et qu'on anime des formations) est chronophage. Cette section présente une liste raisonnée - et nécessairement incomplète - de sites et de revues qu'il est utile de consulter régulièrement.
+
+## Logiciels
+
+Les logiciels, et notamment les logiciels libres modulaires comme R, évoluent régulièrement et il est souvent nécessaire de se remettre à niveau pour mener à bien ses analyses et ses visualisations. Faire de temps en temps une recherche des termes *network analysis*, *complex networks* ou *bipartite* (à affiner en fonction de vos travaux) peut s'avérer utile sur la page du [CRAN](https://cran.r-project.org/) consacrée aux *packages* R [^cupdate-1]. Tester tous les *packages* est chronophage et peu utile : tous ne se valent pas (documentation plus ou moins lisible, *package* non tenu à jour, format de données exotique nécessitant $x$ manipulations, etc.). Un moyen plus rapide est de s'intéresser aux portails présentant des ressources pédagogiques comme le portail [R-zine](https://rzine.fr/) ou l'agrégateur de sites [R-bloggers](https://www.r-bloggers.com/).
+
+[^cupdate-1]: Une recherche rapide faite fin mai 2022 permet de repérer 27 *packages* contenant *network analysis* dans leur description, 8 contenant *complex networks*, 6 *bipartite graph* et 2 le terme *multigraph*.
+
+Je connais moins Python mais si vous l'utilisez pour mener à bien des analyses de réseau, j'imagine que vous savez où aller chercher.
+
+Les logiciels [Cytoscape](http://wikiold.cytoscape.org/) et [Gephi](https://github.com/gephi/gephi/wiki) ont tous deux un wiki régulièrement actualisés ; le site de [Tulip](https://tulip.labri.fr/site/) permet d'accéder à des manuels complets (en anglais). Mais on trouve aisément en ligne des ressources pédagogiques en français pour ces trois logiciels.
+
+Enfin, et sans doute est-ce une absurdité pédagogique que de garder le meilleur pour la fin, n'hésitez pas à consulter, et à contribuer si vous le souhaitez, la très riche [liste de ressources](https://project-awesome.org/briatte/awesome-network-analysis) maintenue par François Briatte.
+
+## Un aperçu partial du paysage éditorial
+
+Le paysage éditorial lié à l'analyse de réseau s'est considérablement étoffé ces deux dernières décennies. Il reste malheureusement dominé par une poignée d'éditeurs privés qui demandent une fortune soit aux lectrices pour accéder aux articles soit aux autrices pour que l'article soit publié en "*open access*". Le choix a donc été fait ici de présenter d'abord les revues librement accessibles avant d'évoquer plus rapidement les incontournables accessibles grâce à l'indispensable portail sci-hub [^cupdate-2] créé par Alexandra Elbakyan.
+
+[^cupdate-2]: Les liens changeant régulièrement, je ne l'indique pas ici.
+
+### Revues spécialisées
+
+La revue hispanophone en accès libre [*REDES*](https://revistes.uab.cat/redes/index) existe depuis 2002 et publie essentiellement en espagnol et plus rarement en portugais. Deux numéros thématiques et pluridisciplinaires paraissent chaque année.
+
+L'INSNA (*International Network for Social Network Analysis*) publie la revue anglophone gratuite [Connections](https://www.insna.org/connections/) depuis 1977 et tous les numéros sont accessibles en ligne.
+
+Issue du réseau *Historical Network Research*, le [*Journal of Historical Network Research*](https://historicalnetworkresearch.org/jhnr/) est une revue pluridisciplinaire en accès libre. Un numéro par an depuis 2017. Le même collectif anime une très utile [bibliographie](https://historicalnetworkresearch.org/bibliography/) multilingue (anglais, allemand, français, espagnol, etc.) centrée sur l'analyse de réseau en histoire.
+
+La toute jeune revue [*ARCS - Analyse de réseaux pour les sciences sociales*](https://arcs.episciences.org/) cherche à promouvoir une approche pluridisciplinaire et ouverte de l'analyse de réseau (articles, données et scripts en accès libre). Le succès de cette revue n'est absolument pas assuré à ce jour.
+
+*Social Networks* reste la revue de référence anglophone de l'analyse de réseaux sociaux. Propriété d'Elsevier, elle demande un tarif délirant pour accéder aux (excellents) articles publiés depuis 1978 (25 dollars l'article). Pour que l'article soit en accès libre, il suffit à l'autrice de débourser 3 580 dollars.
+
+Plus récentes, les revues anglophones *Network Science* (depuis 2013), *Journal of Complex Networks* (idem), *Social Network Analysis and Mining* (2011) ou *Applied Network Science* (2016) (liste non exhaustive) fonctionnent peu ou prou sur le même principe : l'autrice paye pour que son article soit en prétendu accès libre. Mais ces revues publient plein d'articles intéressants.
+
+### Revues généralistes utiles
+
+La revue de géographie française [*Netcom*](https://journals.openedition.org/netcom/) existe depuis 1987 et est désormais hébergée sur OpenEdition Journals ; les numéros de la période 1987-2006 sont hébergés sur le portail Persée. La revue étant consacrée aux liens entre territoires et réseaux de communication, l'analyse de réseau est régulièrement présente dans ses pages.
+
+Le [Bulletin de Méthodologie Sociologique](https://journals.openedition.org/bms/) publie régulièrement des articles en anglais ou en français relatifs à l'analyse de réseau. Les numéros parus depuis 2008 sont librement accessibles, les numéros précédents continuent à être détenus par SAGE - 29 livres l'article, sci-hub est toujours votre amie.
+
+De manière plus générale, dans à peu près toutes les disciplines, des numéros thématiques de revues ou des articles isolés mobilisent les concepts et les méthodes de l'analyse de réseau. La recherche par mots clés (*network analysis*, *complex network*) ou par autrices clairement identifiées à un aspect de l'analyse de réseau (Strogatz pour les réseaux petits mondes par exemple) permet de repérer les articles en question.
+
+## Rencontres scientifiques
+
+La grande messe annuelle de l'analyse de réseaux sociaux est la [*Sunbelt*](https://www.sunbelt2022.org/) qui se tient une année aux États-Unis, une année dans les restes du monde. Beaucoup de monde, $x$ sessions parallèles, tarifs délirants. Si vous aimez apercevoir les stars du domaine et que votre labo a des sous [^cupdate-3].
+
+[^cupdate-3]: Je suis ici d'une totale mauvaise foi, n'ayant jamais mis les pieds dans cette conférence.
+
+Équivalent européen de la *Sunbelt* et issue elle aussi de l'[INSNA](https://www.insna.org/), l'[EUSN](https://eusn2022.org/) [^cupdate-4] (*European Conference on Social Networks*) a lieu tous les ans depuis 2014. L'analyse de réseaux sociaux domine mais l'ouverture disciplinaire est réelle. Format très classique avec remise de prix divers (posters, jeunes chercheuses).
+
+[^cupdate-4]: Chaque événement crée son site autonome.
+
+Les [rencontres Réseaux et Histoire](https://reshist.hypotheses.org) se tiennent de manière irrégulière en France depuis 2013. Si l'histoire domine, d'autres disciplines sont régulièrement présentes à cette conférence entièrement gratuite ; les actes de toutes les éditions sont disponibles en ligne. Le vivier d'historiennes pratiquant l'analyse de réseau étant limité, il n'est pas certain qu'un nouveau Res-Hist voit le jour dans un futur proche.
+
+[*Connected Past*](https://connectedpast.net/) est un équivalent de Réseaux et Histoire à l'échelle européenne, ce qui assure donc un vivier plus important de participantes. Débutant par une session spéciale en 2011 dans un colloque d'archéologie, la rencontre est devenue autonome l'année suivante, signe de la popularité croissante de l'analyse de réseau en archéologie et en histoire dans le monde anglophone. Les rencontres organisés par l'[*Historical Network Research*](https://historicalnetworkresearch.org/) déjà cité attirent sensiblement le même public me semble-t-il.
+
+Le [réseau thématique 26](https://afs-socio.fr/rt/rt26/) de l'Association Française de Sociologie, outre la gestion de l'indispensable liste reseaux-sociaux, organise chaque année une session lors du colloque de l'association susnommée. Comme le nom l'indique, la composante sociologique domine.
+
+Les géographes pratiquant l'analyse de réseau organisent parfois des sessions spéciales au colloque européen de géographie théorique et quantitative qui se tient tous les deux ans ([ECTQG](http://www.ectqg.eu/)). Dans les colloques plus généralistes, le terme réseau est le plus souvent à prendre dans un sens métaphorique.
+
+Les événements scientifiques francophones sont généralement annoncés sur la très utile liste de diffusion [reseaux-sociaux](https://listes.services.cnrs.fr/wws/info/reseaux-sociaux) animée par le réseau thématique 26 de l'AFS déjà cité. La liste est peu bavarde, s'y abonner est fortement recommandé. La liste [DH (*Digital Humanities*)](https://groupes.renater.fr/sympa/subscribe/dh?previous_action=info) relaye également nombre d'événements mobilisant l'analyse de réseau.

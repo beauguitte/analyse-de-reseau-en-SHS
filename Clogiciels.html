@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.1.189">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>L’analyse de réseau en sciences sociales. Petit guide pratique - 13&nbsp; Choisir un ou plusieurs logiciels</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./Cupdate.html" rel="next">
+<link href="./Cvisualiser.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Choisir un ou plusieurs logiciels</span></h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">L’analyse de réseau en sciences sociales. Petit guide pratique</a> 
+    </div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">Remerciements plus des bricoles</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./intro.html" class="sidebar-item-text sidebar-link">Ce qu’est ce guide et ce qu’il n’est pas</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Cpourquoifaire.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Pourquoi faire de l’analyse de réseau ?</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Chistoires.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Histoires &amp; disciplines</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Cvocabulaire.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Graphe et réseau : principes et vocabulaire de base</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Cdonnees.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Construire ses données</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Cmesures.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Quelques mesures possibles</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Cpartitions.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Simplifier, partitionner</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Cbiparti.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Analyser des réseaux bimodaux</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Cmultiplexe.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Analyser des réseaux multiplexes</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Cdynamique.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Analyser la dynamique des réseaux</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Cegoreseau.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Analyser des réseaux personnels</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Cmodeles.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Modèles graphiques, modèles statistiques</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Cvisualiser.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Visualiser les données relationnelles</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Clogiciels.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Choisir un ou plusieurs logiciels</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Cupdate.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Se (re)mettre à jour</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Cconclusion.html" class="sidebar-item-text sidebar-link">Conclusion</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Aequation.html" class="sidebar-item-text sidebar-link">Annexe - Notations mathématiques et calcul matriciel</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">Références</a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Sommaire</h2>
+   
+  <ul>
+  <li><a href="#identifier-vos-besoins" id="toc-identifier-vos-besoins" class="nav-link active" data-scroll-target="#identifier-vos-besoins"><span class="toc-section-number">13.1</span>  Identifier vos besoins</a></li>
+  <li><a href="#mobiliser-lentourage" id="toc-mobiliser-lentourage" class="nav-link" data-scroll-target="#mobiliser-lentourage"><span class="toc-section-number">13.2</span>  Mobiliser l’entourage</a></li>
+  <li><a href="#un-outil-à-votre-service" id="toc-un-outil-à-votre-service" class="nav-link" data-scroll-target="#un-outil-à-votre-service"><span class="toc-section-number">13.3</span>  Un outil à votre service</a></li>
+  <li><a href="#tester-les-outils-en-ligne" id="toc-tester-les-outils-en-ligne" class="nav-link" data-scroll-target="#tester-les-outils-en-ligne"><span class="toc-section-number">13.4</span>  Tester les outils en ligne</a></li>
+  <li><a href="#logiciels-à-interface-graphique" id="toc-logiciels-à-interface-graphique" class="nav-link" data-scroll-target="#logiciels-à-interface-graphique"><span class="toc-section-number">13.5</span>  Logiciels à interface graphique</a>
+  <ul class="collapse">
+  <li><a href="#logiciels-généralistes" id="toc-logiciels-généralistes" class="nav-link" data-scroll-target="#logiciels-généralistes"><span class="toc-section-number">13.5.1</span>  Logiciels “généralistes”</a></li>
+  <li><a href="#logiciels-spécialisés" id="toc-logiciels-spécialisés" class="nav-link" data-scroll-target="#logiciels-spécialisés"><span class="toc-section-number">13.5.2</span>  Logiciels “spécialisés”</a></li>
+  </ul></li>
+  <li><a href="#igraph-r-python" id="toc-igraph-r-python" class="nav-link" data-scroll-target="#igraph-r-python"><span class="toc-section-number">13.6</span>  igraph, R &amp; Python</a>
+  <ul class="collapse">
+  <li><a href="#igraph" id="toc-igraph" class="nav-link" data-scroll-target="#igraph"><span class="toc-section-number">13.6.1</span>  igraph</a></li>
+  <li><a href="#r" id="toc-r" class="nav-link" data-scroll-target="#r"><span class="toc-section-number">13.6.2</span>  R</a></li>
+  <li><a href="#python" id="toc-python" class="nav-link" data-scroll-target="#python"><span class="toc-section-number">13.6.3</span>  Python</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span id="sec-Clogiciels" class="quarto-section-identifier d-none d-lg-block"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Choisir un ou plusieurs logiciels</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    
+  </div>
+  
+
+</header>
+
+<p>L’analyse de réseau suppose 1. du calcul matriciel et 2. la possibilité d’explorer visuellement ses données ; il est donc nécessaire d’apprendre à utiliser un logiciel. Le nombre de logiciels disponibles dépasse la vingtaine et il ne saurait être question de les présenter tous. Je distinguerai deux types de logiciels : ceux qui obligent à coder (<a href="https://www.r-project.org/">R</a>, <a href="https://www.python.org/">Python</a>) et ceux qui peuvent s’utiliser avec une interface graphique (<a href="http://wikiold.cytoscape.org/">Cytoscape</a>, <a href="https://gephi.org/">Gephi</a>, <a href="https://tulip.labri.fr/site/">Tulip</a><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>). J’évoquerai enfin quelques outils de visualisation et parfois d’analyse disponibles en ligne.</p>
+<section id="identifier-vos-besoins" class="level2" data-number="13.1">
+<h2 data-number="13.1" class="anchored" data-anchor-id="identifier-vos-besoins"><span class="header-section-number">13.1</span> Identifier vos besoins</h2>
+<p>Commençons par un constat un brin pessimiste : le logiciel facile à prendre en main et permettant de réaliser toutes les analyses dont vous avez besoin n’existe pas. L’un des moyens de choisir un outil est de répondre aux questions suivantes :</p>
+<ul>
+<li>quel type de réseau j’analyse ?</li>
+<li>de quelles mesures, de quelles méthodes ai-je besoin pour répondre à mes questions de recherche ?</li>
+<li>est-ce que c’est l’analyse ou la visualisation qui importe dans mes travaux ?</li>
+<li>ai-je besoin de réaliser d’autres traitements de données (statistiques, cartographie, analyse lexicale, etc.) ?</li>
+</ul>
+<p>Si le ou les réseaux que vous étudiez sont simples, unimodaux et non valués, à peu près tous les logiciels peuvent être utilisés. Si vos réseaux sont bipartis, multiplexes ou valués et que vous souhaitez les étudier en tant que tels, le choix est plus restreint. Pour être plus explicite, à peu près tous les logiciels savent analyser, au moins sommairement, un réseau simple. Si le réseau est autre, R ou Python risquent rapidement de devenir indispensables.</p>
+<p>Les mesures globales et locales basiques (densité, diamètre, degré…) sont disponibles dans tous les logiciels. La plupart des logiciels proposent des méthodes de détection des communautés (souvent l’algorithme de Louvain, parfois le choix est plus large). Réaliser des modèles statistiques type ERGM limite davantage le choix (R, Python ou les logiciels non libres et tournant sur Windows seulement développés à Melbourne par le <a href="https://www.melnet.org.au/pnet">Melnet</a>).</p>
+<p>Si vous avez uniquement besoin de produire quelques jolies images de réseaux <a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>, préférez un logiciel avec interface graphique de type Yed <a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>, Gephi ou Cytoscape. L’important dans ce cas est que l’outil propose des algorithmes de visualisation efficaces, des exportations au format vectoriel (oui, il vous faudra toujours ajouter une légende) et que le format des données en entrée soit simple (une liste de liens et éventuellement une liste de sommets avec des attributs).</p>
+<p>Enfin, un critère important concerne l’importance du traitement de données dans vos travaux. Si vous avez besoin ou envie de faire des cartes, de l’analyse lexicale, de la statistique multivariée et que sais-je encore, formez-vous à R ou à Python <a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a>. Les tutoriels de qualité pullulent, les formations sont nombreuses, les communautés d’utilisatrices très actives et surtout, une fois passée la phase ardue d’apprentissage, vous gagnerez un temps fou. Une fois vos données mises en forme et votre script écrit, vous n’aurez plus qu’à lancer le programme pour récupérer l’ensemble de vos résultats et de vos figures.</p>
+<hr>
+<p><em>À l’intention des formatrices</em></p>
+<p>Lorsqu’on organise des formations d’initiation, on a toutes les chances d’avoir un public très hétérogène. Rappeler des choses très basiques (qu’est-ce qu’un chemin ? comment et pourquoi il est nécessaire de décompresser une archive ?) au départ permet de gagner du temps par la suite.</p>
+<p>Le choix du logiciel à utiliser est largement fonction de la durée de la formation proposée. Former à l’analyse de réseau <strong>et</strong> à l’utilisation de R en deux jours ou moins est un pari que je n’ai jamais osé tenter. Si la connexion wifi est de bonne qualité, choisir une application en ligne évite les problèmes d’installation.</p>
+<p>Si vous envisagez l’utilisation d’un logiciel, prenez le temps en amont de la formation d’envoyer des consignes très complètes concernant l’installation du logiciel choisi et essayez d’anticiper les problèmes (est-ce que Java doit être installé par exemple). Passer une demi-heure ou plus à tenter de comprendre pourquoi tel programme ne tourne pas sur Mac (exemple choisi de manière non arbitraire) ajoute un stress inutile en début de formation, pour vous comme pour les participantes.</p>
+<hr>
+</section>
+<section id="mobiliser-lentourage" class="level2" data-number="13.2">
+<h2 data-number="13.2" class="anchored" data-anchor-id="mobiliser-lentourage"><span class="header-section-number">13.2</span> Mobiliser l’entourage</h2>
+<p>Le moyen le plus rapide de se former à un logiciel est de connaître des personnes qui l’utilisent déjà. S’il y a des personnes autour de vous qui utilisent Cytoscape, demandez-leur de vous montrer comment ça fonctionne. Si plusieurs personnes utilisent R - y compris pour autre chose que de l’analyse de réseau - et que vous pensez en avoir besoin, lancez-vous. Seul inconvénient : il est possible que votre entourage utilise un logiciel bof <a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a>.</p>
+<p>La bonne nouvelle tout de même, c’est que la plupart des logiciels fonctionnent à peu près de la même façon : ils demandent une liste de liens et une liste de sommets en entrée et les noms des fonctions se ressemblent d’un outil à l’autre. Conséquence logique : une fois que l’on sait se servir à peu près d’un logiciel d’analyse de réseau, la prise en main d’un autre logiciel est beaucoup plus rapide. Seule exception à ce cercle vertueux, certains <em>packages</em> R <a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a> sont si mal fichus qu’une pratique assidue du logiciel n’est pas suffisante pour réussir à les utiliser <a href="#fn7" class="footnote-ref" id="fnref7" role="doc-noteref"><sup>7</sup></a>. Vous les repérerez facilement : aucun tutoriel ne les utilise ni ne les cite.</p>
+</section>
+<section id="un-outil-à-votre-service" class="level2" data-number="13.3">
+<h2 data-number="13.3" class="anchored" data-anchor-id="un-outil-à-votre-service"><span class="header-section-number">13.3</span> Un outil à votre service</h2>
+<p>Petit rappel : le logiciel est un outil qui est là pour faire ce dont vous avez besoin. Ce n’est pas parce qu’un logiciel propose de la détection de communautés que vous êtes obligée d’en faire si ce n’est pas utile pour vos questions de recherche. Tester l’ensemble des indicateurs proposés “des fois que ça donne un résultat intéressant” sans trop comprendre les nuances entre les différentes mesures est un bon moyen de perdre du temps. Et surtout, surtout, si le logiciel que vous utilisez ne propose pas ce dont vous avez besoin, utilisez-en un autre.</p>
+<p>Un logiciel digne de ce nom en 2023 devrait vous permettre de créer vos propres mesures et d’adapter les mesures proposées (<a href="Cmesures.html">chapitre&nbsp;<span>5</span></a>). Il doit être capable de tourner sur les différents systèmes d’exploitation, ne serait-ce que pour faciliter les collaborations. Enfin, il est préférable que le logiciel soit libre : les erreurs éventuelles passent inaperçues moins longtemps quand le code source est accessible d’une part ; il est beaucoup plus facile de développer des modules permettant de nouvelles approches d’autre part.</p>
+</section>
+<section id="tester-les-outils-en-ligne" class="level2" data-number="13.4">
+<h2 data-number="13.4" class="anchored" data-anchor-id="tester-les-outils-en-ligne"><span class="header-section-number">13.4</span> Tester les outils en ligne</h2>
+<p>Les outils gratuits en libre permettant de visualiser des données relationnelles sont très nombreux et j’en ignore la plupart. J’en présente ici une poignée qui peuvent permettre une analyse rudimentaire de vos données (une poignée de mesures basiques, rarement plus) mais surtout une exploration visuelle facile de vos données (possibilité de zoomer et dézoomer, de filtrer les liens, de sélectionner les sommets, etc.). Ces outils peuvent être intéressants mais le rapport nombre de clics - pertinence des résultats ou des nouveaux questionnements obtenus peut s’avérer décevant à l’usage.</p>
+<p><a href="https://vistorian.online/">The Vistorian</a> est un outil en ligne permettant de représenter vos données relationnelles sous forme de réseau, sous forme de matrice et, si vos sommets ont des coordonnées, sous forme de carte. L’équipe <a href="https://www.aviz.fr/">Aviz</a>, partenaire du projet, a également développé d’autres outils de visualisation de données relationnelles. La documentation (en anglais) est généralement claire, les images produites sont rarement exportables au format vectoriel et ce sont avant tout des outils d’exploration visuelle qui ne proposent pas ou peu de mesures.</p>
+<p><a href="https://www.vosviewer.com/">VOSViewer</a> est un outil libre et gratuit, il peut être installé en local ou <a href="https://app.vosviewer.com/">utilisé en ligne</a>. Cet outil s’affiche comme “a software tool for constructing and visualizing bibliometric networks”: s’il peut afficher des réseaux bibliométriques, il peut afficher n’importe quel type de réseau valué. Il est régulièrement actualisé depuis sa création en 2007. On peut trouver les couleurs laides et l’utilisation de la 3D peu efficace. La méthode de clustering utilisée semble spécifique à l’outil et ce dernier ne semble pas proposer de mesures <a href="#fn8" class="footnote-ref" id="fnref8" role="doc-noteref"><sup>8</sup></a>.</p>
+<p>Outil de visualisation de flux géographiques, <a href="http://arabesque.ifsttar.fr/">Arabesque</a> permet de choisir ses variables visuelles (taille, forme et couleur des liens et des sommets), la projection, de filtrer les données, etc. Il fournit également un histogramme des flux étudiés ainsi que des données utiles concernant la sélection de flux représentés. Autre type de flux, les collaborations scientifiques à l’échelle mondiale <a href="#fn9" class="footnote-ref" id="fnref9" role="doc-noteref"><sup>9</sup></a> : pour avoir une idée de ce qui est possible (articles parus lors de la période 1999-2008), voir le site <a href="http://www.coscimo.net/index.html">GéoScimo</a> (représentation en matrices, cordes, cartes et graphes) ; l’outil <a href="https://www.irit.fr/netscity/prod/intro/">Netscity</a> permet de visualiser vos données bibliographiques (<span class="citation" data-cites="maisonobe19">Maisonobe et al. (<a href="references.html#ref-maisonobe19" role="doc-biblioref">2019</a>)</span>).</p>
+<p><a href="http://vis.cse.ust.hk/egoslider/">egoSlider</a> est un outil dédié à la visualisation de réseaux personnels et temporels assez intriguant (visualisation de qualité et originale) mais 1. la documentation est indigente (<a href="https://www.cse.ust.hk/~huamin/tvcg_yanhong_2016.pdf">1 article de 10 pages</a>) et 2. c’est juste une démo en ligne, impossible de charger ses données, dommage.</p>
+<p>Il existe enfin <em>x</em> outils en outil nécessitant de créer un compte comme <a href="https://nodegoat.net/about">Nodegoat</a> ou <a href="https://histograph.cvce.eu/#/">histograph</a>. Certains sont peut-être de bonne qualité.</p>
+</section>
+<section id="logiciels-à-interface-graphique" class="level2" data-number="13.5">
+<h2 data-number="13.5" class="anchored" data-anchor-id="logiciels-à-interface-graphique"><span class="header-section-number">13.5</span> Logiciels à interface graphique</h2>
+<p>Je distingue d’un côté les logiciels que j’appelle faute de mieux généralistes, utiles pour l’analyse de réseaux unimodaux, et les logiciels “spécialisés” adaptés à un type précis de réseau. Certains de ces logiciels peuvent être utilisés aussi en ligne de commande et/ou avec R et Python. Par défaut, les logiciels indiqués sont libres, gratuits et multiplateformes (Windows, Mac, Linux).</p>
+<section id="logiciels-généralistes" class="level3" data-number="13.5.1">
+<h3 data-number="13.5.1" class="anchored" data-anchor-id="logiciels-généralistes"><span class="header-section-number">13.5.1</span> Logiciels “généralistes”</h3>
+<p>L’un des plus utilisés est sans doute <a href="https://gephi.org/">Gephi</a> : plutôt simple d’accès, il permet de réaliser des visualisations efficaces et de mener toutes les analyses standards. Grosse communauté d’utilisatrices et documentation abondante. Un peu léger à mon goût en ce qui concerne la détection de communautés mais il existe des modules permettant d’élargir la palette de choix disponibles.</p>
+<p>Très similaire tant en terme d’interface que de rendu visuel, <a href="https://cytoscape.org/">Cytoscape</a> me paraît à la fois plus stable et plus complet. La communauté étant plus réduite, la documentation disponible l’est aussi. Un de mes logiciels préférés pour l’initiation et la visualisation malgré tout.</p>
+<p><a href="https://tulip.labri.fr/site/">Tulip</a> est un logiciel de visualisation et d’analyse adapté aux grands réseaux et plutôt complet. Il est très fortement conseillé d’avoir un ordinateur performant et une carte graphique tout aussi performante.</p>
+<p>Les trois logiciels qui viennent d’être cités peuvent être utilisés en ligne de commande et sont mis à jour très régulièrement. Des valeurs sûres donc.</p>
+<p><a href="https://socnetv.org/">SocNetV</a> (<em>Social Network Vizualizer</em>) est un logiciel plus récent, assez simple à prendre en main, avec un choix correct d’indicateurs. Il est par contre étonnamment lent, y compris avec de petits réseaux, que ce soit pour le calcul de certains indicateurs ou les algorithmes de visualisation <em>force-based</em>. Je ne suis pas certain qu’il y ait un public pour quelque chose d’aussi générique et peu performant.</p>
+</section>
+<section id="logiciels-spécialisés" class="level3" data-number="13.5.2">
+<h3 data-number="13.5.2" class="anchored" data-anchor-id="logiciels-spécialisés"><span class="header-section-number">13.5.2</span> Logiciels “spécialisés”</h3>
+<p>Comme je l’ai déjà écrit, je ne travaille pas sur des réseaux personnels et je connais mal le paysage logiciel. Un certain nombre d’outils commencent à dater : <a href="https://github.com/egonet/egonet">Egonet</a> n’a pas été mis à jour depuis 2017 ; la dernière version d’<a href="https://sites.google.com/site/enetsoftware1/">E-Net</a> date de 2012 (logiciel gratuit, non libre et seulement pour Windows). Ceci étant, n’importe quel logiciel généraliste peut les visualiser et les analyser ; les indicateurs spécifiques liés à l’homophilie et à l’homogénéité peuvent se calculer avec un tableur ou un logiciel de statistique.</p>
+<p>Pour la visualisation de réseau dynamique, <a href="https://www.dynetvis.com/">DyNetVis</a> semble un candidat intéressant (dernière version datée de septembre 2021) mais ça manque terriblement de documentation ; j’ai du mal quand la seule documentation fournie est une vidéo youtube de 2’42…</p>
+<p>Ceci étant, si vous souhaitez travailler sur des réseaux multiplexes, bimodaux, valués, temporels etc., peut-être que le plus efficace est de vous former à R ou à Python.</p>
+</section>
+</section>
+<section id="igraph-r-python" class="level2" data-number="13.6">
+<h2 data-number="13.6" class="anchored" data-anchor-id="igraph-r-python"><span class="header-section-number">13.6</span> igraph, R &amp; Python</h2>
+<p>Le coût d’entrée est plus élevé, les options sont beaucoup plus nombreuses. Si on utilise ces logiciels régulièrement, on finit par gagner du temps. Dans le cas contraire, on passe des heures à se battre avec des messages d’erreur pénibles… Et, contrairement au vélo, ça s’oublie très vite.</p>
+<section id="igraph" class="level3" data-number="13.6.1">
+<h3 data-number="13.6.1" class="anchored" data-anchor-id="igraph"><span class="header-section-number">13.6.1</span> igraph</h3>
+<p><a href="https://igraph.org/">igraph</a> est un logiciel d’analyse de réseau pouvant s’utiliser soit de façon autonome, soit avec R, soit avec Python. Il permet de faire presque tout avec des réseaux unimodaux (binaires ou valués), presque car il manque les modèles <em>ERGM</em>. Si vous étudiez des réseaux bimodaux et que vous souhaitez les étudier sans les transformer, il y a par contre peu d’options disponibles. La bibliothèque d’algorithmes de détection de communautés est tout à fait correcte (8 choix possibles) et il est également possible de faire des visualisations de qualité. Logiciel stable et actualisé fréquemment, documentation complète, recommandé donc ; ces commentaires sont valables que vous l’utilisiez seul, avec R ou Python.</p>
+</section>
+<section id="r" class="level3" data-number="13.6.2">
+<h3 data-number="13.6.2" class="anchored" data-anchor-id="r"><span class="header-section-number">13.6.2</span> R</h3>
+<p>Le couteau suisse du traitement de données avec ses avantages - quel que soit le type de traitement que vous envisagez et le type de réseau que vous étudiez, vous trouverez un ou plusieurs <em>packages</em> adaptés. Et ses inconvénients : documentation parfois médiocre, <em>packages</em> devenant obsolètes, rétro-compatibilité souvent catastrophique des scripts (<em>i.e.</em> le fait de pouvoir utiliser dans 1, 2 ou 5 ans un script qui fonctionne aujourd’hui).</p>
+<p>Pour faire simple, avec igraph, vous faites à peu près ce que vous voulez sur de l’unimodal (sauf <em>ERGM</em> et <em>blokmodeling</em>). Si vous voulez des modèles ERGM, vous passez à statnet. Pour le <em>blockmodeling</em>, plusieur <em>packages</em> sont disponibles (<a href="https://cran.r-project.org/web/packages/blockmodeling/blockmodeling.pdf">blockmodeling</a>, <a href="https://cran.r-project.org/web/packages/blockmodels/index.html">blockmodels</a>, etc.). Et pour les autres types de réseau, vous fouillez et vous trouvez par exemple les <em>packages</em> <a href="https://cran.r-project.org/web/packages/bipartite/index.html">bipartite</a> (réseaux bimodaux), <a href="https://cran.r-project.org/web/packages/egor/egor.pdf">egor</a> (réseaux personnels) etc. etc.</p>
+<p>Pour savoir si ça vaut le coup de lire la documentation du <em>package</em>, regardez la version, la date et qui développe. Si le <em>package</em> est 0. quelque chose, que la date a plus de deux ans et qu’une seule personne développe, laissez tomber. Et si vous avez encore un doute, cherchez de la documentation en ligne : si vous ne trouvez rien, c’est peut-être parce que personne ne l’utilise et il y a sans doute de bonnes raisons pour ça.</p>
+</section>
+<section id="python" class="level3" data-number="13.6.3">
+<h3 data-number="13.6.3" class="anchored" data-anchor-id="python"><span class="header-section-number">13.6.3</span> Python</h3>
+<p>Je connais mal Python donc je vais être beaucoup plus bref. Les principaux modules d’analyse de réseau semblent être igraph (cf ci-dessus), <a href="https://networkx.org/">NetworkX</a> et <a href="https://pypi.org/project/graph-tools/">graph-tools</a>. Je ne désespère pas de prendre le temps de me former dans les mois qui viennent pour développer un peu cette partie…</p>
+<p>Le foisonnement de modules semble un peu mieux contrôlé qu’avec R et vous pouvez trouver des modules spécialisés type <a href="https://docs.reticula.network/">Reticula</a> pour l’analyse des réseaux temporels.</p>
+<hr>
+<p><em>À l’intention des formatrices</em></p>
+<p>Le choix du logiciel que vous utilisez lors des formations dépend 1. de vos capacités 2. de la durée de la formation et 3. du public - il s’agit dans mon esprit d’un ordre décroissant d’importance.</p>
+<p>C’est vous qui animez, il est indispensable que vous vous sentiez à l’aise avec l’outil. Un bon moyen pour se former à de nouveaux outils et développer ses capacités est d’écrire des tutoriels. Même courts, n’hésitez pas, écrivez et partagez vos ressources, ça servira.</p>
+<p>Pour une formation de deux jours ou moins, je recommande les logiciels à interface graphique, sans hésiter. Si vous avez plus de temps, je recommande R et ce quel que soit le public.</p>
+<p>Pourquoi R ? Parce que RStudio le rend moins compliqué à utiliser, parce qu’on trouve plein de documentation de qualité et qu’on peut à peu près tout faire en analyse de données en général et en analyse de réseau en particulier.</p>
+<p>“Oui mais c’est du code et en SHS on code pas.”</p>
+<p>Je sais. Mais si votre public est peu sensible aux joies de l’informatique, <strong>tout nouveau logiciel est compliqué</strong>. Quitte à faire compliqué, autant former à un outil digne de ce nom. Surtout qu’avec un peu de pédagogie et d’habitude, R s’enseigne sans problème à des personnes pas quanti pour un sou.</p>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" data-line-spacing="2" role="doc-bibliography" style="display: none">
+<div id="ref-maisonobe15" class="csl-entry" role="doc-biblioentry">
+Maisonobe, M. (2015). <em><span class="nocase">Étudier la géographie des activités et des collectifs scientifiques dans le monde: de la croissance du système de production contemporain aux dynamiques d’une spécialité, la réparation de l’ADN</span></em>. <span>Thèse de géographie, Université Toulouse 2</span>. <a href="https://tel.archives-ouvertes.fr/tel-01235015/file/Maisonobe\_Marion.pdf">https://tel.archives-ouvertes.fr/tel-01235015/file/Maisonobe\_Marion.pdf</a>
+</div>
+<div id="ref-maisonobe19" class="csl-entry" role="doc-biblioentry">
+Maisonobe, M., Jegou, L., Yakimovich, N. and Cabanac, G. (2019). NETSCITY: A geospatial application to analyse and map world scale production and collaboration data between cities. <em>International Conference on Scientometrics and Informetrics</em>. <a href="https://hal.science/hal-02301035/file/2019\_ISSI\_MJYC.pdf">https://hal.science/hal-02301035/file/2019\_ISSI\_MJYC.pdf</a>
+</div>
+</div>
+</section>
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>Ces logiciels peuvent également être utilisés avec des scripts. Je n’évoque plus depuis des années les logiciels historiques comme <a href="https://sites.google.com/site/ucinetsoftware/download">Ucinet</a> ou <a href="http://mrvar.fdv.uni-lj.si/pajek/%7D%7BPajek">Pajek</a>. Ils ont été très utiles et très utilisés il y a dix ou vingt ans, je ne suis pas tout à fait certain qu’ils le soient encore aujourd’hui, excepté pour les personnes s’étant formées avec et ne souhaitant pas changer d’outils. Aucun des deux n’est libre et les deux ne tournent que sous Windows.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>Ce n’est pas du tout péjoratif de ma part : on peut parfaitement souhaiter illustrer des travaux avec une (jolie) image de réseau et ne pas du tout avoir besoin ou envie de faire de l’analyse de réseau.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>Je ne parle pas de Yed par la suite car il permet uniquement de faire des images de réseau : l’outil est gratuit, multiplateforme et très simple d’utilisation <a href="https://www.yworks.com/products/yed">(téléchargeable ici)</a>.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4"><p>Si on ne vous oblige pas à travailler avec, oubliez les équivalents payants : ils ont perdu la bataille dans le monde de l’enseignement et de la recherche et la perdent aussi dans le secteur privé.<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn5"><p>Le logiciel bof est un logiciel qui propose peu de choix (mesures, méthodes) et/ou impose beaucoup de contraintes (format de données) pour des résultats qu’on obtient à moindre coût avec un logiciel équivalent.<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn6"><p>R, comme Python, est un logiciel modulaire : en fonction de ses besoins, on fait appel à des <em>packages</em> qui regroupent un ensemble de fonctions adaptées à des besoins spécifiques.<a href="#fnref6" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn7"><p>Je n’utilise pas assez Python pour savoir si on rencontre le même problème.<a href="#fnref7" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn8"><p>J’ai survolé le manuel <a href="https://www.vosviewer.com/documentation/Manual_VOSviewer_1.6.19.pdf">disponible en ligne</a>, j’ai pu rater un passage.}<a href="#fnref8" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn9"><p>Une co-publication issue de chercheuses de deux institutions situées dans des métropoles différentes crée un lien entre ces deux métropoles. Pour comprendre l’intérêt de la méthode et avoir un bel aperçu du potentiel de l’analyse de réseau, voir la thèse de <span class="citation" data-cites="maisonobe15">Maisonobe (<a href="references.html#ref-maisonobe15" role="doc-biblioref">2015</a>)</span> sur le sujet.<a href="#fnref9" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./Cvisualiser.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Visualiser les données relationnelles</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./Cupdate.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Se (re)mettre à jour</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>

@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.1.189">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>L’analyse de réseau en sciences sociales. Petit guide pratique - Ce qu’est ce guide et ce qu’il n’est pas</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./Cpourquoifaire.html" rel="next">
+<link href="./index.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title">Ce qu’est ce guide et ce qu’il n’est pas</h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">L’analyse de réseau en sciences sociales. Petit guide pratique</a> 
+    </div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">Remerciements plus des bricoles</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./intro.html" class="sidebar-item-text sidebar-link active">Ce qu’est ce guide et ce qu’il n’est pas</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Cpourquoifaire.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Pourquoi faire de l’analyse de réseau ?</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Chistoires.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Histoires &amp; disciplines</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Cvocabulaire.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Graphe et réseau : principes et vocabulaire de base</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Cdonnees.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Construire ses données</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Cmesures.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Quelques mesures possibles</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Cpartitions.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Simplifier, partitionner</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Cbiparti.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Analyser des réseaux bimodaux</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Cmultiplexe.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Analyser des réseaux multiplexes</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Cdynamique.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Analyser la dynamique des réseaux</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Cegoreseau.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Analyser des réseaux personnels</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Cmodeles.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Modèles graphiques, modèles statistiques</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Cvisualiser.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Visualiser les données relationnelles</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Clogiciels.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Choisir un ou plusieurs logiciels</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Cupdate.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Se (re)mettre à jour</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Cconclusion.html" class="sidebar-item-text sidebar-link">Conclusion</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Aequation.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Annexe - Notations mathématiques et calcul matriciel</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">Références</a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Sommaire</h2>
+   
+  <ul>
+  <li><a href="#structure-du-guide" id="toc-structure-du-guide" class="nav-link active" data-scroll-target="#structure-du-guide">Structure du guide</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title d-none d-lg-block">Ce qu’est ce guide et ce qu’il n’est pas</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    
+  </div>
+  
+
+</header>
+
+<p>Ce guide n’est pas un manuel : il ne donne pas de recettes, il n’explique pas ce qu’il faut faire pour mener à bien une analyse de réseau de <em>A</em> à <em>Z</em>. Ce guide tente de présenter ce qu’il est possible de faire - souvent beaucoup de choses différentes, il faudra donc choisir, et argumenter ses choix - et donne des conseils aussi génériques que possible pour réaliser des analyses pouvant s’avérer pertinentes.</p>
+<p>Ce guide s’adresse à toute personne :</p>
+<ol type="1">
+<li>se demandant ce qu’est l’analyse de réseau et si elle en a besoin ;</li>
+<li>formée à l’analyse de réseau dans une discipline et désirant savoir ce qui se fait dans d’autres disciplines ;</li>
+<li>souhaitant approfondir les approches concernant des réseaux spécifiques (réseau bimodal, multiplexe, dynamique notamment).</li>
+</ol>
+<p>Affirmer qu’aucun pré-requis mathématique n’est demandé serait absurde, il est nécessaire de savoir compter par exemple, mais si vous n’avez pas fait le moindre exercice de maths depuis la première, ça ne devrait poser aucun problème de compréhension. Les notations et les formules mathématiques sont regroupées et commentées dans l’annexe.</p>
+<p>Ce guide n’est pas exhaustif : toutes les mesures ne sont pas abordées, toutes les analyses possibles sur tous les types possibles de réseaux ne sont pas présentées et les modèles statistiques ne sont que brièvement évoqués. Les aspects algorithmiques liés à l’analyse de réseau ne sont pas abordés dans la mesure où rares sont les personnes en sciences sociales qui créent de toute pièce leurs outils <a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>.</p>
+<p>L’objectif de ce guide n’est pas d’être complet, ce qui est devenu compliqué en analyse de réseau, mais de vous aider à vous poser quelques questions utiles : que représente mon réseau ? que sont mes liens ? mes sommets ? quelles sont les mesures pertinentes pour mes questions de recherche et celles qui le sont moins ? quelles précautions prendre quand je crée puis que je commente une visualisation de réseaux ? quels logiciels utiliser ? quelles revues lire pour me tenir à jour ?</p>
+<p>Les exemples évoqués ainsi que les jeux de données mobilisés sont d’une part des jeux de données devenus classiques en analyse de réseau et d’autre part des exemples issus de travaux plus ou moins récents et issus de différentes disciplines. Étant, comme toute chercheuse, située dans un champ académique et disciplinaire donné, il est logique qu’un certain nombre de ces derniers soient issus de mon réseau professionnel personnel.</p>
+<p>Ce guide s’appuie sur une décennie de formations en analyse de réseau, formations de durée variable (de 3 à 40 heures) et destinées à des publics de statuts, de niveaux et de disciplines variées <a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> (élèves ingénieures statisticiennes, masterantes, doctorantes en sciences sociales, etc.) et sur plus d’une décennie de rédaction de tutoriels <a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>. Géographe, je présente ici des méthodes issues de plusieurs disciplines (sociologie, physique, géographie, etc.). J’ai cherché à être aussi générique que possible afin que ce guide puisse vous être utile, que vous soyez anthropologue, archéologue, géographe, historienne, sociologue ou autre ; je ne prétends pas avoir réussi, à vous de me le faire savoir si vous le souhaitez.</p>
+<p>Les encadrés intitulés <em>À l’intention des formatrices</em> donnent un certain nombre de conseils pratiques aux personnes souhaitant animer des formations d’analyse de réseau. N’hésitez surtout pas à m’envoyer vos retours pour signaler ce qui marche et ce qui ne marche pas.</p>
+<p>Enfin, ce texte est écrit par un agnostique. Je ne considère pas que l’analyse de réseau soit toujours pertinente ni qu’elle permette systématiquement d’obtenir des résultats intéressants : l’analyse de réseau est un outil disponible parmi d’autres, rien de plus, rien de moins. Mieux vaut une analyse de correspondance maîtrisée qu’une analyse de réseau mal fichue. Je ne considère pas non plus que telle ou telle approche soit systématiquement supérieure à telle autre : parfois il est pertinent de faire de la détection de communautés, parfois étudier la distribution des degrés est utile ; parfois ces deux approches sont inadaptées. J’indique quand telle ou telle approche paraît pertinente et quand elle l’est moins. Ceci explique qu’il n’y ait pas dans ce guide d’exemple d’analyse de réseau menée du début (construction des données et de la problématique) à la fin (interprétation des résultats) : il n’existe pas, à mon avis, de déroulé standard et passe-partout en analyse de réseau.</p>
+<section id="structure-du-guide" class="level2">
+<h2 class="anchored" data-anchor-id="structure-du-guide">Structure du guide</h2>
+<p>Le <a href="Cpourquoifaire.html">chapitre&nbsp;<span>1</span></a> tente de répondre à une question simple : pourquoi faire de l’analyse de réseau ? Le <a href="Chistoires.html">chapitre&nbsp;<span>2</span></a> présente brièvement quelques traditions disciplinaires d’analyse de réseau, sa lecture n’est pas essentielle à un public débutant. Le <a href="Cvocabulaire.html">chapitre&nbsp;<span>3</span></a> présente les termes indispensables, en partie issus de la théorie des graphes, pour décrire les réseaux étudiés. L’équivalent anglais de chaque terme est donné en italiques et entre parenthèses, les logiciels disponibles et une grande partie de la littérature étant dans cette langue. Le <a href="Cdonnees.html">chapitre&nbsp;<span>4</span></a> propose quelques règles simples et de nombreux exemples permettant de mettre en forme des données relationnelles.</p>
+<p>Le <a href="Cmesures.html">chapitre&nbsp;<span>5</span></a> est consacré aux mesures ; seules les plus courantes sont présentées. La compréhension des différentes mesures et de leur utilité permet la présentation de trois grands modèles théoriques de réseau (<a href="Cmesures.html#sec-Srandometc">section&nbsp;<span>5.4</span></a>). Le <a href="Cpartitions.html">chapitre&nbsp;<span>6</span></a> s’intéresse aux méthodes permettant de simplifier les réseaux d’une part et aux méthodes permettant de partitionner les individus d’autre part. Là encore, les méthodes sont nombreuses et seules les plus fréquemment implémentées dans les logiciels courants d’analyse de réseau sont présentées. La description des indicateurs et des méthodes mobilise peu les symboles et formules mathématiques, celles-ci étant expliquées dans l’annexe.</p>
+<hr>
+<p><strong>Question de vocabulaire</strong></p>
+<p>Dans les pages qui suivent, les termes <strong>individu</strong> et <strong>population</strong> sont employés au sens statistique du terme : l’individu est l’unité d’observation, l’ensemble des individus étudiés constitue la population. Un individu peut donc être une personne, une plante, une entreprise, un mot, un article, une ville etc. etc.</p>
+<p>Le terme <strong>graphe</strong> est utilisé pour désigner l’objet mathématique constitué d’un ensemble de points et d’un ensemble de liens entre ces points. J’utilise le terme <strong>réseau</strong> dès qu’un attribut est donné aux points (un nom par exemple) et/ou aux liens.</p>
+<p>J’appelle <strong>analyse de réseau</strong> toute démarche quantitative visant à étudier les propriétés relationnelles d’un ensemble d’individus. Le fait d’analyser <em>un</em> réseau donné (un réseau ferré, un réseau migratoire, un réseau social numérique) ne signifie pas qu’on pratique l’analyse de réseau. Inversement, des objets qui ne sont pas <em>a priori</em> des “réseaux” (un corpus de textes, de votes, de participations à des événements) peuvent être étudiés à l’aide de l’analyse de réseau.</p>
+<p>Les sociologues anglophones pratiquant l’<strong>analyse de réseaux sociaux</strong> (<em>Social Network Analysis</em> - <em>SNA</em>) emploient parfois le terme qu’elles considèrent équivalent de <em>structural analysis</em>. Pour éviter la confusion possible avec l’analyse structurale issue des travaux de Claude Lévi-Strauss, certains sociologues francophones emploient l’expression “analyse néo-structurale”. Seule l’expression <em>SNA</em> est utilisée dans ce texte.</p>
+<p>Les <strong>réseaux sociaux</strong> étudiés en SNA sont essentiellement des réseaux de relations entre individus. Les outils et platerformes permettant des échanges en ligne (Twitter, Instagram, etc.) sont appelés <strong>réseaux sociaux numériques</strong> dans ces pages.</p>
+<p>Les termes de <strong>science des réseaux</strong> (<em>network science</em>) et de <strong>réseau complexe</strong> (<em>complex network</em>) ont pris une importance croissante ces dernières années/décennies. Ils sont très peu utilisés dans ce texte.</p>
+<p>Le terme <strong>modélisation</strong> utilisé seul désigne tout processus visant à transformer un aspect du monde social en données pouvant être analysées pour répondre à une question de recherche. Les termes <strong>modélisation graphique</strong> et <strong>modélisation statistique</strong> désignent les tentatives de décrire et/ou d’expliquer ces aspects du monde social soit à l’aide de schémas soit à l’aide de calculs.</p>
+<hr>
+<p>Les chapitres suivants présentent des méthodes adaptées à des réseaux particuliers : réseau bimodal (liens entre deux ensembles différents d’individus - <a href="Cbiparti.html">chapitre&nbsp;<span>7</span></a>), réseau multiplexe (existence de plusieurs relations entre les individus - <a href="Cmultiplexe.html">chapitre&nbsp;<span>8</span></a>), réseaux dynamiques (<a href="Cdynamique.html">chapitre&nbsp;<span>9</span></a>) et réseaux personnels (<a href="Cegoreseau.html">chapitre&nbsp;<span>10</span></a>). Les indicateurs et les méthodes sont moins stabilisées pour ces trois premiers types de réseaux, ce qui explique sans doute pourquoi elles sont généralement moins traitées dans les manuels. J’ai tenté de sélectionner les indicateurs et méthodes les plus faciles à utiliser et cette sélection est donc largement dépendantes des logiciels disponibles. Si votre réseau n’appartient pas à ces catégories, vous pouvez allègrement sauter ces chapitres.</p>
+<p>Le <a href="Cmodeles.html">chapitre&nbsp;<span>11</span></a> présente deux types de modélisation : les modélisations graphiques et les modélisations statistiques. Les premières sont peu couramment employées - alors que leur usage peut s’avérer précieux - et les secondes supposent des compétences mathématiques supérieures aux méthodes évoquées précédemment. Ceci explique tant la position du chapitre que sa brièveté ; sa lecture n’est sans doute pas indispensable en première approche. Plus développé, le <a href="Cvisualiser.html">chapitre&nbsp;<span>12</span></a> est consacré à la visualisation des données relationnelles. Il présente quelques règles basiques de sémiologie graphique, des conseils pratiques permettant de créer des images de réseaux lisibles et enfin différents modes de représentation. Le nombre de praticiennes en analyse de réseau ne proposant aucune forme de visualisation étant à ma connaissance très restreint, la lecture de ce chapitre est recommandée.</p>
+<p>Les deux derniers chapitres ont un intérêt pratique plus immédiat : le <a href="Clogiciels.html">chapitre&nbsp;<span>13</span></a> vise à vous guider dans le choix d’un ou de plusieurs logiciels pour mener à bien vos analyses de réseaux ; le <a href="Cupdate.html">chapitre&nbsp;<span>14</span></a> présente différentes ressources permettant d’actualiser et/ou d’approfondir vos connaissances.</p>
+<p>L’annexe est découpée en trois parties : une introduction expliquant comment lire une équation ; un point sur le rôle du calcul matriciel en analyse de réseau ; les formules mathématiques de quelques indicateurs usuels en analyse de réseau.</p>
+<!-- L'index des noms propres ne peut pas être produit en html donc je vous renvoie au pdf disponible sur HAL.  est avant tout une lubie personnelle, facilitée par l'utilisation de \LaTeX, me permettant de contrôler les surreprésentations de genre ainsi que les poids disciplinaires respectifs des autrices citées. Il est logique que plus d'hommes soient cités avant 1960-1970 (en géographie et en *SNA* notamment) ; il est logique que les sociologues quantitativistes et les physiciennes soient citées plus souvent (elles ont écrit les manuels de référence, je m'en suis copieusement nourri et je paye mes dettes) ; j'ai cependant tenté d'équilibrer les genres et de varier les disciplines évoquées.-->
+<p>Bonne lecture et à bientôt j’espère pour une version révisée et augmentée de ce petit guide pratique.</p>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" data-line-spacing="2" role="doc-bibliography" style="display: none">
+<div id="ref-newman18" class="csl-entry" role="doc-biblioentry">
+Newman, M. (2018). <em>Networks</em>. Oxford University Press.
+</div>
+</div>
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>Je partage l’opinion de Newman qui affirme en substance dans son manuel que, tôt ou tard, on a besoin de faire des choses que les logiciels courants ne savent pas faire et qu’il est alors nécessaire de créer ses propres fonctions ou programmes. Il ajoute également à juste titre que se limiter aux mesures et aux méthodes déjà existantes limite la production de connaissances (<span class="citation" data-cites="newman18">Newman (<a href="references.html#ref-newman18" role="doc-biblioref">2018</a>)</span>, p.&nbsp;277-278). Les compétences en programmation étant ce qu’elles sont en sciences sociales, cette perspective me paraît malheureusement trop lointaine pour pouvoir être abordée ici.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>J’écris au féminin et j’utilise l’accord de voisinage.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>Voir notamment les carnets de recherche <a href="https://groupefmr.hypotheses.org/">groupe fmr</a> et <a href="https://arshs.hypotheses.org/">GDR Analyse de réseaux en SHS</a> ainsi que la <a href="https://hal.archives-ouvertes.fr/FMR">collection du groupe fmr sur HAL</a>.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./index.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Remerciements plus des bricoles</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./Cpourquoifaire.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Pourquoi faire de l’analyse de réseau ?</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>

@@ -1,0 +1,138 @@
+# Choisir un ou plusieurs logiciels {#sec-Clogiciels}
+
+L'analyse de réseau suppose 1. du calcul matriciel et 2. la possibilité d'explorer visuellement ses données ; il est donc nécessaire d'apprendre à utiliser un logiciel. Le nombre de logiciels disponibles dépasse la vingtaine et il ne saurait être question de les présenter tous. Je distinguerai deux types de logiciels : ceux qui obligent à coder ([R](https://www.r-project.org/), [Python](https://www.python.org/)) et ceux qui peuvent s'utiliser avec une interface graphique ([Cytoscape](http://wikiold.cytoscape.org/), [Gephi](https://gephi.org/), [Tulip](https://tulip.labri.fr/site/)[^clogiciels-1]). J'évoquerai enfin quelques outils de visualisation et parfois d'analyse disponibles en ligne.
+
+[^clogiciels-1]: Ces logiciels peuvent également être utilisés avec des scripts. Je n'évoque plus depuis des années les logiciels historiques comme [Ucinet](https://sites.google.com/site/ucinetsoftware/download) ou [Pajek](http://mrvar.fdv.uni-lj.si/pajek/%7D%7BPajek). Ils ont été très utiles et très utilisés il y a dix ou vingt ans, je ne suis pas tout à fait certain qu'ils le soient encore aujourd'hui, excepté pour les personnes s'étant formées avec et ne souhaitant pas changer d'outils. Aucun des deux n'est libre et les deux ne tournent que sous Windows.
+
+## Identifier vos besoins
+
+Commençons par un constat un brin pessimiste : le logiciel facile à prendre en main et permettant de réaliser toutes les analyses dont vous avez besoin n'existe pas. L'un des moyens de choisir un outil est de répondre aux questions suivantes :
+
+-   quel type de réseau j'analyse ?
+-   de quelles mesures, de quelles méthodes ai-je besoin pour répondre à mes questions de recherche ?
+-   est-ce que c'est l'analyse ou la visualisation qui importe dans mes travaux ?
+-   ai-je besoin de réaliser d'autres traitements de données (statistiques, cartographie, analyse lexicale, etc.) ?
+
+Si le ou les réseaux que vous étudiez sont simples, unimodaux et non valués, à peu près tous les logiciels peuvent être utilisés. Si vos réseaux sont bipartis, multiplexes ou valués et que vous souhaitez les étudier en tant que tels, le choix est plus restreint. Pour être plus explicite, à peu près tous les logiciels savent analyser, au moins sommairement, un réseau simple. Si le réseau est autre, R ou Python risquent rapidement de devenir indispensables.
+
+Les mesures globales et locales basiques (densité, diamètre, degré...) sont disponibles dans tous les logiciels. La plupart des logiciels proposent des méthodes de détection des communautés (souvent l'algorithme de Louvain, parfois le choix est plus large). Réaliser des modèles statistiques type ERGM limite davantage le choix (R, Python ou les logiciels non libres et tournant sur Windows seulement développés à Melbourne par le [Melnet](https://www.melnet.org.au/pnet)).
+
+Si vous avez uniquement besoin de produire quelques jolies images de réseaux [^clogiciels-2], préférez un logiciel avec interface graphique de type Yed [^clogiciels-3], Gephi ou Cytoscape. L'important dans ce cas est que l'outil propose des algorithmes de visualisation efficaces, des exportations au format vectoriel (oui, il vous faudra toujours ajouter une légende) et que le format des données en entrée soit simple (une liste de liens et éventuellement une liste de sommets avec des attributs).
+
+[^clogiciels-2]: Ce n'est pas du tout péjoratif de ma part : on peut parfaitement souhaiter illustrer des travaux avec une (jolie) image de réseau et ne pas du tout avoir besoin ou envie de faire de l'analyse de réseau.
+
+[^clogiciels-3]: Je ne parle pas de Yed par la suite car il permet uniquement de faire des images de réseau : l'outil est gratuit, multiplateforme et très simple d'utilisation [(téléchargeable ici)](https://www.yworks.com/products/yed).
+
+Enfin, un critère important concerne l'importance du traitement de données dans vos travaux. Si vous avez besoin ou envie de faire des cartes, de l'analyse lexicale, de la statistique multivariée et que sais-je encore, formez-vous à R ou à Python [^clogiciels-4]. Les tutoriels de qualité pullulent, les formations sont nombreuses, les communautés d'utilisatrices très actives et surtout, une fois passée la phase ardue d'apprentissage, vous gagnerez un temps fou. Une fois vos données mises en forme et votre script écrit, vous n'aurez plus qu'à lancer le programme pour récupérer l'ensemble de vos résultats et de vos figures.
+
+[^clogiciels-4]: Si on ne vous oblige pas à travailler avec, oubliez les équivalents payants : ils ont perdu la bataille dans le monde de l'enseignement et de la recherche et la perdent aussi dans le secteur privé.
+
+------------------------------------------------------------------------
+
+*À l'intention des formatrices*
+
+Lorsqu'on organise des formations d'initiation, on a toutes les chances d'avoir un public très hétérogène. Rappeler des choses très basiques (qu'est-ce qu'un chemin ? comment et pourquoi il est nécessaire de décompresser une archive ?) au départ permet de gagner du temps par la suite.
+
+Le choix du logiciel à utiliser est largement fonction de la durée de la formation proposée. Former à l'analyse de réseau **et** à l'utilisation de R en deux jours ou moins est un pari que je n'ai jamais osé tenter. Si la connexion wifi est de bonne qualité, choisir une application en ligne évite les problèmes d'installation.
+
+Si vous envisagez l'utilisation d'un logiciel, prenez le temps en amont de la formation d'envoyer des consignes très complètes concernant l'installation du logiciel choisi et essayez d'anticiper les problèmes (est-ce que Java doit être installé par exemple). Passer une demi-heure ou plus à tenter de comprendre pourquoi tel programme ne tourne pas sur Mac (exemple choisi de manière non arbitraire) ajoute un stress inutile en début de formation, pour vous comme pour les participantes.
+
+------------------------------------------------------------------------
+
+## Mobiliser l'entourage
+
+Le moyen le plus rapide de se former à un logiciel est de connaître des personnes qui l'utilisent déjà. S'il y a des personnes autour de vous qui utilisent Cytoscape, demandez-leur de vous montrer comment ça fonctionne. Si plusieurs personnes utilisent R - y compris pour autre chose que de l'analyse de réseau - et que vous pensez en avoir besoin, lancez-vous. Seul inconvénient : il est possible que votre entourage utilise un logiciel bof [^clogiciels-5].
+
+[^clogiciels-5]: Le logiciel bof est un logiciel qui propose peu de choix (mesures, méthodes) et/ou impose beaucoup de contraintes (format de données) pour des résultats qu'on obtient à moindre coût avec un logiciel équivalent.
+
+La bonne nouvelle tout de même, c'est que la plupart des logiciels fonctionnent à peu près de la même façon : ils demandent une liste de liens et une liste de sommets en entrée et les noms des fonctions se ressemblent d'un outil à l'autre. Conséquence logique : une fois que l'on sait se servir à peu près d'un logiciel d'analyse de réseau, la prise en main d'un autre logiciel est beaucoup plus rapide. Seule exception à ce cercle vertueux, certains *packages* R [^clogiciels-6] sont si mal fichus qu'une pratique assidue du logiciel n'est pas suffisante pour réussir à les utiliser [^clogiciels-7]. Vous les repérerez facilement : aucun tutoriel ne les utilise ni ne les cite.
+
+[^clogiciels-6]: R, comme Python, est un logiciel modulaire : en fonction de ses besoins, on fait appel à des *packages* qui regroupent un ensemble de fonctions adaptées à des besoins spécifiques.
+
+[^clogiciels-7]: Je n'utilise pas assez Python pour savoir si on rencontre le même problème.
+
+## Un outil à votre service
+
+Petit rappel : le logiciel est un outil qui est là pour faire ce dont vous avez besoin. Ce n'est pas parce qu'un logiciel propose de la détection de communautés que vous êtes obligée d'en faire si ce n'est pas utile pour vos questions de recherche. Tester l'ensemble des indicateurs proposés "des fois que ça donne un résultat intéressant" sans trop comprendre les nuances entre les différentes mesures est un bon moyen de perdre du temps. Et surtout, surtout, si le logiciel que vous utilisez ne propose pas ce dont vous avez besoin, utilisez-en un autre.
+
+Un logiciel digne de ce nom en 2023 devrait vous permettre de créer vos propres mesures et d'adapter les mesures proposées ([chapitre @sec-Cmesures]). Il doit être capable de tourner sur les différents systèmes d'exploitation, ne serait-ce que pour faciliter les collaborations. Enfin, il est préférable que le logiciel soit libre : les erreurs éventuelles passent inaperçues moins longtemps quand le code source est accessible d'une part ; il est beaucoup plus facile de développer des modules permettant de nouvelles approches d'autre part.
+
+## Tester les outils en ligne
+
+Les outils gratuits en libre permettant de visualiser des données relationnelles sont très nombreux et j'en ignore la plupart. J'en présente ici une poignée qui peuvent permettre une analyse rudimentaire de vos données (une poignée de mesures basiques, rarement plus) mais surtout une exploration visuelle facile de vos données (possibilité de zoomer et dézoomer, de filtrer les liens, de sélectionner les sommets, etc.). Ces outils peuvent être intéressants mais le rapport nombre de clics - pertinence des résultats ou des nouveaux questionnements obtenus peut s'avérer décevant à l'usage.
+
+[The Vistorian](https://vistorian.online/) est un outil en ligne permettant de représenter vos données relationnelles sous forme de réseau, sous forme de matrice et, si vos sommets ont des coordonnées, sous forme de carte. L'équipe [Aviz](https://www.aviz.fr/), partenaire du projet, a également développé d'autres outils de visualisation de données relationnelles. La documentation (en anglais) est généralement claire, les images produites sont rarement exportables au format vectoriel et ce sont avant tout des outils d'exploration visuelle qui ne proposent pas ou peu de mesures.
+
+[VOSViewer](https://www.vosviewer.com/) est un outil libre et gratuit, il peut être installé en local ou [utilisé en ligne](https://app.vosviewer.com/). Cet outil s'affiche comme "a software tool for constructing and visualizing bibliometric networks": s'il peut afficher des réseaux bibliométriques, il peut afficher n'importe quel type de réseau valué. Il est régulièrement actualisé depuis sa création en 2007. On peut trouver les couleurs laides et l'utilisation de la 3D peu efficace. La méthode de clustering utilisée semble spécifique à l'outil et ce dernier ne semble pas proposer de mesures [^clogiciels-8].
+
+[^clogiciels-8]: J'ai survolé le manuel [disponible en ligne](https://www.vosviewer.com/documentation/Manual_VOSviewer_1.6.19.pdf), j'ai pu rater un passage.}
+
+Outil de visualisation de flux géographiques, [Arabesque](http://arabesque.ifsttar.fr/) permet de choisir ses variables visuelles (taille, forme et couleur des liens et des sommets), la projection, de filtrer les données, etc. Il fournit également un histogramme des flux étudiés ainsi que des données utiles concernant la sélection de flux représentés. Autre type de flux, les collaborations scientifiques à l'échelle mondiale [^clogiciels-9] : pour avoir une idée de ce qui est possible (articles parus lors de la période 1999-2008), voir le site [GéoScimo](http://www.coscimo.net/index.html) (représentation en matrices, cordes, cartes et graphes) ; l'outil [Netscity](https://www.irit.fr/netscity/prod/intro/) permet de visualiser vos données bibliographiques (@maisonobe19).
+
+[^clogiciels-9]: Une co-publication issue de chercheuses de deux institutions situées dans des métropoles différentes crée un lien entre ces deux métropoles. Pour comprendre l'intérêt de la méthode et avoir un bel aperçu du potentiel de l'analyse de réseau, voir la thèse de @maisonobe15 sur le sujet.
+
+[egoSlider](http://vis.cse.ust.hk/egoslider/) est un outil dédié à la visualisation de réseaux personnels et temporels assez intriguant (visualisation de qualité et originale) mais 1. la documentation est indigente ([1 article de 10 pages](https://www.cse.ust.hk/~huamin/tvcg_yanhong_2016.pdf)) et 2. c'est juste une démo en ligne, impossible de charger ses données, dommage.
+
+Il existe enfin *x* outils en outil nécessitant de créer un compte comme [Nodegoat](https://nodegoat.net/about) ou [histograph](https://histograph.cvce.eu/#/). Certains sont peut-être de bonne qualité.
+
+## Logiciels à interface graphique
+
+Je distingue d'un côté les logiciels que j'appelle faute de mieux généralistes, utiles pour l'analyse de réseaux unimodaux, et les logiciels "spécialisés" adaptés à un type précis de réseau. Certains de ces logiciels peuvent être utilisés aussi en ligne de commande et/ou avec R et Python. Par défaut, les logiciels indiqués sont libres, gratuits et multiplateformes (Windows, Mac, Linux).
+
+### Logiciels "généralistes"
+
+L'un des plus utilisés est sans doute [Gephi](https://gephi.org/) : plutôt simple d'accès, il permet de réaliser des visualisations efficaces et de mener toutes les analyses standards. Grosse communauté d'utilisatrices et documentation abondante. Un peu léger à mon goût en ce qui concerne la détection de communautés mais il existe des modules permettant d'élargir la palette de choix disponibles.
+
+Très similaire tant en terme d'interface que de rendu visuel, [Cytoscape](https://cytoscape.org/) me paraît à la fois plus stable et plus complet. La communauté étant plus réduite, la documentation disponible l'est aussi. Un de mes logiciels préférés pour l'initiation et la visualisation malgré tout.
+
+[Tulip](https://tulip.labri.fr/site/) est un logiciel de visualisation et d'analyse adapté aux grands réseaux et plutôt complet. Il est très fortement conseillé d'avoir un ordinateur performant et une carte graphique tout aussi performante.
+
+Les trois logiciels qui viennent d'être cités peuvent être utilisés en ligne de commande et sont mis à jour très régulièrement. Des valeurs sûres donc.
+
+[SocNetV](https://socnetv.org/) (*Social Network Vizualizer*) est un logiciel plus récent, assez simple à prendre en main, avec un choix correct d'indicateurs. Il est par contre étonnamment lent, y compris avec de petits réseaux, que ce soit pour le calcul de certains indicateurs ou les algorithmes de visualisation *force-based*. Je ne suis pas certain qu'il y ait un public pour quelque chose d'aussi générique et peu performant.
+
+### Logiciels "spécialisés"
+
+Comme je l'ai déjà écrit, je ne travaille pas sur des réseaux personnels et je connais mal le paysage logiciel. Un certain nombre d'outils commencent à dater : [Egonet](https://github.com/egonet/egonet) n'a pas été mis à jour depuis 2017 ; la dernière version d'[E-Net](https://sites.google.com/site/enetsoftware1/) date de 2012 (logiciel gratuit, non libre et seulement pour Windows). Ceci étant, n'importe quel logiciel généraliste peut les visualiser et les analyser ; les indicateurs spécifiques liés à l'homophilie et à l'homogénéité peuvent se calculer avec un tableur ou un logiciel de statistique.
+
+Pour la visualisation de réseau dynamique, [DyNetVis](https://www.dynetvis.com/) semble un candidat intéressant (dernière version datée de septembre 2021) mais ça manque terriblement de documentation ; j'ai du mal quand la seule documentation fournie est une vidéo youtube de 2'42...
+
+Ceci étant, si vous souhaitez travailler sur des réseaux multiplexes, bimodaux, valués, temporels etc., peut-être que le plus efficace est de vous former à R ou à Python.
+
+## igraph, R & Python
+
+Le coût d'entrée est plus élevé, les options sont beaucoup plus nombreuses. Si on utilise ces logiciels régulièrement, on finit par gagner du temps. Dans le cas contraire, on passe des heures à se battre avec des messages d'erreur pénibles... Et, contrairement au vélo, ça s'oublie très vite.
+
+### igraph
+
+[igraph](https://igraph.org/) est un logiciel d'analyse de réseau pouvant s'utiliser soit de façon autonome, soit avec R, soit avec Python. Il permet de faire presque tout avec des réseaux unimodaux (binaires ou valués), presque car il manque les modèles *ERGM*. Si vous étudiez des réseaux bimodaux et que vous souhaitez les étudier sans les transformer, il y a par contre peu d'options disponibles. La bibliothèque d'algorithmes de détection de communautés est tout à fait correcte (8 choix possibles) et il est également possible de faire des visualisations de qualité. Logiciel stable et actualisé fréquemment, documentation complète, recommandé donc ; ces commentaires sont valables que vous l'utilisiez seul, avec R ou Python.
+
+### R
+
+Le couteau suisse du traitement de données avec ses avantages - quel que soit le type de traitement que vous envisagez et le type de réseau que vous étudiez, vous trouverez un ou plusieurs *packages* adaptés. Et ses inconvénients : documentation parfois médiocre, *packages* devenant obsolètes, rétro-compatibilité souvent catastrophique des scripts (*i.e.* le fait de pouvoir utiliser dans 1, 2 ou 5 ans un script qui fonctionne aujourd'hui).
+
+Pour faire simple, avec igraph, vous faites à peu près ce que vous voulez sur de l'unimodal (sauf *ERGM* et *blokmodeling*). Si vous voulez des modèles ERGM, vous passez à statnet. Pour le *blockmodeling*, plusieur *packages* sont disponibles ([blockmodeling](https://cran.r-project.org/web/packages/blockmodeling/blockmodeling.pdf), [blockmodels](https://cran.r-project.org/web/packages/blockmodels/index.html), etc.). Et pour les autres types de réseau, vous fouillez et vous trouvez par exemple les *packages* [bipartite](https://cran.r-project.org/web/packages/bipartite/index.html) (réseaux bimodaux), [egor](https://cran.r-project.org/web/packages/egor/egor.pdf) (réseaux personnels) etc. etc.
+
+Pour savoir si ça vaut le coup de lire la documentation du *package*, regardez la version, la date et qui développe. Si le *package* est 0. quelque chose, que la date a plus de deux ans et qu'une seule personne développe, laissez tomber. Et si vous avez encore un doute, cherchez de la documentation en ligne : si vous ne trouvez rien, c'est peut-être parce que personne ne l'utilise et il y a sans doute de bonnes raisons pour ça.
+
+### Python
+
+Je connais mal Python donc je vais être beaucoup plus bref. Les principaux modules d'analyse de réseau semblent être igraph (cf ci-dessus), [NetworkX](https://networkx.org/) et [graph-tools](https://pypi.org/project/graph-tools/). Je ne désespère pas de prendre le temps de me former dans les mois qui viennent pour développer un peu cette partie...
+
+Le foisonnement de modules semble un peu mieux contrôlé qu'avec R et vous pouvez trouver des modules spécialisés type [Reticula](https://docs.reticula.network/) pour l'analyse des réseaux temporels.
+
+------------------------------------------------------------------------
+
+*À l'intention des formatrices*
+
+Le choix du logiciel que vous utilisez lors des formations dépend 1. de vos capacités 2. de la durée de la formation et 3. du public - il s'agit dans mon esprit d'un ordre décroissant d'importance.
+
+C'est vous qui animez, il est indispensable que vous vous sentiez à l'aise avec l'outil. Un bon moyen pour se former à de nouveaux outils et développer ses capacités est d'écrire des tutoriels. Même courts, n'hésitez pas, écrivez et partagez vos ressources, ça servira.
+
+Pour une formation de deux jours ou moins, je recommande les logiciels à interface graphique, sans hésiter. Si vous avez plus de temps, je recommande R et ce quel que soit le public.
+
+Pourquoi R ? Parce que RStudio le rend moins compliqué à utiliser, parce qu'on trouve plein de documentation de qualité et qu'on peut à peu près tout faire en analyse de données en général et en analyse de réseau en particulier.
+
+"Oui mais c'est du code et en SHS on code pas."
+
+Je sais. Mais si votre public est peu sensible aux joies de l'informatique, **tout nouveau logiciel est compliqué**. Quitte à faire compliqué, autant former à un outil digne de ce nom. Surtout qu'avec un peu de pédagogie et d'habitude, R s'enseigne sans problème à des personnes pas quanti pour un sou.

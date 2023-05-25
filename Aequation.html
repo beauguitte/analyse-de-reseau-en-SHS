@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.1.189">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>L’analyse de réseau en sciences sociales. Petit guide pratique - Annexe - Notations mathématiques et calcul matriciel</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./references.html" rel="next">
+<link href="./Cconclusion.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title">Annexe - Notations mathématiques et calcul matriciel</h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">L’analyse de réseau en sciences sociales. Petit guide pratique</a> 
+    </div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">Remerciements plus des bricoles</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./intro.html" class="sidebar-item-text sidebar-link">Ce qu’est ce guide et ce qu’il n’est pas</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Cpourquoifaire.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Pourquoi faire de l’analyse de réseau ?</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Chistoires.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Histoires &amp; disciplines</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Cvocabulaire.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Graphe et réseau : principes et vocabulaire de base</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Cdonnees.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Construire ses données</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Cmesures.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Quelques mesures possibles</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Cpartitions.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Simplifier, partitionner</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Cbiparti.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Analyser des réseaux bimodaux</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Cmultiplexe.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Analyser des réseaux multiplexes</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Cdynamique.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Analyser la dynamique des réseaux</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Cegoreseau.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Analyser des réseaux personnels</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Cmodeles.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Modèles graphiques, modèles statistiques</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Cvisualiser.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Visualiser les données relationnelles</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Clogiciels.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Choisir un ou plusieurs logiciels</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Cupdate.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Se (re)mettre à jour</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Cconclusion.html" class="sidebar-item-text sidebar-link">Conclusion</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Aequation.html" class="sidebar-item-text sidebar-link active">Annexe - Notations mathématiques et calcul matriciel</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">Références</a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Sommaire</h2>
+   
+  <ul>
+  <li><a href="#déchiffrer-une-équation" id="toc-déchiffrer-une-équation" class="nav-link active" data-scroll-target="#déchiffrer-une-équation">Déchiffrer une équation</a></li>
+  <li><a href="#matrices-et-calcul-matriciel" id="toc-matrices-et-calcul-matriciel" class="nav-link" data-scroll-target="#matrices-et-calcul-matriciel">Matrices et calcul matriciel</a>
+  <ul class="collapse">
+  <li><a href="#ce-quest-une-matrice" id="toc-ce-quest-une-matrice" class="nav-link" data-scroll-target="#ce-quest-une-matrice">Ce qu’est une matrice</a></li>
+  <li><a href="#plus-courts-chemins-et-diamètre-dun-réseau" id="toc-plus-courts-chemins-et-diamètre-dun-réseau" class="nav-link" data-scroll-target="#plus-courts-chemins-et-diamètre-dun-réseau">Plus courts chemins et diamètre d’un réseau</a></li>
+  <li><a href="#matrice-et-transposée" id="toc-matrice-et-transposée" class="nav-link" data-scroll-target="#matrice-et-transposée">Matrice et transposée</a></li>
+  <li><a href="#sec-Avaleurspropres" id="toc-sec-Avaleurspropres" class="nav-link" data-scroll-target="#sec-Avaleurspropres">Vecteurs et valeurs propres d’une matrice</a></li>
+  </ul></li>
+  <li><a href="#quelques-indicateurs-fréquemment-utilisés" id="toc-quelques-indicateurs-fréquemment-utilisés" class="nav-link" data-scroll-target="#quelques-indicateurs-fréquemment-utilisés">Quelques indicateurs fréquemment utilisés</a>
+  <ul class="collapse">
+  <li><a href="#liste-des-symboles-utilisés-et-définitions" id="toc-liste-des-symboles-utilisés-et-définitions" class="nav-link" data-scroll-target="#liste-des-symboles-utilisés-et-définitions">Liste des symboles utilisés et définitions</a></li>
+  <li><a href="#centralité-dintermédiarité-betweenness" id="toc-centralité-dintermédiarité-betweenness" class="nav-link" data-scroll-target="#centralité-dintermédiarité-betweenness">Centralité d’intermédiarité (<em>betweenness</em>)</a></li>
+  <li><a href="#centralité-de-proximité-closeness-centrality" id="toc-centralité-de-proximité-closeness-centrality" class="nav-link" data-scroll-target="#centralité-de-proximité-closeness-centrality">Centralité de proximité (<em>closeness centrality</em>)</a></li>
+  <li><a href="#centralité-de-vecteur-propre-eigenvector-centrality" id="toc-centralité-de-vecteur-propre-eigenvector-centrality" class="nav-link" data-scroll-target="#centralité-de-vecteur-propre-eigenvector-centrality">Centralité de vecteur propre (<em>eigenvector centrality</em>)</a></li>
+  <li><a href="#degré-degree" id="toc-degré-degree" class="nav-link" data-scroll-target="#degré-degree">Degré (<em>degree</em>)</a></li>
+  <li><a href="#densité-density" id="toc-densité-density" class="nav-link" data-scroll-target="#densité-density">Densité (<em>density</em>)</a></li>
+  <li><a href="#diversité-dagresti-agresti-diversity" id="toc-diversité-dagresti-agresti-diversity" class="nav-link" data-scroll-target="#diversité-dagresti-agresti-diversity">Diversité d’Agresti (<em>Agresti diversity</em>)</a></li>
+  <li><a href="#modularité-modularity" id="toc-modularité-modularity" class="nav-link" data-scroll-target="#modularité-modularity">Modularité (<em>modularity</em>)</a></li>
+  <li><a href="#shimbel-indices-de" id="toc-shimbel-indices-de" class="nav-link" data-scroll-target="#shimbel-indices-de">Shimbel (indices de)</a></li>
+  <li><a href="#transivité-transitivity" id="toc-transivité-transitivity" class="nav-link" data-scroll-target="#transivité-transitivity">Transivité (<em>transitivity</em>)</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title d-none d-lg-block">Annexe - Notations mathématiques et calcul matriciel</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    
+  </div>
+  
+
+</header>
+
+<p><em>Les personnes qui savent lire une équation peuvent sauter la section suivante ; les personnes qui les survolent sans trop chercher à les comprendre</em> <a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> <em>trouveront peut-être un petit intérêt aux lignes qui suivent.</em></p>
+<section id="déchiffrer-une-équation" class="level2">
+<h2 class="anchored" data-anchor-id="déchiffrer-une-équation">Déchiffrer une équation</h2>
+<p>Il existe deux moyens principaux de décrire un indicateur : écrire ce qu’il permet de mesurer ; donner la formule permettant son calcul. Savoir lire une formule est utile pour plusieurs raisons. Certaines disciplines les utilisent couramment et il est difficile voire inutile d’essayer de lire un article de physique si on ne sait pas lire une équation. Lire les équations permet de démystifier certains travaux : un minimum d’habitude permet de réaliser que 90 % des “nouveaux” indicateurs proposés dans certaines communautés scientifiques sont des indicateurs classiques plus un paramètre donné et/ou une constante. Avec un peu de pratique, il est également plus facile de prévoir les variations d’un indicateur et ses limites en étudiant sa formule mathématique plutôt que sa description verbale.</p>
+<p>Il existe une poignée de symboles utilisés de manière à peu près homogène quelle que soit la discipline. Je liste ici uniquement les plus fréquents :</p>
+<ul>
+<li><span class="math inline">\(\subset\)</span> : l’ensemble situé à gauche est inclus dans l’ensemble situé à droite. Soit un graphe <span class="math inline">\(G = \{V,E\}\)</span> et un sous-graphe <span class="math inline">\(G' = \{V',E'\}\)</span> de <span class="math inline">\(G\)</span> alors <span class="math inline">\(V' \subset V\)</span> et <span class="math inline">\(E' \subset E\)</span> ;<br>
+</li>
+<li><span class="math inline">\(\in\)</span> : l’élément à gauche est un élément de l’ensemble situé à droite. Par exemple, dans un graphe <span class="math inline">\(G = \{V,E\}\)</span>, tout sommet <span class="math inline">\(v \in V\)</span> ;</li>
+<li><span class="math inline">\(\cup\)</span> : union des deux ensembles situés de part et d’autre ;</li>
+<li><span class="math inline">\(\cap\)</span> : intersection des deux ensembles situés de part et d’autre ;</li>
+<li><span class="math inline">\(\bar{A}\)</span> : moyenne de <span class="math inline">\(A\)</span> ;</li>
+<li><span class="math inline">\(|A|\)</span> : valeur absolue de <span class="math inline">\(A\)</span>;</li>
+<li><span class="math inline">\(\Sigma\)</span> désigne la somme des éléments situés à droite ;</li>
+<li><span class="math inline">\(\Pi\)</span> désigne le produit des éléments situés à droite.</li>
+</ul>
+<p>Les deux derniers symboles (sigma et pi) ont souvent une notation du type <span class="math inline">\(i = 1\)</span> en bas et <span class="math inline">\(n\)</span> en haut, comme ceci : <span class="math inline">\(\sum_{i=1}^n\)</span>. Les lettres utilisées importent peu : cela signifie que la somme concerne les <span class="math inline">\(n\)</span> individus du premier (<span class="math inline">\(i = 1\)</span>) au dernier (<span class="math inline">\(n\)</span>) (voir les formules des indicateurs de Shimbel par exemple).</p>
+<p>Classiquement, les formules en analyse de réseau sont des égalités où le terme de gauche est le nom de l’indicateur (parfois une lettre grecque, souvent une lettre en italique mais c’est une simple convention et il est rare que deux autrices adoptent les mêmes) et à droite la formule permettant le calcul de l’indicateur. La formule est précédée ou suivie d’une courte phrase définissant les termes employés dans l’équation.</p>
+<p>Pour comprendre une formule un peu longue (modularité par exemple), il est conseillé de commencer par décomposer : comprendre ce qui est calculé dans les parenthèses, au numérateur puis au dénominateur.</p>
+<p>Soit un des indicateurs les plus fréquemment calculés, la densité.</p>
+<p>La densité <span class="math inline">\(\delta\)</span> d’un graphe simple non orienté et non planaire d’ordre <span class="math inline">\(V\)</span> (nombre de sommets) et de taille <span class="math inline">\(E\)</span> (nombre de liens) est:</p>
+<p><span class="math display">\[\delta = \frac{2E}{V(V - 1)}\]</span></p>
+<p>Une même équation peut s’écrire de différentes façons. Les formules qui suivent sont totalement équivalentes:</p>
+<p><span class="math display">\[
+\delta = \frac{2E}{V(V - 1)} = 2\frac{E}{V(V - 1)}= \frac{E}{(V \times (V-1)) / 2}
+\]</span></p>
+<p>Les notations <span class="math inline">\(V(V-1)\)</span>, <span class="math inline">\(V \times (V-1)\)</span> et <span class="math inline">\(V \cdot (V-1)\)</span> sont strictement équivalentes et désignent la multiplication du premier terme par le second.</p>
+<p>Pour mémoire, la densité est le rapport entre le nombre de liens présents (noté ici <span class="math inline">\(E\)</span>) et le nombre de liens possibles. Il s’agit d’un rapport donc la formule a la forme d’une fraction. Le graphe est simple, non planaire, il n’y a pas de boucle : chaque sommet peut être en relation avec tous les autres sommets. S’il y a <span class="math inline">\(V\)</span> sommets, le nombre de liens possibles est donc <span class="math inline">\(V(V-1)\)</span>. Si les boucles étaient autorisées, on remplacerait le dénominateur par <span class="math inline">\(V^2\)</span>. Mais pourquoi multiplier le nombre de liens par 2 (ou diviser le nombre de liens possibles par 2) ? Le graphe est non orienté donc les liens entre les sommets <span class="math inline">\(v_i\)</span> et <span class="math inline">\(v_j\)</span> et <span class="math inline">\(v_j\)</span> et <span class="math inline">\(v_i\)</span> sont considérés comme un seul lien. Si le réseau était orienté, on supprimerait le terme 2 de l’équation.</p>
+<p>Avec ces éléments à l’esprit, on peut déterminer les variations de l’indicateur. Si le graphe est vide (pas de lien), le numérateur (<span class="math inline">\(E\)</span> ou <span class="math inline">\(2E\)</span>) est égal à 0 et <span class="math inline">\(\delta\)</span> est égal à 0. Si le graphe est complet, le nombre de liens présents est égal au nombre de liens possibles et <span class="math inline">\(\delta\)</span> est égal à 1.</p>
+<p><strong>En résumé</strong></p>
+<p>L’objectif n’est pas de se transformer en mathématicienne mais il est utile de prendre le temps de réfléchir aux formules, aux indices, de se familiariser avec les notations les plus courantes. Ça vous permettra notamment de repérer quand un logiciel vous sort des résultats aberrants, ce qui arrive de temps à autre. Ça vous permettra aussi de repérer quand deux indicateurs sont tellement proches l’un de l’autre qu’en mesurer un seul suffit. Ça vous donnera accès à des disciplines habituées à ces formalisations et actives en analyse de réseau. Et, avec un peu d’habitude, ça vous permettra surtout de mettre aux points les indicateurs dont vous aurez besoin pour répondre à vos questions de recherche.</p>
+<p>Attention, certaines autrices sont spécialisées dans l’équation inutilement compliquée allant souvent de pair avec une description incomplète des termes de la formule donc n’hésitez pas à croiser les sources, par exemple en contrôlant la formule indiquée le Wikipedia anglophone <a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>.</p>
+<p>Dernier conseil quand vous explorez un indicateur : dessinez de minuscules réseaux (une poignée de sommets, une poignée de liens) avec des formes spécifiques (ligne, cercle, nœud papillon), réfléchissez aux résultats que vous devriez obtenir puis calculez manuellement l’indicateur en question. Vérifiez ce que donne le logiciel que vous utilisez et si le résultat est normalisé par défaut, prenez le temps de comprendre comment il est normalisé. Vous serez beaucoup plus à votre aise ensuite lorsque vous commenterez et interpréterez vos résultats.</p>
+</section>
+<section id="matrices-et-calcul-matriciel" class="level2">
+<h2 class="anchored" data-anchor-id="matrices-et-calcul-matriciel">Matrices et calcul matriciel</h2>
+<p>Un certain nombre d’indicateurs en analyse de réseau reposent sur du calcul matriciel, calcul très vite chronophage s’il est réalisé à la main. Si l’analyse de réseau se développe à partir des années 1950-1960 dans différentes disciplines (chapitre <a href="Chistoires.html"><span>2</span></a>), c’est en partie grâce à l’arrivée des premiers ordinateurs dans les universités. Si les réseaux étudiés depuis une vingtaine d’années sont de plus en plus gros, c’est en grande partie lié à la puissance de calcul informatique disponible aujourd’hui.</p>
+<section id="ce-quest-une-matrice" class="level3">
+<h3 class="anchored" data-anchor-id="ce-quest-une-matrice">Ce qu’est une matrice</h3>
+<p>Une matrice est un tableau rectangulaire de nombres composé de <span class="math inline">\(x\)</span> lignes et <span class="math inline">\(y\)</span> colonnes permettant de représenter les propriétés d’un objet. Les matrices d’adjacence d’un graphe simple d’ordre <span class="math inline">\(V\)</span> sont des tableaux carrés, remplis de 1 (présence d’un lien de <span class="math inline">\(v_i\)</span> vers <span class="math inline">\(v_j\)</span>) et de 0 (diagonale, absence de lien entre <span class="math inline">\(v_i\)</span> et <span class="math inline">\(v_k\)</span>). Si le graphe est non orienté, tout lien de <span class="math inline">\(v_i\)</span> vers <span class="math inline">\(v_j\)</span> suppose un lien de <span class="math inline">\(v_j\)</span> vers <span class="math inline">\(v_i\)</span> et la matrice est dite symétrique : la disposition des 1 et des 0 est identique de chaque côté de la diagonale.</p>
+<p>L’exemple ci-dessous montre un réseau simple, non orienté, et la matrice d’adjacence correspondante.</p>
+<p><img src="images/annexe1.png" class="img-fluid" style="width:60.0%"></p>
+<p><span class="math inline">\(\begin{matrix}  &amp; a &amp; b &amp; c &amp; d &amp; e \\ a&amp; 0 &amp; 1 &amp; 1 &amp; 0 &amp; 0 \\ b&amp; 1 &amp; 0 &amp; 1 &amp; 0 &amp; 0\\ c&amp; 1 &amp; 1 &amp; 0 &amp; 1 &amp; 0 \\ d&amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 1 \\ e&amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 \\ \end{matrix}\)</span></p>
+<p>Par convention, la lecture se fait des lignes (origine) vers les colonnes (destination). Un calcul simple est la somme marginale (somme en ligne ou somme en colonne) permettant d’obtenir les degrés. Avec la matrice d’adjacence d’un graphe orienté, les sommes en ligne permettent d’obtenir le degré sortant, les sommes en colonne le degré entrant.</p>
+</section>
+<section id="plus-courts-chemins-et-diamètre-dun-réseau" class="level3">
+<h3 class="anchored" data-anchor-id="plus-courts-chemins-et-diamètre-dun-réseau">Plus courts chemins et diamètre d’un réseau</h3>
+<p>Le calcul des plus courts chemins dans un graphe repose sur du calcul matriciel. Lorsque la matrice d’adjacence est élevée au carré, les nombres dans les cases correspondent au nombre de chemins de longueur deux entre chaque paire de sommets. Lorsque la matrice est élevée au cube, les nombres correspondent au nombre de chemins de longueur trois, etc. etc.</p>
+<p>Si on additionne la matrice de départ et la matrice élevée au carré, les cases avec un 0 correspondent aux paires de sommets entre lesquels n’existe pas de chemin de longueur 1 ou 2. Si on additionne la matrice de départ, la matrice élevée au carré et la matrice élevée au cube, les cases avec un 0 correspondent aux paires de sommets entre lesquels il n’existe pas de chemin de longueur 1, 2 ou 3. Tant qu’il reste des 0 dans cette somme, l’opération continue jusqu’à <span class="math inline">\(A^{V - 1}\)</span> (le diamètre maximal d’un graphe de <span class="math inline">\(V\)</span> sommets est <span class="math inline">\(V - 1\)</span>).</p>
+<p>Le tableau ci-dessous montre la matrice d’adjacence <span class="math inline">\(A\)</span>, la matrice au carré et la matrice au cube ainsi que la somme de ces trois matrices.</p>
+<p><span class="math inline">\(\begin{matrix}  &amp; a &amp; b &amp; c &amp; d &amp; e \\ a&amp; 0 &amp; 1 &amp; 1 &amp; 0 &amp; 0 \\ b&amp; 1 &amp; 0 &amp; 1 &amp; 0 &amp; 0 \\ c&amp; 1 &amp; 1 &amp; 0 &amp; 1 &amp; 0 \\ d&amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 1 \\ e&amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 \end{matrix}\)</span></p>
+<p>Matrice au carré</p>
+<p><span class="math inline">\(\begin{matrix}  &amp; a &amp; b &amp; c &amp; d &amp; e \\ a&amp; 2 &amp; 1 &amp; 1 &amp; 1 &amp; 0 \\ b&amp; 1 &amp; 2 &amp; 1 &amp; 1 &amp; 0 \\ c&amp; 1 &amp; 1 &amp; 3 &amp; 0 &amp; 1 \\ d&amp; 1 &amp; 1 &amp; 0 &amp; 2 &amp; 0 \\ e&amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 1 \end{matrix}\)</span></p>
+<p>Matrice au cube</p>
+<p><span class="math inline">\(\begin{matrix}  &amp; a &amp; b &amp; c &amp; d &amp; e \\ a&amp; 2 &amp; 3 &amp; 4 &amp; 1 &amp; 1 \\ b&amp; 3 &amp; 2 &amp; 4 &amp; 1 &amp; 1 \\ c&amp; 4 &amp; 4 &amp; 2 &amp; 4 &amp; 0 \\ d&amp; 1 &amp; 1 &amp; 4 &amp; 0 &amp; 2 \\ e&amp; 1 &amp; 1 &amp; 0 &amp; 2 &amp; 0 \end{matrix}\)</span></p>
+<p>Somme des trois matrices précédentes</p>
+<p><span class="math inline">\(\begin{matrix}  &amp; a &amp; b &amp; c &amp; d &amp; e \\ a&amp;4 &amp;5 &amp; 6 &amp; 2 &amp; 1 \\ b&amp;5 &amp;4 &amp; 6 &amp; 2 &amp; 1 \\ c&amp;6 &amp;6 &amp; 5 &amp; 5 &amp; 1 \\ d&amp;2 &amp;2 &amp; 5 &amp; 2 &amp; 3 \\ e&amp;1 &amp;1 &amp; 1 &amp; 3 &amp; 1 \end{matrix}\)</span></p>
+<p>La présence de nombres dans la diagonale peut surprendre. Si on examine <span class="math inline">\(A^2\)</span>, la case (<span class="math inline">\(a,a\)</span>) contient un 2 : il existe donc deux chemins de longueur 2 permettant d’aller de <span class="math inline">\(a\)</span> à <span class="math inline">\(a\)</span> ({<span class="math inline">\(ab\)</span>,<span class="math inline">\(ba\)</span>} et {<span class="math inline">\(ac\)</span>,<span class="math inline">\(ca\)</span>}). La lecture est la même pour <span class="math inline">\(A^3\)</span> : il existe par exemple 3 chemins de longueur 3 entre <span class="math inline">\(a\)</span> et <span class="math inline">\(b\)</span> ({<span class="math inline">\(ac\)</span>,<span class="math inline">\(ca\)</span>,<span class="math inline">\(ab\)</span>}, {<span class="math inline">\(ab\)</span>,<span class="math inline">\(ba\)</span>,<span class="math inline">\(ab\)</span>}, {<span class="math inline">\(ab\)</span>,<span class="math inline">\(bc\)</span>,<span class="math inline">\(ca\)</span>}).</p>
+<p>Lorsqu’on additionne les différentes matrices (<span class="math inline">\(A\)</span> + <span class="math inline">\(A^2\)</span> + … + <span class="math inline">\(A^n\)</span>), le diamètre est égal au plus petit exposant <span class="math inline">\(n\)</span> pour lequel plus aucune case n’est égale à 0 (ici 3, ce qui se vérifie facilement sur le graphique). S’il reste des 0 pour <span class="math inline">\(n = V - 1\)</span>, cela indique un réseau non connexe.</p>
+</section>
+<section id="matrice-et-transposée" class="level3">
+<h3 class="anchored" data-anchor-id="matrice-et-transposée">Matrice et transposée</h3>
+<p>La transposée d’une matrice d’adjacence <span class="math inline">\(A\)</span>, souvent notée <span class="math inline">\(A'\)</span> ou <span class="math inline">\(t(A)\)</span>, s’obtient en permutant lignes et colonnes. Si je pars d’une matrice actrices - événements de taille <span class="math inline">\(V_1 \times V_2\)</span>, la transposée sera de taille <span class="math inline">\(V_2 \times V_1\)</span>. Multiplier une matrice rectangulaire par sa transposée ou une transposée par la matrice d’origine permet de passer d’un réseau bimodal à deux réseaux unimodaux non orientés et valués.</p>
+<p>Je reprends l’exemple utilisé dans le chapitre <a href="Cbiparti.html"><span>7</span></a> concernant la participation de 4 chercheuses à 3 colloques. Soit la matrice d’adjacence du réseau de départ <span class="math inline">\(A\)</span> où la case <span class="math inline">\(a_i,C_j\)</span> vaut 1 si <span class="math inline">\(a_i\)</span> a assisté à la conférence <span class="math inline">\(C_j\)</span> et 0 dans le cas contraire. On obtient la matrice suivante :</p>
+<p><span class="math inline">\(\begin{matrix}  &amp; C_1 &amp; C_2 &amp; C_3 \\ a_1&amp; 1 &amp; 0 &amp; 0 \\ a_2&amp; 1 &amp; 1 &amp; 1 \\ a_3&amp; 0 &amp; 1 &amp; 0 \\ a_4&amp; 0 &amp; 1 &amp; 1 \end{matrix}\)</span></p>
+<p>La somme en ligne permet de connaître le nombre de conférences auxquelles ont assisté les personnes ; la somme en colonnes le nombre de personnes présentes à chaque conférence. Pour obtenir les réseaux unimodaux dérivés, on multiplie la matrice <span class="math inline">\(A\)</span> par sa transposée <span class="math inline">\(A'\)</span> obtenue en inversant lignes et colonnes. La multiplication <span class="math inline">\(A \times A'\)</span> permet d’obtenir une matrice individus - individus de co-présence aux évènements ; la multiplication <span class="math inline">\(A' \times A\)</span> une matrice événements - événements partageant un nombre donné de participantes.</p>
+<p><span class="math inline">\(A\)</span></p>
+<p><span class="math inline">\(\begin{matrix}  &amp; C_1 &amp; C_2 &amp; C_3 \\ a_1&amp; 1 &amp; 0 &amp; 0 \\ a_2&amp; 1 &amp; 1 &amp; 1 \\ a_3&amp; 0 &amp; 1 &amp; 0 \\ a_4&amp; 0 &amp; 1 &amp; 1 \end{matrix}\)</span></p>
+<p><span class="math inline">\(A'\)</span></p>
+<p><span class="math inline">\(\begin{matrix}  &amp;a_1 &amp; a_2&amp; az_3 &amp; a_4 \\ C_1&amp; 1 &amp; 1 &amp; 0 &amp; 0\\ C_2&amp; 0 &amp; 1 &amp; 1 &amp; 0\\ C_3&amp; 0 &amp; 1 &amp; 0 &amp; 1 \end{matrix}\)</span></p>
+<p><span class="math inline">\(A \times A'\)</span></p>
+<p><span class="math inline">\(\begin{matrix} &amp; a_1 &amp; a_2 &amp; a_3 &amp; a_4 \\ a_1 &amp;1 &amp; 1 &amp; 0 &amp; 0 \\ a_2 &amp;1 &amp; 3 &amp; 1 &amp; 2 \\ a_3 &amp;0 &amp; 1 &amp; 1 &amp; 0 \\ a_4 &amp;0 &amp; 1 &amp; 1 &amp; 2 \end{matrix}\)</span></p>
+<p><span class="math inline">\(A' \times A\)</span></p>
+<p><span class="math inline">\(\begin{matrix}  &amp;C_1 &amp; C_2 &amp; C_3 \\ C_1&amp;2 &amp; 1 &amp; 1\\ C_2&amp;1 &amp; 3 &amp; 2\\ C_3&amp;1 &amp; 2 &amp; 2 \end{matrix}\)</span></p>
+<p>Les matrices obtenues sont valuées, symétriques (<em>i.e.</em> réseau non orienté) et la diagonale permet de retrouver le degré présent dans le réseau bimodal de départ (ex. : la case <span class="math inline">\(C_2,C_2\)</span> de la matrice <span class="math inline">\(A \times A'\)</span> vaut 3 : 3 personnes ont assisté à cette conférence).</p>
+</section>
+<section id="sec-Avaleurspropres" class="level3">
+<h3 class="anchored" data-anchor-id="sec-Avaleurspropres">Vecteurs et valeurs propres d’une matrice</h3>
+<p>Dans la section consacrée aux degrés pondérés par le degré des voisins, différents indices ont été évoqués (Katz, Eigenvector, PageRank). Tous ces indices reposent en partie sur le calcul des vecteurs propres - d’où le nom d’<em>eigenvector centrality</em> souvent utilisé dans les logiciels pour calculer l’un de ces indices.</p>
+<p>Un vecteur propre <span class="math inline">\(x\)</span> d’une matrice carrée est un vecteur solution de l’équation <span class="math inline">\(Ax = \lambda x\)</span> avec <span class="math inline">\(x \neq 0\)</span>. Une matrice a en général plusieurs valeurs propres, la plus élevée est utilisée pour calculer les centralités. <span class="math inline">\(\lambda\)</span> est appelé valeur propre.</p>
+<p>L’ensemble des valeurs propres de <span class="math inline">\(A\)</span> est appelé le spectre de <span class="math inline">\(A\)</span>. Certaines méthodes d’analyse de réseau, non abordées dans ce guide, mobilisent ces valeurs propres (<em>spectral analysis</em>).</p>
+</section>
+</section>
+<section id="quelques-indicateurs-fréquemment-utilisés" class="level2">
+<h2 class="anchored" data-anchor-id="quelques-indicateurs-fréquemment-utilisés">Quelques indicateurs fréquemment utilisés</h2>
+<p>Les formules sont classées par ordre alphabétique.% La notation utilisée dans ce guide est détaillée dans la section suivante.</p>
+<section id="liste-des-symboles-utilisés-et-définitions" class="level3">
+<h3 class="anchored" data-anchor-id="liste-des-symboles-utilisés-et-définitions">Liste des symboles utilisés et définitions</h3>
+<p><em>Les termes de base sont listées au départ; les définitions et formules sont ensuite indiquées par ordre alphabétique.</em></p>
+<p><span class="math inline">\(G\)</span> : graphe <span class="math inline">\(\{V,E\}\)</span>.</p>
+<p><span class="math inline">\(V\)</span> : ensemble des sommets ou ordre du graphe, noté <span class="math inline">\(V_1\)</span>, <span class="math inline">\(V_2\)</span> en cas de réseau bimodal. <span class="math inline">\(v_i\)</span> désigne n’importe quel sommet, <span class="math inline">\(v_i,v_j\)</span> n’importe quelle paire de sommets.</p>
+<p><span class="math inline">\(E\)</span> : ensemble des liens et taille du graphe. Noté <span class="math inline">\(E_1\)</span>, <span class="math inline">\(E_2\)</span>, ,<span class="math inline">\(E_n\)</span> en cas de réseau multiplexe. <span class="math inline">\(e_{ij}\)</span> désigne tout lien entre les deux sommets <span class="math inline">\(v_i\)</span> et <span class="math inline">\(v_j\)</span>.</p>
+<p><span class="math inline">\(I\)</span> : ensemble des intensités des liens en cas de réseau valué.</p>
+<p><span class="math inline">\(G'\)</span> : sous-graphe <span class="math inline">\(\{V',E'\}\)</span> de <span class="math inline">\(G\)</span> où <span class="math inline">\(V' \subset V\)</span> et <span class="math inline">\(E' \subset E\)</span> (<span class="math inline">\(\subset\)</span> se lit est inclus dans ).</p>
+<p><span class="math inline">\(A\)</span> : matrice d’adjacence du réseau étudié.</p>
+<p>Afin d’alléger certaines notations, un sommet <span class="math inline">\(v_i\)</span> est parfois noté <span class="math inline">\(i\)</span>.</p>
+</section>
+<section id="centralité-dintermédiarité-betweenness" class="level3">
+<h3 class="anchored" data-anchor-id="centralité-dintermédiarité-betweenness">Centralité d’intermédiarité (<em>betweenness</em>)</h3>
+<p>Indicateur très souvent utilisé, pouvant être calculé pour les sommets et pour les liens. La direction des liens n’est généralement pas prise en compte.</p>
+<p>Soit <span class="math inline">\(g_{v_jv_k}\)</span> l’ensemble des plus courts chemins entre les sommets <span class="math inline">\(v_j\)</span> et <span class="math inline">\(v_k\)</span> et <span class="math inline">\(g_{v_j v_k}(v_i)\)</span> l’ensemble des plus courts chemins entre les sommets <span class="math inline">\(v_j\)</span> et <span class="math inline">\(v_k\)</span> passant par le sommet <span class="math inline">\(v_i\)</span> avec $ v_i v_j v_k$.</p>
+<p>L’intermédiarité du sommet <span class="math inline">\(v_i\)</span> est égale à :</p>
+<p><span class="math display">\[
+B(v_i) = \sum_{v_j \neq v_i \neq v_k} \frac{g_{v_j v_k}(v_i)}{g_{v_j v_k}}
+\]</span></p>
+<p>Il est possible de normaliser cette mesure par le nombre total de plus courts chemins n’incluant pas le sommet <span class="math inline">\(v_i\)</span> :</p>
+<p><span class="math display">\[
+B(v_i)' = \frac{2 B(v_i)}{(V - 1)(V - 2)}
+\]</span></p>
+<p>La formule est équivalente pour l’intermédiarité des liens.</p>
+<p>Si le réseau étudié n’est pas connexe, les intermédiarités ne peuvent être calculées qu’au sein des mêmes composantes.</p>
+<p>Si le réseau est valué, l’intensité des liens est considérée comme une distance entre deux sommets et le calcul peut se faire en prenant en compte les plus courtes distances et non les plus courts chemins.</p>
+<p>L’intermédiarité peut être calculée sur un réseau bimodal : la formule est la même, le dénominateur devient <span class="math inline">\((V_1 - 1)(V_2 - 2)\)</span> pour la forme standardisée mais il n’est pas totalement certain qu’elle puisse être interprétée aisément d’un point de vue thématique.</p>
+</section>
+<section id="centralité-de-proximité-closeness-centrality" class="level3">
+<h3 class="anchored" data-anchor-id="centralité-de-proximité-closeness-centrality">Centralité de proximité (<em>closeness centrality</em>)</h3>
+<p>Indicateur mesurant l’éloignement moyen d’un sommet par rapport à l’ensemble des autres sommets du réseau (voir également Shimbel (indices de)).</p>
+<p>La centralité de proximité <span class="math inline">\(C\)</span> d’un sommet <span class="math inline">\(v_i\)</span> est égale à :</p>
+<p><span class="math display">\[
+C(v_i) = \frac{V - 1}{\sum_{v_j} d(v_i, v_j)}
+\]</span></p>
+<p>où <span class="math inline">\(d(v_i, v_j)\)</span> désigne la longueur du plus court chemin entre deux sommets <span class="math inline">\(v_i\)</span> et <span class="math inline">\(v_j\)</span>.</p>
+<p>Dans le cas d’un réseau valué, si l’intensité est interprétée comme une distance, il est possible de calculer l’inverse de la distance moyenne entre un sommet et tous les autres sommets. Si l’intensité traduit la force de la relation (<em>i.e.</em> échanges commerciaux par exemple), il apparaît plus logique de considérer l’intensité moyenne de la relation.</p>
+<p>La centralité de proximité peut être calculée pour un réseau bimodal.</p>
+</section>
+<section id="centralité-de-vecteur-propre-eigenvector-centrality" class="level3">
+<h3 class="anchored" data-anchor-id="centralité-de-vecteur-propre-eigenvector-centrality">Centralité de vecteur propre (<em>eigenvector centrality</em>)</h3>
+<p><em>Je regroupe dans cette entrée les indicateurs proposés par <span class="citation" data-cites="katz53">Katz (<a href="references.html#ref-katz53" role="doc-biblioref">1953</a>)</span>, <span class="citation" data-cites="bonacich87">Bonacich (<a href="references.html#ref-bonacich87" role="doc-biblioref">1987</a>)</span> et une déclinaison plus récente (PageRank). Cette courte liste n’est pas exhaustive. Dans les trois cas, le principe consiste à pondérer le degré d’un sommet par le degré de ses voisins.</em></p>
+<p>Bonacich propose une mesure de centralité <span class="math inline">\(c_i\)</span> basée sur deux paramètres, <span class="math inline">\(\alpha\)</span> et <span class="math inline">\(\beta\)</span>. <span class="math inline">\(\beta\)</span> permet de moduler l’importance du degré des voisins sur la centralité d’un sommet : si la centralité de degré de mes voisins n’a aucune importance pour un type donné de relations, <span class="math inline">\(\beta = 0\)</span> et le calcul est celui du degré ; si au contraire, cela compte beaucoup, <span class="math inline">\(\beta = 1\)</span>. S’il est avantageux pour moi d’avoir des voisins avec un degré faible, alors <span class="math inline">\(\beta &lt; 0\)</span>. Le paramètre <span class="math inline">\(\alpha\)</span> sert uniquement à contrôler la longueur du vecteur propre obtenu.</p>
+<p><span class="math display">\[
+c_i(\alpha,\beta) = \sum_j (\alpha + \beta c_j) A_{ij}
+\]</span></p>
+<p>où <span class="math inline">\(A_{ij}\)</span> sont les lignes et colonnes de la matrice d’adjacence correspondant aux voisins du sommet <span class="math inline">\(v_i\)</span>. L’indicateur peut être calculé pour les réseaux orientés et non orientés mais est plus pertinent pour ces derniers <a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>.</p>
+<p>En cas de réseau orienté, l’indice de centralité de Katzsemble plus performant :</p>
+<p><span class="math display">\[
+k_i(\alpha \beta) = \alpha \sum_{j} A_{ij}d_j + \beta
+\]</span></p>
+<p>où <span class="math inline">\(A_{ij}\)</span> sont les lignes et colonnes de la matrice d’adjacence correspondant aux voisins du sommet <span class="math inline">\(v_i\)</span>, <span class="math inline">\(d_j\)</span> le degré des voisins <span class="math inline">\(j\)</span>, <span class="math inline">\(\alpha\)</span> et <span class="math inline">\(\beta\)</span> des constantes positives.</p>
+<p>L’indice <em>PageRank</em> a été développé par Google pour classer les sites web et est adapté pour les réseaux orientés. Il consiste à pondérer la centralité de degré d’un sommet par la centralité de degré des sommets voisins divisée par le degré sortant. Ceci est pertinent pour les liens entre sites web : le fait que le blog du groupe fmr reçoive un lien depuis google.fr ne suffit pas à en faire un blog central car google.fr envoie <span class="math inline">\(x\)</span> millions de liens vers des sites souvent obscurs.</p>
+<p><span class="math display">\[
+p_i(\alpha \beta) = \alpha \sum_j A_{ij} \frac{d_j}{d_j^{out}} + \beta
+\]</span></p>
+<p>où <span class="math inline">\(d_j\)</span> est le degré total des voisins <span class="math inline">\(j\)</span> et <span class="math inline">\(d_j^{out}\)</span> le degré sortant de ces mêmes voisins.</p>
+</section>
+<section id="degré-degree" class="level3">
+<h3 class="anchored" data-anchor-id="degré-degree">Degré (<em>degree</em>)</h3>
+<p>Mesure de centralité d’un sommet (<span class="math inline">\(d\)</span>). Très utilisée, elle correspond au nombre de liens adjacents à un sommet. Soit la matrice d’adjacence <span class="math inline">\(A\)</span> d’un réseau, alors :</p>
+<p><span class="math display">\[
+d_i = \sum_{j=1}^V A_{ij}
+\]</span></p>
+<p>En cas de réseau orienté, on distingue degré entrant (ensemble des liens reçus - <em>in-degree</em>) et degré sortant (ensemble des liens émis - <em>out-degree</em>) <a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a>.</p>
+<p>Le degré moyen dans un réseau non orienté est égal à <span class="math inline">\(\frac{2E}{V}\)</span> (chaque lien a deux extrémités, le nombre total d’extrémités est égal à la somme des degrés).</p>
+<p>Dans un réseau orienté, le degré sortant moyen est égal au degré entrant moyen ainsi qu’à <span class="math inline">\(E/V\)</span>.</p>
+<p>Dans un réseau valué, il est possible de sommer les intensités des liens adjacents afin d’obtenir un degré pondéré (<em>weighted degree</em> ou <em>strength</em>). Si ce réseau est par ailleurs orienté, on peut distinguer degré pondéré entrant et sortant.</p>
+<p>La normalisation du degré est le plus souvent faite par le degré maximal possible (<span class="math inline">\(V - 1\)</span> dans un réseau unimodal simple). Si le réseau est bimodal, la normalisation est faite en fonction de l’ordre de l’autre ensemble de sommets. Si une contrainte est donnée au nombre de liens (questionnaire sociométrique par exemple), il est nécessaire d’adapter le dénominateur pour normaliser le degré.</p>
+</section>
+<section id="densité-density" class="level3">
+<h3 class="anchored" data-anchor-id="densité-density">Densité (<em>density</em>)</h3>
+<p>Mesure portant sur le réseau dans son ensemble. Elle varie entre 0 (réseau vide) et 1 (réseau complet).</p>
+<p>Soit <span class="math inline">\(G\)</span> un réseau simple non orienté d’ordre <span class="math inline">\(V\)</span> et de taille <span class="math inline">\(E\)</span> :</p>
+<p><span class="math display">\[
+\delta = \frac{2E}{V(V - 1)}
+\]</span></p>
+<p>Soit <span class="math inline">\(G\)</span> est un réseau simple orienté :</p>
+<p><span class="math display">\[
+\delta = \frac{E}{V(V - 1)}
+\]</span></p>
+<p>Soit <span class="math inline">\(G\)</span> un réseau bimodal, <span class="math inline">\(G = \{V_1, V_2, E\}\)</span> :</p>
+<p><span class="math display">\[
+\delta = \frac{E}{V_1 \times V_2}
+\]</span></p>
+<p>Soit <span class="math inline">\(G\)</span> un réseau planaire :</p>
+<p><span class="math display">\[
+\delta = \frac{E}{3(V - 2)}
+\]</span></p>
+<p>La densité est sensible à l’ordre du réseau : plus ce dernier augmente, plus la densité baisse.</p>
+</section>
+<section id="diversité-dagresti-agresti-diversity" class="level3">
+<h3 class="anchored" data-anchor-id="diversité-dagresti-agresti-diversity">Diversité d’Agresti (<em>Agresti diversity</em>)</h3>
+<p>Indice utilisé pour mesurer l’homogénéité d’un réseau personnel. Soit <span class="math inline">\(p_i\)</span> la proportion d’alters de la catégorie <span class="math inline">\(i\)</span> et <span class="math inline">\(k\)</span> le nombre total de catégories, l’indice est égal à</p>
+<p><span class="math display">\[
+\frac{1 - \sum\limits_{i = 1}^k p_i^2}{1 - 1/k}
+\]</span></p>
+<p>Le numérateur peut être interprété comme la probabilité que deux alters pris au hasard appartiennent à deux catégories différentes. Le dénominateur est la valeur maximale que peut prendre cette mesure étant donné le nombre de catégories. L’indice varie entre 0 (homogénéité maximale) et 1 (hétérogénéité maximale).</p>
+</section>
+<section id="modularité-modularity" class="level3">
+<h3 class="anchored" data-anchor-id="modularité-modularity">Modularité (<em>modularity</em>)</h3>
+<p>Indicateur souvent utilisé <a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a> pour évaluer la qualité d’une partition <span class="math inline">\(P\)</span> en <span class="math inline">\(C\)</span> communautés. Elle peut donc être utilisée pour mesurer l’homophilie relative à un critère catégoriel. En effet, vérifier si beaucoup de liens ont pour extrémités des sommets appartenant à la même partition <span class="math inline">\(P\)</span> est un cas particulier de l’appartenance des deux sommets à une même catégorie.</p>
+<p>La direction des liens n’est généralement pas prise en compte. La formule donnée ici est celle proposée par <span class="citation" data-cites="clauset04">Clauset et al. (<a href="references.html#ref-clauset04" role="doc-biblioref">2004</a>)</span> et implémentée dans le logiciel <em>igraph</em> ; des variantes existent.</p>
+<p><span class="math display">\[
+Q = \frac{1}{2E} \sum_{ij} \left( A_{ij} - \frac{d_i d_j}{2E} \right) \delta (c_i, c_j)
+\]</span></p>
+<p>où <span class="math inline">\(E\)</span> est le nombre de liens, <span class="math inline">\(A_{ij}\)</span> la valeur présente dans la matrice d’adjacence <span class="math inline">\(A\)</span> pour la ligne <span class="math inline">\(i\)</span> et la colonne <span class="math inline">\(j\)</span>, <span class="math inline">\(d\)</span> le degré et <span class="math inline">\(\delta\)</span> une fonction booléenne valant 1 si <span class="math inline">\(i\)</span> et <span class="math inline">\(j\)</span> appartiennent à la même communauté <span class="math inline">\(c\)</span> et 0 dans le cas contraire.</p>
+<p>Cette formule fonctionne pour les réseaux valués : l’intensité de la relation remplace 0 ou 1 (<span class="math inline">\(A_{ij}\)</span>) et le degré pondéré est utilisé (<span class="math inline">\(d_i, d_j\)</span>). Le point de comparaison pour mesurer la modularité est un graphe aléatoire (terme <span class="math inline">\(\frac{d_i d_j}{2E}\)</span>). Une valeur supérieure à 0.3 indique une bonne modularité, une valeur inférieure à 0 signale un réseau disassortatif.</p>
+<p>Cette mesure peut être normalisée par la modularité maximale possible dans un réseau présentant la même distribution de degrés. Si le logiciel que vous utilisez propose plusieurs algorithmes de détection de communautés, comparer la modularité obtenue avec les différents algorithmes peut être utile.</p>
+<p>Diverses propositions ont été faites pour adapter cette mesure aux réseaux bimodaux (voir l’article de <span class="citation" data-cites="barber07">Barber (<a href="references.html#ref-barber07" role="doc-biblioref">2007</a>)</span> et les travaux qui le citent et amendent sa proposition). Aucune à ma connaissance ne s’est imposée.</p>
+</section>
+<section id="shimbel-indices-de" class="level3">
+<h3 class="anchored" data-anchor-id="shimbel-indices-de">Shimbel (indices de)</h3>
+<p>Shimbel dans un article de 1953 propose deux indicateurs (accessibilité et dispersion) permettant de décrire des réseaux de communication, indicateurs utilisés depuis notamment en géographie des transports.</p>
+<p>La dispersion <span class="math inline">\(D\)</span> d’un réseau correspond à la somme de tous les plus courts chemins <span class="math inline">\(L\)</span> entre sommets au sein d’un réseau :</p>
+<p><span class="math display">\[
+D = \sum_{i=1}^V \sum_{j=1}^V L(i,j)
+\]</span></p>
+<p>Plus la valeur est basse, plus le réseau est considéré comme compact.</p>
+<p>L’accessibilité d’un sommet <span class="math inline">\(i\)</span> depuis l’ensemble des autres sommets <span class="math inline">\(S\)</span> <a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a> est égale à :</p>
+<p><span class="math display">\[
+A(i,S) = \sum_{j=1}^V L (i,j)
+\]</span></p>
+<p>L’inverse de l’accessibilité de Shimbel est égale à la centralité de proximité <a href="#fn7" class="footnote-ref" id="fnref7" role="doc-noteref"><sup>7</sup></a>.</p>
+</section>
+<section id="transivité-transitivity" class="level3">
+<h3 class="anchored" data-anchor-id="transivité-transitivity">Transivité (<em>transitivity</em>)</h3>
+<p>Indicateur pouvant être calculé sur le réseau dans son ensemble (<span class="math inline">\(T\)</span>) et pour chaque sommet (<span class="math inline">\(t\)</span>). Parfois appelé coefficient de clustering (<em>clustering coefficient</em>).</p>
+<p>La mesure au niveau du réseau se calcule ainsi :</p>
+<p><span class="math display">\[
+T = \frac{\textrm{nombre de triades fermées} \times 3}{\textrm{nombre de triades connexes}}
+\]</span></p>
+<p>Une triade fermée est un ensemble de 3 sommets <span class="math inline">\(ijk\)</span> où chaque sommet est lié aux deux autres. Une triade connexe désigne 3 sommets <span class="math inline">\(ijk\)</span> où les liens <span class="math inline">\(ij\)</span> et <span class="math inline">\(jk\)</span> sont présents, le lien <span class="math inline">\(ik\)</span> pouvant être présent (triade fermée) ou absent (triade ouverte).</p>
+<p>L’indicateur varie entre 0 (arbre, grille rectangulaire, réseau en étoile) et 1 (réseau complet ou réseau où chaque composante est une clique).</p>
+<p>Dans leur article, <span class="citation" data-cites="watts98">Watts and Strogatz (<a href="references.html#ref-watts98" role="doc-biblioref">1998</a>)</span> nomment <em>global clustering coefficient</em> la valeur moyenne des transitivités mesurées pour chaque sommet ; les résultats obtenus seront différents si leur formule est utilisée.</p>
+<p>Au niveau d’un sommet, l’indicateur est :</p>
+<p><span class="math display">\[
+t_i = \frac{\textrm{nombre de triades fermées contenant \emph{i}} \times 3}{\textrm{nombre de triades connexes contenant \emph{i}}}
+\]</span></p>
+<p>Il varie entre 0 (nombre de voisins &lt; 2 ou étoile) et 1.</p>
+<p>Différentes propositions existent pour les réseaux valués. <span class="citation" data-cites="opsahl09">Opsahl and Panzarasa (<a href="references.html#ref-opsahl09" role="doc-biblioref">2009</a>)</span> proposent ainsi de calculer une transivité globale <span class="math inline">\(T_w\)</span> où</p>
+<p><span class="math display">\[
+T_w = \frac{\textrm{Somme des intensités des triades fermées}}{\textrm{Somme des intensités des triades connexes}}
+\]</span></p>
+<p>Il est possible d’adapter cet indicateur pour chaque sommet (les auteurs n’évoquent pas cette possibilité dans leur article).</p>
+<p>Plus surprenant, l’indicateur a été adapté pour les réseaux bimodaux où, par définition, il ne peut exister de cycle et donc pas de triades fermées. L’intérêt dans ce cas se porte sur les cycles de longueur 4 fermés rapportés aux cycles de longueur 4 ouverts (voir le <a href="https://toreopsahl.com/tnet/two-mode-networks/clustering/">site de Tore Opsahl</a> pour plus de détails).</p>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" data-line-spacing="2" role="doc-bibliography" style="display: none">
+<div id="ref-barber07" class="csl-entry" role="doc-biblioentry">
+Barber, M. J. (2007). Modularity and community detection in bipartite networks. <em>Physical Review E</em>. <a href="https://arxiv.org/pdf/0707.1616.pdf">https://arxiv.org/pdf/0707.1616.pdf</a>
+</div>
+<div id="ref-bonacich87" class="csl-entry" role="doc-biblioentry">
+Bonacich, P. (1987). Power and centrality: A family of measures. <em>American Journal of Sociology</em>. <a href="https://www.jstor.org/stable/pdf/2780000.pdf">https://www.jstor.org/stable/pdf/2780000.pdf</a>
+</div>
+<div id="ref-clauset04" class="csl-entry" role="doc-biblioentry">
+Clauset, A., Newman, M. and Moore, C. (2004). Finding community structure in very large networks. <em>Physical Review E</em>. <a href="https://arxiv.org/pdf/cond-mat/0408187">https://arxiv.org/pdf/cond-mat/0408187</a>
+</div>
+<div id="ref-katz53" class="csl-entry" role="doc-biblioentry">
+Katz, L. (1953). A new status index derived from sociometric analysis. <em>Psychometrika</em>. <a href="http://www.cse.cuhk.edu.hk/~cslui/CMSC5734/katz-1953.pdf">http://www.cse.cuhk.edu.hk/~cslui/CMSC5734/katz-1953.pdf</a>
+</div>
+<div id="ref-opsahl09" class="csl-entry" role="doc-biblioentry">
+Opsahl, T. and Panzarasa, P. (2009). Clustering in weighted networks. <em>Social Networks</em>. <a href="https://www.researchgate.net/profile/Pietro-Panzarasa/publication/222845920_Clustering_in_Weighted_Networks/links/5a93430baca272140565ca42/Clustering-in-Weighted-Networks.pdf">https://www.researchgate.net/profile/Pietro-Panzarasa/publication/222845920_Clustering_in_Weighted_Networks/links/5a93430baca272140565ca42/Clustering-in-Weighted-Networks.pdf</a>
+</div>
+<div id="ref-watts98" class="csl-entry" role="doc-biblioentry">
+Watts, D. J. and Strogatz, S. H. (1998). Collective dynamics of ‘small-world’ networks. <em>Nature</em>. <a href="https://edisciplinas.usp.br/pluginfile.php/4205021/mod_resource/content/1/NAture_Watts_Strogatz.pdf">https://edisciplinas.usp.br/pluginfile.php/4205021/mod_resource/content/1/NAture_Watts_Strogatz.pdf</a>
+</div>
+</div>
+</section>
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>Il n’y a pas de honte à avoir : j’ai commencé à traduire certains articles, d’optimisation linéaire notamment, quand j’ai réalisé que je ne les comprenais pas parce que je ne prenais pas le temps de lire les équations.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>Ce que j’ai fait pour les formules indiquées <em>infra</em>.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>Je renvoie aux pages très claires du manuel de Newman sur ces indicateurs.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4"><p>On trouve dans certains textes les expressions “demi-degré intérieur” et “demi-degré extérieur”.<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn5"><p>Qu’il soit souvent utilisé ne signifie pas qu’il est le plus pertinent et/ou le plus efficace. Cette remarque est généralisable à tous les indicateurs évoqués dans ce guide.<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn6"><p>Je reprends ici la notation utilisée par l’auteur dans son article.<a href="#fnref6" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn7"><p>J’ai repris ici les formules données par Shimbel dans son article de 1953 ; il serait plus logique que l’accessibilité soit mesurée pour <span class="math inline">\(j\)</span> variant de 1 à <span class="math inline">\(S\)</span> ; la distance d’un sommet à lui-même étant nulle, faire varier <span class="math inline">\(j\)</span> et 1 à <span class="math inline">\(V\)</span> donne le même résultat.<a href="#fnref7" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./Cconclusion.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Conclusion</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./references.html" class="pagination-link">
+        <span class="nav-page-text">Références</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>
